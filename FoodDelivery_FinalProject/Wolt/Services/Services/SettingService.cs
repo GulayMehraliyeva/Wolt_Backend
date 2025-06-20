@@ -47,6 +47,12 @@ namespace Service.Services
 
         public async Task CreateAsync(SettingCreateVM vm)
         {
+            var allSettings = await _settingRepo.GetAllAsync();
+
+            bool keyExists = allSettings.Any(s => s.Key.Trim().ToLower() == vm.Key.Trim().ToLower());
+            if (keyExists)
+                throw new Exception("A setting with the same key already exists.");
+
             string value = vm.Type == "Text" ? vm.Value : null;
 
             if (vm.Type == "Image" && vm.Image != null)
@@ -73,10 +79,17 @@ namespace Service.Services
         }
 
 
+
         public async Task UpdateAsync(SettingEditVM vm)
         {
             var setting = await _settingRepo.GetByIdAsync(vm.Id);
             if (setting == null) return;
+
+            var allSettings = await _settingRepo.GetAllAsync();
+
+            bool keyExists = allSettings.Any(s => s.Id != vm.Id && s.Key.Trim().ToLower() == vm.Key.Trim().ToLower());
+            if (keyExists)
+                throw new Exception("A setting with the same key already exists.");
 
             setting.Key = vm.Key;
             setting.Type = vm.Type;

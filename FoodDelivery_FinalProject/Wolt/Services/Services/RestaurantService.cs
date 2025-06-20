@@ -35,6 +35,14 @@ namespace Service.Services
         }
         public async Task CreateAsync(RestaurantCreateVM request)
         {
+            var allRestaurants = await _restaurantRepository.GetAllAsync();
+
+            bool nameExists = allRestaurants.Any(r =>
+                r.Name.Trim().ToLower() == request.Name.Trim().ToLower());
+
+            if (nameExists)
+                throw new Exception("A restaurant with the same name already exists.");
+
             var restaurant = _mapper.Map<Restaurant>(request);
 
             string fileName = Guid.NewGuid().ToString() + "-" + request.Image.FileName;
@@ -42,14 +50,13 @@ namespace Service.Services
             string filePath = Path.Combine(folderPath, fileName);
 
             if (!Directory.Exists(folderPath))
-            {
                 Directory.CreateDirectory(folderPath);
-            }
 
             using (FileStream stream = new FileStream(filePath, FileMode.Create))
             {
                 await request.Image.CopyToAsync(stream);
             }
+
             restaurant.Image = fileName;
 
             await _restaurantRepository.CreateAsync(restaurant);
@@ -73,7 +80,18 @@ namespace Service.Services
         public async Task EditAsync(int id, RestaurantEditVM editVm)
         {
             var restaurant = await _restaurantRepository.GetByIdAsync(id);
-            if (restaurant == null) throw new Exception("Restaurant not found");
+            if (restaurant == null)
+                throw new Exception("Restaurant not found");
+
+            // Check duplicate name excluding the current restaurant
+            var allRestaurants = await _restaurantRepository.GetAllAsync();
+
+            bool nameExists = allRestaurants.Any(r =>
+                r.Id != id &&
+                r.Name.Trim().ToLower() == editVm.Name.Trim().ToLower());
+
+            if (nameExists)
+                throw new Exception("A restaurant with the same name already exists.");
 
             _mapper.Map(editVm, restaurant);
 

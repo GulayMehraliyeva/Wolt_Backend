@@ -33,6 +33,14 @@ namespace Service.Services
 
         public async Task CreateAsync(RestaurantCategoryCreateVM request)
         {
+            var allCategories = await _restaurantCategoryRepository.GetAllAsync();
+
+            bool nameExists = allCategories.Any(c =>
+                c.Name.Trim().ToLower() == request.Name.Trim().ToLower());
+
+            if (nameExists)
+                throw new Exception("A restaurant category with the same name already exists.");
+
             var restaurantCategory = _mapper.Map<RestaurantCategory>(request);
 
             string fileName = Guid.NewGuid().ToString() + "-" + request.Image.FileName;
@@ -40,9 +48,7 @@ namespace Service.Services
             string filePath = Path.Combine(folderPath, fileName);
 
             if (!Directory.Exists(folderPath))
-            {
                 Directory.CreateDirectory(folderPath);
-            }
 
             using (FileStream stream = new FileStream(filePath, FileMode.Create))
             {
@@ -74,8 +80,16 @@ namespace Service.Services
             if (existing == null)
                 throw new Exception("Category not found");
 
-            _mapper.Map(editVm, existing);
+            var allCategories = await _restaurantCategoryRepository.GetAllAsync();
 
+            bool nameExists = allCategories.Any(c =>
+                c.Id != id &&
+                c.Name.Trim().ToLower() == editVm.Name.Trim().ToLower());
+
+            if (nameExists)
+                throw new Exception("A restaurant category with the same name already exists.");
+
+            _mapper.Map(editVm, existing);
 
             if (editVm.UploadImage != null)
             {
@@ -93,9 +107,7 @@ namespace Service.Services
                 string newImagePath = Path.Combine(folderPath, fileName);
 
                 if (!Directory.Exists(folderPath))
-                {
                     Directory.CreateDirectory(folderPath);
-                }
 
                 using (FileStream stream = new FileStream(newImagePath, FileMode.Create))
                 {
@@ -104,7 +116,6 @@ namespace Service.Services
 
                 existing.Image = fileName;
             }
-
 
             await _restaurantCategoryRepository.UpdateAsync(existing);
         }

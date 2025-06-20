@@ -27,9 +27,17 @@ namespace Service.Services
 
         public async Task CreateAsync(DiscountCreateVM request)
         {
+            var allDiscounts = await _discountRepository.GetAllAsync();
+            bool nameExists = allDiscounts.Any(d =>
+                d.Name.Trim().ToLower() == request.Name.Trim().ToLower());
+
+            if (nameExists)
+                throw new Exception("A discount with the same name already exists.");
+
             var discount = _mapper.Map<Discount>(request);
             await _discountRepository.CreateAsync(discount);
         }
+
 
         public async Task DeleteAsync(int id)
         {
@@ -41,11 +49,20 @@ namespace Service.Services
         public async Task EditAsync(int id, DiscountEditVM editVm)
         {
             var discount = await _discountRepository.GetByIdAsync(id);
-            if (discount == null) throw new Exception("Discount not found");
+            if (discount == null)
+                throw new Exception("Discount not found");
+
+            var allDiscounts = await _discountRepository.GetAllAsync();
+            bool nameExists = allDiscounts.Any(d =>
+                d.Id != id && d.Name.Trim().ToLower() == editVm.Name.Trim().ToLower());
+
+            if (nameExists)
+                throw new Exception("A discount with the same name already exists.");
 
             _mapper.Map(editVm, discount);
             await _discountRepository.UpdateAsync(discount);
         }
+
 
         public async Task<IEnumerable<DiscountVM>> GetAllAsync()
         {

@@ -46,8 +46,19 @@ namespace Service.Services
             if (!validationResult.IsValid)
             {
                 var errorMessages = string.Join("\n", validationResult.Errors.Select(e => e.ErrorMessage));
-                throw new ValidationException(errorMessages); // or custom exception
+                throw new ValidationException(errorMessages);
             }
+
+            var allItems = await _menuItemRepository.GetQueryable()
+                .Include(m => m.Category)
+                .ToListAsync();
+
+            bool nameExists = allItems.Any(m =>
+                m.Category.RestaurantId == request.RestaurantId &&  // You need RestaurantId in VM or get it via category
+                m.Name.Trim().ToLower() == request.Name.Trim().ToLower());
+
+            if (nameExists)
+                throw new Exception("A menu item with the same name already exists in this restaurant.");
 
             var menuItem = _mapper.Map<MenuItem>(request);
 
@@ -56,9 +67,7 @@ namespace Service.Services
             string filePath = Path.Combine(folderPath, fileName);
 
             if (!Directory.Exists(folderPath))
-            {
                 Directory.CreateDirectory(folderPath);
-            }
 
             using (FileStream stream = new FileStream(filePath, FileMode.Create))
             {
@@ -69,10 +78,7 @@ namespace Service.Services
             if (request.SelectedDiscountIds != null && request.SelectedDiscountIds.Any())
             {
                 menuItem.MenuItemDiscounts = request.SelectedDiscountIds
-                    .Select(discountId => new MenuItemDiscounts
-                    {
-                        DiscountId = discountId
-                    })
+                    .Select(discountId => new MenuItemDiscounts { DiscountId = discountId })
                     .ToList();
             }
 
@@ -102,15 +108,28 @@ namespace Service.Services
             if (!validationResult.IsValid)
             {
                 var errorMessages = string.Join("\n", validationResult.Errors.Select(e => e.ErrorMessage));
-                throw new ValidationException(errorMessages); // or custom exception
+                throw new ValidationException(errorMessages);
             }
 
             var menuItem = await _menuItemRepository.GetQueryable()
+                .Include(m => m.Category)
                 .Include(m => m.MenuItemDiscounts)
                 .FirstOrDefaultAsync(m => m.Id == model.Id);
 
             if (menuItem == null)
                 throw new Exception("MenuItem not found");
+
+            var allItems = await _menuItemRepository.GetQueryable()
+                .Include(m => m.Category)
+                .ToListAsync();
+
+            bool nameExists = allItems.Any(m =>
+                m.Id != model.Id &&
+                m.Category.RestaurantId == menuItem.Category.RestaurantId &&
+                m.Name.Trim().ToLower() == model.Name.Trim().ToLower());
+
+            if (nameExists)
+                throw new Exception("A menu item with the same name already exists in this restaurant.");
 
             menuItem.Name = model.Name;
             menuItem.Description = model.Description;

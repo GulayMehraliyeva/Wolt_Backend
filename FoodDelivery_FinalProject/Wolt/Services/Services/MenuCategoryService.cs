@@ -27,9 +27,19 @@ namespace Service.Services
 
         public async Task CreateAsync(MenuCategoryCreateVM request)
         {
+            var allCategories = await _menuCategoryRepository.GetAllAsync();
+
+            bool nameExists = allCategories.Any(c =>
+                c.RestaurantId == request.RestaurantId &&
+                c.Name.Trim().ToLower() == request.Name.Trim().ToLower());
+
+            if (nameExists)
+                throw new Exception("A category with the same name already exists for this restaurant.");
+
             var menuCategory = _mapper.Map<MenuItemCategory>(request);
             await _menuCategoryRepository.CreateAsync(menuCategory);
         }
+
 
         public async Task DeleteAsync(int id)
         {
@@ -41,11 +51,23 @@ namespace Service.Services
         public async Task EditAsync(int id, MenuCategoryEditVM editVm)
         {
             var menuCategory = await _menuCategoryRepository.GetByIdAsync(id);
-            if (menuCategory == null) throw new Exception("Category not found");
+            if (menuCategory == null)
+                throw new Exception("Category not found");
+
+            var allCategories = await _menuCategoryRepository.GetAllAsync();
+
+            bool nameExists = allCategories.Any(c =>
+                c.Id != id &&
+                c.RestaurantId == editVm.RestaurantId &&
+                c.Name.Trim().ToLower() == editVm.Name.Trim().ToLower());
+
+            if (nameExists)
+                throw new Exception("A category with the same name already exists for this restaurant.");
 
             _mapper.Map(editVm, menuCategory);
             await _menuCategoryRepository.UpdateAsync(menuCategory);
         }
+
 
         public async Task<IEnumerable<MenuCategoryVM>> GetAllAsync()
         {
