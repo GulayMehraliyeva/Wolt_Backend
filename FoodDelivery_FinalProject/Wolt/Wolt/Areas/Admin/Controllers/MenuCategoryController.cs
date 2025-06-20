@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Service.Helpers.Exceptions;
 using Service.Services;
 using Service.Services.Interfaces;
 using Service.ViewModels.MenuCategory;
@@ -77,7 +78,6 @@ namespace Wolt.Areas.Admin.Controllers
 
             if (!ModelState.IsValid)
             {
-                _logger.LogWarning("MenuCategoryController: Create POST - Invalid model state");
                 var restaurants = await _restaurantService.GetAllAsync();
                 model.Restaurants = restaurants.Select(c => new SelectListItem
                 {
@@ -88,9 +88,30 @@ namespace Wolt.Areas.Admin.Controllers
                 return View(model);
             }
 
-            await _menuCategoryService.CreateAsync(model);
-            return RedirectToAction("Index");
+            try
+            {
+                await _menuCategoryService.CreateAsync(model);
+                return RedirectToAction("Index");
+            }
+            catch (AppValidationException ex)
+            {
+                if (!ModelState.ContainsKey("Name") ||
+                    !ModelState["Name"].Errors.Any(e => e.ErrorMessage == ex.Message))
+                {
+                    ModelState.AddModelError("Name", ex.Message);
+                }
+
+                var restaurants = await _restaurantService.GetAllAsync();
+                model.Restaurants = restaurants.Select(c => new SelectListItem
+                {
+                    Value = c.Id.ToString(),
+                    Text = c.Name
+                }).ToList();
+
+                return View(model);
+            }
         }
+
 
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
@@ -100,7 +121,6 @@ namespace Wolt.Areas.Admin.Controllers
             var menuCategory = await _menuCategoryService.GetByIdAsync(id);
             if (menuCategory == null)
             {
-                _logger.LogWarning("MenuCategoryController: Edit GET - MenuCategory not found for Id={Id}", id);
                 return NotFound();
             }
 
@@ -129,7 +149,6 @@ namespace Wolt.Areas.Admin.Controllers
 
             if (!ModelState.IsValid)
             {
-                _logger.LogWarning("MenuCategoryController: Edit POST - Invalid model state for Id={Id}", id);
                 var restaurants = await _restaurantService.GetAllAsync();
                 model.Restaurants = restaurants.Select(c => new SelectListItem
                 {
@@ -140,9 +159,30 @@ namespace Wolt.Areas.Admin.Controllers
                 return View(model);
             }
 
-            await _menuCategoryService.EditAsync(id, model);
-            return RedirectToAction("Index");
+            try
+            {
+                await _menuCategoryService.EditAsync(id, model);
+                return RedirectToAction("Index");
+            }
+            catch (AppValidationException ex)
+            {
+                if (!ModelState.ContainsKey("Name") ||
+                    !ModelState["Name"].Errors.Any(e => e.ErrorMessage == ex.Message))
+                {
+                    ModelState.AddModelError("Name", ex.Message);
+                }
+
+                var restaurants = await _restaurantService.GetAllAsync();
+                model.Restaurants = restaurants.Select(c => new SelectListItem
+                {
+                    Value = c.Id.ToString(),
+                    Text = c.Name
+                }).ToList();
+
+                return View(model);
+            }
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -162,7 +202,6 @@ namespace Wolt.Areas.Admin.Controllers
             var menuCategory = await _menuCategoryService.GetByIdAsync(id);
             if (menuCategory == null)
             {
-                _logger.LogWarning("MenuCategoryController: Detail - MenuCategory not found for Id={Id}", id);
                 return NotFound();
             }
 

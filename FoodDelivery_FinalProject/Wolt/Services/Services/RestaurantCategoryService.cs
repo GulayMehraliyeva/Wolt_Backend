@@ -3,6 +3,7 @@ using Domain.Entities;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Repository.Repositories.Interfaces;
+using Service.Helpers.Exceptions;
 using Service.Services.Interfaces;
 using Service.ViewModels.RestaurantCategory;
 using System;
@@ -39,7 +40,7 @@ namespace Service.Services
                 c.Name.Trim().ToLower() == request.Name.Trim().ToLower());
 
             if (nameExists)
-                throw new Exception("A restaurant category with the same name already exists.");
+                throw new AppValidationException("A restaurant category with the same name already exists.");
 
             var restaurantCategory = _mapper.Map<RestaurantCategory>(request);
 
@@ -87,7 +88,8 @@ namespace Service.Services
                 c.Name.Trim().ToLower() == editVm.Name.Trim().ToLower());
 
             if (nameExists)
-                throw new Exception("A restaurant category with the same name already exists.");
+                throw new AppValidationException("A restaurant category with the same name already exists.");
+
 
             _mapper.Map(editVm, existing);
 

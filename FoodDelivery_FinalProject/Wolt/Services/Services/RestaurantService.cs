@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Repository.Repositories;
 using Repository.Repositories.Interfaces;
+using Service.Helpers.Exceptions;
 using Service.Services.Interfaces;
 using Service.ViewModels.Restaurant;
 using Service.ViewModels.RestaurantCategory;
@@ -41,7 +42,7 @@ namespace Service.Services
                 r.Name.Trim().ToLower() == request.Name.Trim().ToLower());
 
             if (nameExists)
-                throw new Exception("A restaurant with the same name already exists.");
+                throw new AppValidationException("A restaurant with the same name already exists.");
 
             var restaurant = _mapper.Map<Restaurant>(request);
 
@@ -83,7 +84,6 @@ namespace Service.Services
             if (restaurant == null)
                 throw new Exception("Restaurant not found");
 
-            // Check duplicate name excluding the current restaurant
             var allRestaurants = await _restaurantRepository.GetAllAsync();
 
             bool nameExists = allRestaurants.Any(r =>
@@ -91,7 +91,7 @@ namespace Service.Services
                 r.Name.Trim().ToLower() == editVm.Name.Trim().ToLower());
 
             if (nameExists)
-                throw new Exception("A restaurant with the same name already exists.");
+                throw new AppValidationException("A restaurant with the same name already exists.");
 
             _mapper.Map(editVm, restaurant);
 

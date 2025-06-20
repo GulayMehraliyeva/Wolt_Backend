@@ -46,21 +46,18 @@ namespace Wolt.Areas.Admin.Controllers
 
             if (request.Image == null)
             {
-                _logger.LogWarning("SliderController: Create POST - Image is null");
                 ModelState.AddModelError("Image", "Image is required.");
                 return View(request);
             }
 
             if (!request.Image.ContentType.Contains("image/"))
             {
-                _logger.LogWarning("SliderController: Create POST - Invalid image content type");
                 ModelState.AddModelError("Image", "Only image files are allowed.");
                 return View(request);
             }
 
             if (!ModelState.IsValid)
             {
-                _logger.LogWarning("SliderController: Create POST - Model state invalid");
                 return View(request);
             }
 
@@ -80,11 +77,10 @@ namespace Wolt.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
-            _logger.LogInformation("SliderController: Edit GET method used for Id={Id}", id);
+            _logger.LogInformation("SliderController: Edit GET method used");
             var slider = await _sliderService.GetByIdAsync(id);
             if (slider == null)
             {
-                _logger.LogWarning("SliderController: Edit GET - Slider not found for Id={Id}", id);
                 return NotFound();
             }
 
@@ -101,11 +97,10 @@ namespace Wolt.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(SliderEditVM editVm)
         {
-            _logger.LogInformation("SliderController: Edit POST method used for Id={Id}", editVm.Id);
+            _logger.LogInformation("SliderController: Edit POST method used");
 
             if (!ModelState.IsValid)
             {
-                _logger.LogWarning("SliderController: Edit POST - Model state invalid for Id={Id}", editVm.Id);
                 return View(editVm);
             }
 
@@ -115,8 +110,7 @@ namespace Wolt.Areas.Admin.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "SliderController: Edit POST - Exception occurred for Id={Id}", editVm.Id);
-                ModelState.AddModelError("", ex.Message);
+                ModelState.AddModelError("Name", ex.Message);
                 return View(editVm);
             }
 

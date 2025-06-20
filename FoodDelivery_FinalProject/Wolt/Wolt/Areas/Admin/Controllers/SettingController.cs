@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Service.Helpers.Exceptions;
 using Service.Services.Interfaces;
 using Service.ViewModels.Setting;
 
@@ -40,24 +41,30 @@ namespace Wolt.Areas.Admin.Controllers
             _logger.LogInformation("SettingController: Create POST method used");
 
             if (!ModelState.IsValid)
+                return View(vm);
+
+            try
             {
-                _logger.LogWarning("SettingController: Create POST - Invalid model state");
+                await _settingService.CreateAsync(vm);
+                return RedirectToAction(nameof(Index));
+            }
+            catch (AppValidationException ex)
+            {
+                ModelState.AddModelError("Key", ex.Message);
                 return View(vm);
             }
-
-            await _settingService.CreateAsync(vm);
-            return RedirectToAction(nameof(Index));
         }
+
+
 
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
-            _logger.LogInformation("SettingController: Edit GET method used for Id={Id}", id);
+            _logger.LogInformation("SettingController: Edit GET method used");
 
             var setting = await _settingService.GetByIdAsync(id);
             if (setting == null)
             {
-                _logger.LogWarning("SettingController: Edit GET - Setting not found for Id={Id}", id);
                 return NotFound();
             }
 
@@ -68,17 +75,27 @@ namespace Wolt.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(SettingEditVM vm)
         {
-            _logger.LogInformation("SettingController: Edit POST method used for Id={Id}", vm.Id);
+            _logger.LogInformation("SettingController: Edit POST method used");
 
             if (!ModelState.IsValid)
+                return View(vm);
+
+            try
             {
-                _logger.LogWarning("SettingController: Edit POST - Invalid model state for Id={Id}", vm.Id);
+                await _settingService.UpdateAsync(vm);
+                return RedirectToAction(nameof(Index));
+            }
+            catch (AppValidationException ex)
+            {
+                if (!ModelState.ContainsKey("Key") ||
+                    !ModelState["Key"].Errors.Any(e => e.ErrorMessage == ex.Message))
+                {
+                    ModelState.AddModelError("Key", ex.Message);
+                }
                 return View(vm);
             }
-
-            await _settingService.UpdateAsync(vm);
-            return RedirectToAction(nameof(Index));
         }
+
 
         [HttpPost]
         public async Task<IActionResult> Delete(int id)

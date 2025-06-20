@@ -88,7 +88,6 @@ namespace Wolt.Areas.Admin.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "BrandController: Edit failed");
                 ModelState.AddModelError("", ex.Message);
                 return View(editVm);
             }

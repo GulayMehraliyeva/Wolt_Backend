@@ -3,6 +3,7 @@ using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Service.Helpers.Exceptions;
 using Service.Services;
 using Service.Services.Interfaces;
 using Service.ViewModels.MenuItem;
@@ -144,23 +145,35 @@ namespace Wolt.Areas.Admin.Controllers
 
             if (!ModelState.IsValid)
             {
-                _logger.LogWarning("MenuItemController: Create POST - Invalid model state");
                 return View(model);
             }
 
-            await _menuItemService.CreateAsync(model);
-            return RedirectToAction("Index");
+            try
+            {
+                await _menuItemService.CreateAsync(model);
+                return RedirectToAction("Index");
+            }
+            catch (AppValidationException ex)
+            {
+                if (!ModelState.ContainsKey("Name") ||
+                    !ModelState["Name"].Errors.Any(e => e.ErrorMessage == ex.Message))
+                {
+                    ModelState.AddModelError("Name", ex.Message);
+                }
+
+                return View(model);
+            }
         }
+
 
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
-            _logger.LogInformation("MenuItemController: Edit GET method used for Id={Id}", id);
+            _logger.LogInformation("MenuItemController: Edit GET method used");
 
             var menuItem = await _menuItemService.GetByIdAsync(id);
             if (menuItem == null)
             {
-                _logger.LogWarning("MenuItemController: Edit GET - MenuItem not found for Id={Id}", id);
                 return NotFound();
             }
 
@@ -205,7 +218,7 @@ namespace Wolt.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(MenuItemEditVM model)
         {
-            _logger.LogInformation("MenuItemController: Edit POST method used for Id={Id}", model.Id);
+            _logger.LogInformation("MenuItemController: Edit POST method used");
 
             if (model.DiscountIds == null)
                 model.DiscountIds = new List<int>();
@@ -234,19 +247,32 @@ namespace Wolt.Areas.Admin.Controllers
 
             if (!ModelState.IsValid)
             {
-                _logger.LogWarning("MenuItemController: Edit POST - Invalid model state for Id={Id}", model.Id);
                 return View(model);
             }
 
-            await _menuItemService.EditAsync(model);
-            return RedirectToAction("Index");
+            try
+            {
+                await _menuItemService.EditAsync(model);
+                return RedirectToAction("Index");
+            }
+            catch (AppValidationException ex)
+            {
+                if (!ModelState.ContainsKey("Name") ||
+                    !ModelState["Name"].Errors.Any(e => e.ErrorMessage == ex.Message))
+                {
+                    ModelState.AddModelError("Name", ex.Message);
+                }
+
+                return View(model);
+            }
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
         {
-            _logger.LogInformation("MenuItemController: Delete method used for Id={Id}", id);
+            _logger.LogInformation("MenuItemController: Delete method used");
 
             await _menuItemService.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
@@ -264,7 +290,6 @@ namespace Wolt.Areas.Admin.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "MenuItemController: Detail failed for Id={Id}", id);
                 return NotFound(ex.Message);
             }
         }

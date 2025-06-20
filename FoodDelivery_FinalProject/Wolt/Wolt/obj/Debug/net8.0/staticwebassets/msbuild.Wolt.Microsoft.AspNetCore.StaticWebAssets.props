@@ -22096,6 +22096,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\ee565ecc-9978-4116-8511-800770517087-rpy9ltbi.png))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\ee6d0db8-a39f-4f64-a938-6ca3b354e75f-grape.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>Wolt</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Wolt</BasePath>
+      <RelativePath>assets/images/ee6d0db8-a39f-4f64-a938-6ca3b354e75f-grape.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\ee6d0db8-a39f-4f64-a938-6ca3b354e75f-grape.png))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\f0db6f86-b5ba-4706-aff5-ce6e4cc959e7-qvliz9la.png))">
       <SourceType>Package</SourceType>
       <SourceId>Wolt</SourceId>

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "FiuqVdWFD41HnatNb3Wl7zy3a2gw252e7Lo+RGN3hLs=",
+  "Hash": "qgE1DrRvUclQo2k6HAA0cEAgQl/V41R8TAdEEG2YVL4=",
   "Source": "Wolt",
   "BasePath": "_content/Wolt",
   "Mode": "Default",
@@ -26254,6 +26254,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\images\\ee565ecc-9978-4116-8511-800770517087-rpy9ltbi.png"
+    },
+    {
+      "Identity": "C:\\Users\\gulay\\OneDrive\\Рабочий стол\\Wolt-Backend\\FoodDelivery_FinalProject\\Wolt\\Wolt\\wwwroot\\assets\\images\\ee6d0db8-a39f-4f64-a938-6ca3b354e75f-grape.png",
+      "SourceId": "Wolt",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\gulay\\OneDrive\\Рабочий стол\\Wolt-Backend\\FoodDelivery_FinalProject\\Wolt\\Wolt\\wwwroot\\",
+      "BasePath": "_content/Wolt",
+      "RelativePath": "assets/images/ee6d0db8-a39f-4f64-a938-6ca3b354e75f-grape.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\ee6d0db8-a39f-4f64-a938-6ca3b354e75f-grape.png"
     },
     {
       "Identity": "C:\\Users\\gulay\\OneDrive\\Рабочий стол\\Wolt-Backend\\FoodDelivery_FinalProject\\Wolt\\Wolt\\wwwroot\\assets\\images\\f0db6f86-b5ba-4706-aff5-ce6e4cc959e7-qvliz9la.png",

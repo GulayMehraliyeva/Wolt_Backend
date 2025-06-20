@@ -2,6 +2,7 @@
 using Domain.Entities;
 using Repository.Repositories;
 using Repository.Repositories.Interfaces;
+using Service.Helpers.Exceptions;
 using Service.Services.Interfaces;
 using Service.ViewModels.MenuCategory;
 using Service.ViewModels.Restaurant;
@@ -34,11 +35,12 @@ namespace Service.Services
                 c.Name.Trim().ToLower() == request.Name.Trim().ToLower());
 
             if (nameExists)
-                throw new Exception("A category with the same name already exists for this restaurant.");
+                throw new AppValidationException("A category with the same name already exists for this restaurant.");
 
             var menuCategory = _mapper.Map<MenuItemCategory>(request);
             await _menuCategoryRepository.CreateAsync(menuCategory);
         }
+
 
 
         public async Task DeleteAsync(int id)
@@ -52,7 +54,7 @@ namespace Service.Services
         {
             var menuCategory = await _menuCategoryRepository.GetByIdAsync(id);
             if (menuCategory == null)
-                throw new Exception("Category not found");
+                throw new AppValidationException("Category not found");
 
             var allCategories = await _menuCategoryRepository.GetAllAsync();
 
@@ -62,11 +64,12 @@ namespace Service.Services
                 c.Name.Trim().ToLower() == editVm.Name.Trim().ToLower());
 
             if (nameExists)
-                throw new Exception("A category with the same name already exists for this restaurant.");
+                throw new AppValidationException("A category with the same name already exists for this restaurant.");
 
             _mapper.Map(editVm, menuCategory);
             await _menuCategoryRepository.UpdateAsync(menuCategory);
         }
+
 
 
         public async Task<IEnumerable<MenuCategoryVM>> GetAllAsync()

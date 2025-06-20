@@ -60,7 +60,6 @@ namespace Wolt.Areas.Admin.Controllers
             var vm = await _customerService.GetDetailAsync(id);
             if (vm == null)
             {
-                _logger.LogWarning("CustomerController: Detail - Customer not found for ID {CustomerId}", id);
                 return NotFound();
             }
 
@@ -91,7 +90,6 @@ namespace Wolt.Areas.Admin.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "CustomerController: MakeAdmin failed for UserId={UserId}", userId);
                 TempData["Error"] = ex.Message;
             }
 
@@ -112,7 +110,6 @@ namespace Wolt.Areas.Admin.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "CustomerController: RemoveAdmin failed for UserId={UserId}", userId);
                 TempData["Error"] = ex.Message;
             }
 

@@ -1,5 +1,6 @@
 ﻿using Domain.Entities;
 using Repository.Repositories.Interfaces;
+using Service.Helpers.Exceptions;
 using Service.Services.Interfaces;
 using Service.ViewModels.Setting;
 using System;
@@ -51,7 +52,8 @@ namespace Service.Services
 
             bool keyExists = allSettings.Any(s => s.Key.Trim().ToLower() == vm.Key.Trim().ToLower());
             if (keyExists)
-                throw new Exception("A setting with the same key already exists.");
+                throw new AppValidationException("A setting with the same key already exists.");
+
 
             string value = vm.Type == "Text" ? vm.Value : null;
 
@@ -89,7 +91,8 @@ namespace Service.Services
 
             bool keyExists = allSettings.Any(s => s.Id != vm.Id && s.Key.Trim().ToLower() == vm.Key.Trim().ToLower());
             if (keyExists)
-                throw new Exception("A setting with the same key already exists.");
+                throw new AppValidationException("A setting with the same key already exists.");
+
 
             setting.Key = vm.Key;
             setting.Type = vm.Type;

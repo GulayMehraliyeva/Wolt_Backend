@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using Repository.Repositories;
 using Repository.Repositories.Interfaces;
 using Service.Helpers;
+using Service.Helpers.Exceptions;
 using Service.Services.Interfaces;
 using Service.ViewModels.MenuItem;
 using Service.ViewModels.Restaurant;
@@ -58,7 +59,8 @@ namespace Service.Services
                 m.Name.Trim().ToLower() == request.Name.Trim().ToLower());
 
             if (nameExists)
-                throw new Exception("A menu item with the same name already exists in this restaurant.");
+                throw new AppValidationException("A menu item with the same name already exists in this restaurant.");
+
 
             var menuItem = _mapper.Map<MenuItem>(request);
 
@@ -129,7 +131,8 @@ namespace Service.Services
                 m.Name.Trim().ToLower() == model.Name.Trim().ToLower());
 
             if (nameExists)
-                throw new Exception("A menu item with the same name already exists in this restaurant.");
+                throw new AppValidationException("A menu item with the same name already exists in this restaurant.");
+
 
             menuItem.Name = model.Name;
             menuItem.Description = model.Description;

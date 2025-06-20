@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Service.Helpers.Exceptions;
 using Service.Services;
 using Service.Services.Interfaces;
 using Service.ViewModels.Discount;
@@ -39,22 +40,26 @@ namespace Wolt.Areas.Admin.Controllers
         public async Task<IActionResult> Create(DiscountCreateVM request)
         {
             _logger.LogInformation("DiscountController: Create POST method used");
-
             if (!ModelState.IsValid)
+                return View(request);
+
+            try
             {
-                _logger.LogWarning("DiscountController: Create POST - Invalid model state");
+                await _discountService.CreateAsync(request);
+                return RedirectToAction(nameof(Index));
+            }
+            catch (AppValidationException ex)
+            {
+                ModelState.AddModelError("Name", ex.Message);
                 return View(request);
             }
-
-            await _discountService.CreateAsync(request);
-            return RedirectToAction(nameof(Index));
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
         {
-            _logger.LogInformation("DiscountController: Delete method used for ID={Id}", id);
+            _logger.LogInformation("DiscountController: Delete method used");
             await _discountService.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
         }
@@ -67,7 +72,6 @@ namespace Wolt.Areas.Admin.Controllers
             var discount = await _discountService.GetByIdAsync(id);
             if (discount == null)
             {
-                _logger.LogWarning("DiscountController: Edit GET - Discount not found for ID={Id}", id);
                 return NotFound();
             }
 
@@ -87,17 +91,28 @@ namespace Wolt.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(DiscountEditVM editVm)
         {
-            _logger.LogInformation("DiscountController: Edit POST method used for ID={Id}", editVm.Id);
+            _logger.LogInformation("DiscountController: Edit POST method used");
 
             if (!ModelState.IsValid)
+                return View(editVm);
+
+            try
             {
-                _logger.LogWarning("DiscountController: Edit POST - Invalid model state for ID={Id}", editVm.Id);
+                await _discountService.EditAsync(editVm.Id, editVm);
+                return RedirectToAction(nameof(Index));
+            }
+            catch (AppValidationException ex)
+            {
+                if (!ModelState.ContainsKey("Name") ||
+                    !ModelState["Name"].Errors.Any(e => e.ErrorMessage == ex.Message))
+                {
+                    ModelState.AddModelError("Name", ex.Message);
+                }
+
                 return View(editVm);
             }
-
-            await _discountService.EditAsync(editVm.Id, editVm);
-            return RedirectToAction(nameof(Index));
         }
+
 
         [HttpGet]
         public async Task<IActionResult> Detail(int id)
@@ -107,7 +122,6 @@ namespace Wolt.Areas.Admin.Controllers
             var discount = await _discountService.GetByIdAsync(id);
             if (discount == null)
             {
-                _logger.LogWarning("DiscountController: Detail - Discount not found for ID={Id}", id);
                 return NotFound();
             }
 

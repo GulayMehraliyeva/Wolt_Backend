@@ -79,7 +79,6 @@ namespace Wolt.Areas.Admin.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "CourierController: CourierRegister failed");
                 ModelState.AddModelError(string.Empty, ex.Message);
                 return View(model);
             }
@@ -122,7 +121,6 @@ namespace Wolt.Areas.Admin.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "CourierController: MakeAdmin failed");
                 TempData["Error"] = ex.Message;
             }
 
@@ -142,7 +140,6 @@ namespace Wolt.Areas.Admin.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "CourierController: RemoveAdmin failed");
                 TempData["Error"] = ex.Message;
             }
 

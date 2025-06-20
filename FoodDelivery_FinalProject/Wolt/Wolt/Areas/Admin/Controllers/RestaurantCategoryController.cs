@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Service.Helpers.Exceptions;
 using Service.Services;
 using Service.Services.Interfaces;
 using Service.ViewModels.RestaurantCategory;
@@ -42,20 +43,25 @@ namespace Wolt.Areas.Admin.Controllers
             _logger.LogInformation("RestaurantCategoryController: Create POST method used");
 
             if (!ModelState.IsValid)
+                return View(request);
+
+            try
             {
-                _logger.LogWarning("RestaurantCategoryController: Create POST - Invalid model state");
+                await _restaurantCategoryService.CreateAsync(request);
+                return RedirectToAction(nameof(Index));
+            }
+            catch (AppValidationException ex)
+            {
+                ModelState.AddModelError("Name", ex.Message);
                 return View(request);
             }
-
-            await _restaurantCategoryService.CreateAsync(request);
-            return RedirectToAction(nameof(Index));
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
         {
-            _logger.LogInformation("RestaurantCategoryController: Delete method used for Id={Id}", id);
+            _logger.LogInformation("RestaurantCategoryController: Delete method used");
             await _restaurantCategoryService.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
         }
@@ -63,12 +69,11 @@ namespace Wolt.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
-            _logger.LogInformation("RestaurantCategoryController: Edit GET method used for Id={Id}", id);
+            _logger.LogInformation("RestaurantCategoryController: Edit GET method used");
 
             var restaurantCategory = await _restaurantCategoryService.GetByIdAsync(id);
             if (restaurantCategory == null)
             {
-                _logger.LogWarning("RestaurantCategoryController: Edit GET - Category not found for Id={Id}", id);
                 return NotFound();
             }
 
@@ -86,32 +91,31 @@ namespace Wolt.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(RestaurantCategoryEditVM editVm)
         {
-            _logger.LogInformation("RestaurantCategoryController: Edit POST method used for Id={Id}", editVm.Id);
+            _logger.LogInformation("RestaurantCategoryController: Edit POST method used");
 
             if (!ModelState.IsValid)
-            {
-                _logger.LogWarning("RestaurantCategoryController: Edit POST - Invalid model state for Id={Id}", editVm.Id);
                 return View(editVm);
-            }
 
             try
             {
                 await _restaurantCategoryService.EditAsync(editVm.Id, editVm);
+                return RedirectToAction(nameof(Index));
             }
-            catch (Exception ex)
+            catch (AppValidationException ex)
             {
-                _logger.LogError(ex, "RestaurantCategoryController: Edit POST - Exception for Id={Id}", editVm.Id);
-                ModelState.AddModelError("", ex.Message);
+                if (!ModelState.ContainsKey("Name") ||
+                    !ModelState["Name"].Errors.Any(e => e.ErrorMessage == ex.Message))
+                {
+                    ModelState.AddModelError("Name", ex.Message);
+                }
                 return View(editVm);
             }
-
-            return RedirectToAction(nameof(Index));
         }
 
         [HttpGet]
         public async Task<IActionResult> Detail(int id)
         {
-            _logger.LogInformation("RestaurantCategoryController: Detail method used for Id={Id}", id);
+            _logger.LogInformation("RestaurantCategoryController: Detail method used");
 
             var category = await _restaurantCategoryService.GetByIdAsync(id);
             return View(category);

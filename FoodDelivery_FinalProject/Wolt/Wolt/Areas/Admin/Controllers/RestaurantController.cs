@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Service.Helpers.Exceptions;
 using Service.Services.Interfaces;
 using Service.ViewModels.Restaurant;
 
@@ -55,31 +56,36 @@ namespace Wolt.Areas.Admin.Controllers
         {
             _logger.LogInformation("RestaurantController: Create POST method used");
 
-            if (!ModelState.IsValid)
+            var categories = await _restaurantCategoryService.GetAllAsync();
+            model.Categories = categories.Select(c => new SelectListItem
             {
-                _logger.LogWarning("RestaurantController: Create POST - Invalid model state");
-                var categories = await _restaurantCategoryService.GetAllAsync();
-                model.Categories = categories.Select(c => new SelectListItem
-                {
-                    Value = c.Id.ToString(),
-                    Text = c.Name
-                }).ToList();
+                Value = c.Id.ToString(),
+                Text = c.Name
+            }).ToList();
 
+            if (!ModelState.IsValid)
+                return View(model);
+
+            try
+            {
+                await _restaurantService.CreateAsync(model);
+                return RedirectToAction(nameof(Index));
+            }
+            catch (AppValidationException ex)
+            {
+                ModelState.AddModelError("Name", ex.Message);
                 return View(model);
             }
-
-            await _restaurantService.CreateAsync(model);
-            return RedirectToAction("Index");
         }
+
 
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
-            _logger.LogInformation("RestaurantController: Edit GET method used for Id={Id}", id);
+            _logger.LogInformation("RestaurantController: Edit GET method used");
             var restaurant = await _restaurantService.GetByIdAsync(id);
             if (restaurant == null)
             {
-                _logger.LogWarning("RestaurantController: Edit GET - Restaurant not found for Id={Id}", id);
                 return NotFound();
             }
 
@@ -109,24 +115,37 @@ namespace Wolt.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, RestaurantEditVM model)
         {
-            _logger.LogInformation("RestaurantController: Edit POST method used for Id={Id}", id);
+            _logger.LogInformation("RestaurantController: Edit POST method used");
+
+            var categories = await _restaurantCategoryService.GetAllAsync();
+            model.Categories = categories.Select(c => new SelectListItem
+            {
+                Value = c.Id.ToString(),
+                Text = c.Name
+            }).ToList();
 
             if (!ModelState.IsValid)
             {
-                _logger.LogWarning("RestaurantController: Edit POST - Invalid model state for Id={Id}", id);
-                var categories = await _restaurantCategoryService.GetAllAsync();
-                model.Categories = categories.Select(c => new SelectListItem
-                {
-                    Value = c.Id.ToString(),
-                    Text = c.Name
-                }).ToList();
-
                 return View(model);
             }
 
-            await _restaurantService.EditAsync(id, model);
-            return RedirectToAction("Index");
+            try
+            {
+                await _restaurantService.EditAsync(id, model);
+                return RedirectToAction("Index");
+            }
+            catch (AppValidationException ex)
+            {
+                if (!ModelState.ContainsKey("Name") ||
+                    !ModelState["Name"].Errors.Any(e => e.ErrorMessage == ex.Message))
+                {
+                    ModelState.AddModelError("Name", ex.Message);
+                }
+
+                return View(model);
+            }
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -140,11 +159,10 @@ namespace Wolt.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Detail(int id)
         {
-            _logger.LogInformation("RestaurantController: Detail method used for Id={Id}", id);
+            _logger.LogInformation("RestaurantController: Detail method used");
             var restaurant = await _restaurantService.GetByIdAsync(id);
             if (restaurant == null)
             {
-                _logger.LogWarning("RestaurantController: Detail - Restaurant not found for Id={Id}", id);
                 return NotFound();
             }
 
