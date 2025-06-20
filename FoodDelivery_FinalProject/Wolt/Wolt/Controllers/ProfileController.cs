@@ -92,5 +92,26 @@ namespace Wolt.Controllers
                 return RedirectToAction("Index", new { error = ex.Message });
             }
         }
-    }
+
+		[HttpPost]
+		public async Task<IActionResult> UpdateAddress(string newAddress)
+		{
+			var user = await _userManager.GetUserAsync(User);
+			if (user == null)
+			{
+				return RedirectToAction("Index", new { error = "İstifadəçi tapılmadı." });
+			}
+
+			try
+			{
+				await _profileService.UpdateAddressAsync(user.Id, newAddress);
+				return RedirectToAction("Index", new { message = "Ünvan uğurla dəyişdirildi." });
+			}
+			catch (Exception ex)
+			{
+				return RedirectToAction("Index", new { error = ex.Message });
+			}
+		}
+
+	}
 }

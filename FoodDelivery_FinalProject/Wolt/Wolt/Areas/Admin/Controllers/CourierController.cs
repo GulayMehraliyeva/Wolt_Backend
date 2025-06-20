@@ -10,7 +10,6 @@ namespace Wolt.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Authorize(Roles = "Admin")]
-
     public class CourierController : Controller
     {
         private readonly ICourierService _courierService;
@@ -18,8 +17,7 @@ namespace Wolt.Areas.Admin.Controllers
         private readonly IAccountService _accountService;
         private readonly UserManager<AppUser> _userManager;
 
-
-        public CourierController(ICourierService courierService, 
+        public CourierController(ICourierService courierService,
                                  ILogger<CourierController> logger,
                                  IAccountService accountService,
                                  UserManager<AppUser> userManager)
@@ -33,6 +31,8 @@ namespace Wolt.Areas.Admin.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
         {
+            _logger.LogInformation("CourierController: Index method used");
+
             var couriers = await _courierService.GetAllCourierAsync();
 
             foreach (var courier in couriers)
@@ -52,12 +52,11 @@ namespace Wolt.Areas.Admin.Controllers
             return View(couriers);
         }
 
-
-        [Authorize(Roles = "Admin")]
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> CourierRegister()
         {
-            _logger.LogInformation("-----------------------------------------------------------------------------------");
+            _logger.LogInformation("CourierController: CourierRegister GET method used");
             return View();
         }
 
@@ -66,6 +65,8 @@ namespace Wolt.Areas.Admin.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> CourierRegister(CourierRegisterVM model)
         {
+            _logger.LogInformation("CourierController: CourierRegister POST method used");
+
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -78,6 +79,7 @@ namespace Wolt.Areas.Admin.Controllers
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "CourierController: CourierRegister failed");
                 ModelState.AddModelError(string.Empty, ex.Message);
                 return View(model);
             }
@@ -87,6 +89,8 @@ namespace Wolt.Areas.Admin.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Detail(string userId)
         {
+            _logger.LogInformation("CourierController: Detail method used");
+
             if (string.IsNullOrEmpty(userId)) return BadRequest();
 
             var courier = await _courierService.GetByUserIdAsync(userId);
@@ -99,6 +103,8 @@ namespace Wolt.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(string userId)
         {
+            _logger.LogInformation("CourierController: Delete method used");
+
             await _courierService.DeleteByUserIdAsync(userId);
             return RedirectToAction("Index");
         }
@@ -107,6 +113,8 @@ namespace Wolt.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> MakeAdmin(string userId)
         {
+            _logger.LogInformation("CourierController: MakeAdmin method used");
+
             try
             {
                 await _accountService.AddAdminRoleAsync(userId);
@@ -114,8 +122,10 @@ namespace Wolt.Areas.Admin.Controllers
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "CourierController: MakeAdmin failed");
                 TempData["Error"] = ex.Message;
             }
+
             return RedirectToAction("Index");
         }
 
@@ -123,6 +133,8 @@ namespace Wolt.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> RemoveAdmin(string userId)
         {
+            _logger.LogInformation("CourierController: RemoveAdmin method used");
+
             try
             {
                 await _accountService.RemoveAdminRoleAsync(userId);
@@ -130,12 +142,12 @@ namespace Wolt.Areas.Admin.Controllers
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "CourierController: RemoveAdmin failed");
                 TempData["Error"] = ex.Message;
             }
+
             return RedirectToAction("Index");
         }
-
-
-
     }
+
 }

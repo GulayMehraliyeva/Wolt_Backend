@@ -14,5 +14,7 @@ namespace Service.Services.Interfaces
         Task<bool> ChangePasswordAsync(AppUser user, string currentPassword, string newPassword);
         Task UpdatePhoneNumberAsync(AppUser user, string newPhoneNumber);
         Task UpdateEmailAsync(AppUser user, string newEmail);
-    }
+		Task UpdateAddressAsync(string userId, string newAddress);
+
+	}
 }

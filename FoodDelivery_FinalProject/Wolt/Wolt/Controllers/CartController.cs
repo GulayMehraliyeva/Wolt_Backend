@@ -55,10 +55,24 @@ namespace Wolt.Controllers
 
             int restaurantId = menuItem.RestaurantId;
 
-            await _cartService.AddToCartAsync(customerId, menuItemId);
+            try
+            {
+                await _cartService.AddToCartAsync(customerId, menuItemId);
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message == "You can only order from one restaurant.")
+                {
+                    TempData["Error"] = "Səbətinizdə başqa restoranın məhsulu var. Zəhmət olmasa əvvəlcə səbəti təmizləyin.";
+                    return RedirectToAction("Index");
+                }
+
+                throw;
+            }
 
             return RedirectToAction("Index", "Menu", new { restaurantId });
         }
+
 
         public async Task<IActionResult> Clear()
         {

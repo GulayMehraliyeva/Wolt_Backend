@@ -8,27 +8,30 @@ namespace Wolt.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Authorize(Roles = "Admin")]
-
     public class CustomerController : Controller
     {
         private readonly ICustomerService _customerService;
         private readonly IAccountService _accountService;
         private readonly UserManager<AppUser> _userManager;
+        private readonly ILogger<CustomerController> _logger;
 
-
-        public CustomerController(ICustomerService customerService, 
+        public CustomerController(ICustomerService customerService,
                                   IAccountService accountService,
-                                  UserManager<AppUser> userManager)
+                                  UserManager<AppUser> userManager,
+                                  ILogger<CustomerController> logger)
         {
             _customerService = customerService;
             _accountService = accountService;
             _userManager = userManager;
+            _logger = logger;
         }
 
         [HttpGet]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
         {
+            _logger.LogInformation("CustomerController: Index method used");
+
             var customers = await _customerService.GetAllCustomerVMsAsync();
 
             foreach (var customer in customers)
@@ -49,12 +52,17 @@ namespace Wolt.Areas.Admin.Controllers
             return View(customers);
         }
 
-
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Detail(int id)
         {
+            _logger.LogInformation("CustomerController: Detail method used");
+
             var vm = await _customerService.GetDetailAsync(id);
-            if (vm == null) return NotFound();
+            if (vm == null)
+            {
+                _logger.LogWarning("CustomerController: Detail - Customer not found for ID {CustomerId}", id);
+                return NotFound();
+            }
 
             return View(vm);
         }
@@ -63,6 +71,8 @@ namespace Wolt.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {
+            _logger.LogInformation("CustomerController: Delete method used");
+
             await _customerService.DeleteAsync(id);
             return RedirectToAction("Index");
         }
@@ -72,6 +82,8 @@ namespace Wolt.Areas.Admin.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> MakeAdmin(string userId)
         {
+            _logger.LogInformation("CustomerController: MakeAdmin method used for UserId={UserId}", userId);
+
             try
             {
                 await _accountService.AddAdminRoleAsync(userId);
@@ -79,6 +91,7 @@ namespace Wolt.Areas.Admin.Controllers
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "CustomerController: MakeAdmin failed for UserId={UserId}", userId);
                 TempData["Error"] = ex.Message;
             }
 
@@ -90,6 +103,8 @@ namespace Wolt.Areas.Admin.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> RemoveAdmin(string userId)
         {
+            _logger.LogInformation("CustomerController: RemoveAdmin method used for UserId={UserId}", userId);
+
             try
             {
                 await _accountService.RemoveAdminRoleAsync(userId);
@@ -97,11 +112,12 @@ namespace Wolt.Areas.Admin.Controllers
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "CustomerController: RemoveAdmin failed for UserId={UserId}", userId);
                 TempData["Error"] = ex.Message;
             }
 
             return RedirectToAction("Index");
         }
-
     }
+
 }

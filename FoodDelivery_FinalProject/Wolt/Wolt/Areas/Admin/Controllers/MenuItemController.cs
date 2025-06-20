@@ -18,25 +18,26 @@ namespace Wolt.Areas.Admin.Controllers
         private readonly IMenuCategoryService _menuCategoryService;
         private readonly IDiscountService _discountService;
         private readonly IRestaurantService _restaurantService;
-        private readonly ILogger<MenuItemService> _logger;
+        private readonly ILogger<MenuItemController> _logger;
 
         public MenuItemController(IMenuItemService menuItemService,
                                   IMenuCategoryService menuCategoryService,
                                   IDiscountService discountService,
                                   IRestaurantService restaurantService,
-                                  ILogger<MenuItemService> logger)
+                                  ILogger<MenuItemController> logger)
         {
             _menuItemService = menuItemService;
             _menuCategoryService = menuCategoryService;
             _discountService = discountService;
             _restaurantService = restaurantService;
-            _logger = logger;   
+            _logger = logger;
         }
 
-        [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<IActionResult> GetCategoriesByRestaurant(int restaurantId)
         {
+            _logger.LogInformation("MenuItemController: GetCategoriesByRestaurant used for RestaurantId={RestaurantId}", restaurantId);
+
             var allCategories = await _menuCategoryService.GetAllAsync();
             var categories = allCategories.Where(mc => mc.RestaurantId == restaurantId).ToList();
 
@@ -49,10 +50,11 @@ namespace Wolt.Areas.Admin.Controllers
             return Json(result);
         }
 
-        [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<IActionResult> GetMenuItemsByCategory(int categoryId)
         {
+            _logger.LogInformation("MenuItemController: GetMenuItemsByCategory used for CategoryId={CategoryId}", categoryId);
+
             var menuItems = await _menuItemService.GetByCategoryIdAsync(categoryId);
             var result = menuItems.Select(m => new
             {
@@ -66,10 +68,11 @@ namespace Wolt.Areas.Admin.Controllers
             return Json(result);
         }
 
-        [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<IActionResult> Index(int? restaurantId)
         {
+            _logger.LogInformation("MenuItemController: Index method used");
+
             var menuItems = await _menuItemService.GetAllAsync();
             var restaurants = await _restaurantService.GetAllAsync();
 
@@ -78,11 +81,10 @@ namespace Wolt.Areas.Admin.Controllers
             return View(menuItems);
         }
 
-
-        [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<IActionResult> Create()
         {
+            _logger.LogInformation("MenuItemController: Create GET method used");
 
             var categories = await _menuCategoryService.GetAllAsync();
             var discounts = await _discountService.GetAllAsync();
@@ -112,11 +114,11 @@ namespace Wolt.Areas.Admin.Controllers
             return View(viewModel);
         }
 
-        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(MenuItemCreateVM model)
         {
+            _logger.LogInformation("MenuItemController: Create POST method used");
 
             var categories = await _menuCategoryService.GetAllAsync();
             var discounts = await _discountService.GetAllAsync();
@@ -142,6 +144,7 @@ namespace Wolt.Areas.Admin.Controllers
 
             if (!ModelState.IsValid)
             {
+                _logger.LogWarning("MenuItemController: Create POST - Invalid model state");
                 return View(model);
             }
 
@@ -149,13 +152,17 @@ namespace Wolt.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
-
-        [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
+            _logger.LogInformation("MenuItemController: Edit GET method used for Id={Id}", id);
+
             var menuItem = await _menuItemService.GetByIdAsync(id);
-            if (menuItem == null) return NotFound();
+            if (menuItem == null)
+            {
+                _logger.LogWarning("MenuItemController: Edit GET - MenuItem not found for Id={Id}", id);
+                return NotFound();
+            }
 
             var allCategories = await _menuCategoryService.GetAllAsync();
             var allDiscounts = await _discountService.GetAllAsync();
@@ -194,11 +201,12 @@ namespace Wolt.Areas.Admin.Controllers
             return View(model);
         }
 
-        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(MenuItemEditVM model)
         {
+            _logger.LogInformation("MenuItemController: Edit POST method used for Id={Id}", model.Id);
+
             if (model.DiscountIds == null)
                 model.DiscountIds = new List<int>();
 
@@ -226,6 +234,7 @@ namespace Wolt.Areas.Admin.Controllers
 
             if (!ModelState.IsValid)
             {
+                _logger.LogWarning("MenuItemController: Edit POST - Invalid model state for Id={Id}", model.Id);
                 return View(model);
             }
 
@@ -233,21 +242,21 @@ namespace Wolt.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
-
-
-        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
         {
+            _logger.LogInformation("MenuItemController: Delete method used for Id={Id}", id);
+
             await _menuItemService.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
         }
 
-        [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<IActionResult> Detail(int id)
         {
+            _logger.LogInformation("MenuItemController: Detail method used for Id={Id}", id);
+
             try
             {
                 var menuItemDetail = await _menuItemService.DetailAsync(id);
@@ -255,8 +264,10 @@ namespace Wolt.Areas.Admin.Controllers
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "MenuItemController: Detail failed for Id={Id}", id);
                 return NotFound(ex.Message);
             }
         }
     }
+
 }

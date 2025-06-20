@@ -17,9 +17,6 @@
                         <li>
                             <a href="#"><i class="fa-solid fa-gear"></i> Parametrlər</a>
                         </li>
-                        <li>
-                            <a href="#"><i class="fa-regular fa-heart"></i> Sevimlilər</a>
-                        </li>
                     </ul>
                 </div>
 
@@ -36,6 +33,10 @@
                             <li>
                                 <p><i class="fa-solid fa-envelope"></i> @Model.Email</p>
                             </li>
+                            <li>
+                                <p><i class="fa-solid fa-location-dot"></i> @Model.Address</p>
+                            </li>
+
                         </ul>
                     </div>
                 </div>
@@ -78,20 +79,16 @@
                             <button type="submit">Dəyiş</button>
                         </form>
 
+                        <h3>Ünvanı dəyiş</h3>
+                        <form asp-action="UpdateAddress" method="post">
+                            <label>Yeni Ünvan:</label>
+                            <input type="text" name="newAddress" value="@Model.Address" required />
+                            <br />
+                            <button type="submit">Dəyiş</button>
+                        </form>
+
                     </div>
                 </div>
-
-                <div id="favorites-section" class="content-section" style="display: none;">
-                    <div class="favorite">
-                        <div class="image">
-                            <img src="assets/images/r3.avif" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>Name</h3>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>

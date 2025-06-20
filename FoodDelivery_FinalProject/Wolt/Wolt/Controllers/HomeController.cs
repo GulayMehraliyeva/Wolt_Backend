@@ -9,20 +9,25 @@ namespace Wolt.Controllers
     {
         private readonly ISliderService _sliderService;
         private readonly IRestaurantService _restaurantService;
-        public HomeController(ISliderService sliderService, IRestaurantService restaurantService)
+        private readonly IBrandService _brandService;
+
+        public HomeController(ISliderService sliderService, IRestaurantService restaurantService, IBrandService brandService)
         {
             _sliderService = sliderService;
             _restaurantService = restaurantService;
+            _brandService = brandService;
         }
         public async Task<IActionResult> Index()
         {
             var sliders = await _sliderService.GetAllAsync();
             var restaurants = await _restaurantService.GetAllAsync();
+            var brands = await _brandService.GetAllAsync();
 
             var homeVM = new HomeVM
             {
                 Sliders = sliders,
-                Restaurants = restaurants
+                Restaurants = restaurants,
+                Brands = brands,
             };
 
             return View(homeVM);

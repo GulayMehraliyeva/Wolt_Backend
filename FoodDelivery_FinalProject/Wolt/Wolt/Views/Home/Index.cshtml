@@ -130,46 +130,15 @@
 
         <div id="brands-slider" class="container-fluid overflow-hidden">
             <div class="row flex-nowrap transition" id="brands-row">
-                <div class="col-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 image-item">
-                    <div class="image">
-                        <img src="assets/images/logo.jpg" class="img-fluid">
+                @foreach (var brand in Model.Brands)
+                {
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 image-item">
+                        <div class="image">
+                            <img src="~/assets/images/@brand.Image" class="img-fluid">
+                        </div>
                     </div>
-                </div>
-                <div class="col-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 image-item">
-                    <div class="image">
-                        <img src="assets/images/logo.jpg" class="img-fluid">
-                    </div>
-                </div>
-                <div class="col-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 image-item">
-                    <div class="image">
-                        <img src="assets/images/logo.jpg" class="img-fluid">
-                    </div>
-                </div>
-                <div class="col-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 image-item">
-                    <div class="image">
-                        <img src="assets/images/logo.jpg" class="img-fluid">
-                    </div>
-                </div>
-                <div class="col-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 image-item">
-                    <div class="image">
-                        <img src="assets/images/logo.jpg" class="img-fluid">
-                    </div>
-                </div>
-                <div class="col-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 image-item">
-                    <div class="image">
-                        <img src="assets/images/logo.jpg" class="img-fluid">
-                    </div>
-                </div>
-                <div class="col-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 image-item">
-                    <div class="image">
-                        <img src="assets/images/logo.jpg" class="img-fluid">
-                    </div>
-                </div>
-                <div class="col-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 image-item">
-                    <div class="image">
-                        <img src="assets/images/logo.jpg" class="img-fluid">
-                    </div>
-                </div>
+
+                }
             </div>
         </div>
     </section>

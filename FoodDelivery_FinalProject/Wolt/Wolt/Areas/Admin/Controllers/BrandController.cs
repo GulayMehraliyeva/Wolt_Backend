@@ -10,15 +10,18 @@ namespace Wolt.Areas.Admin.Controllers
     public class BrandController : Controller
     {
         private readonly IBrandService _brandService;
+        private readonly ILogger<BrandController> _logger;
 
-        public BrandController(IBrandService brandService)
+        public BrandController(IBrandService brandService, ILogger<BrandController> logger)
         {
             _brandService = brandService;
+            _logger = logger;
         }
 
         [HttpGet]
         public async Task<IActionResult> Index()
         {
+            _logger.LogInformation("BrandController: Index method used");
             var brands = await _brandService.GetAllAsync();
             return View(brands);
         }
@@ -26,6 +29,7 @@ namespace Wolt.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Create()
         {
+            _logger.LogInformation("BrandController: Create GET method used");
             return View();
         }
 
@@ -33,6 +37,8 @@ namespace Wolt.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(BrandCreateVM request)
         {
+            _logger.LogInformation("BrandController: Create POST method used");
+
             if (request.Image == null || !request.Image.ContentType.Contains("image/"))
             {
                 ModelState.AddModelError("Image", "Only image files are allowed.");
@@ -48,10 +54,11 @@ namespace Wolt.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
+            _logger.LogInformation("BrandController: Edit GET method used");
+
             var brand = await _brandService.GetByIdAsync(id);
             if (brand == null) return NotFound();
 
@@ -64,12 +71,12 @@ namespace Wolt.Areas.Admin.Controllers
             return View(editVm);
         }
 
-
-        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(BrandEditVM editVm)
         {
+            _logger.LogInformation("BrandController: Edit POST method used");
+
             if (!ModelState.IsValid)
             {
                 return View(editVm);
@@ -81,6 +88,7 @@ namespace Wolt.Areas.Admin.Controllers
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "BrandController: Edit failed");
                 ModelState.AddModelError("", ex.Message);
                 return View(editVm);
             }
@@ -88,11 +96,12 @@ namespace Wolt.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
         {
+            _logger.LogInformation("BrandController: Delete method used");
+
             await _brandService.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
         }
