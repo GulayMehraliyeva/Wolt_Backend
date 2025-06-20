@@ -1,0 +1,49 @@
+﻿@model SettingEditVM
+
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="mb-3">
+        <label asp-for="Key" class="form-label"></label>
+        <input asp-for="Key" class="form-control" />
+        <span asp-validation-for="Key" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Type" class="form-label"></label>
+        <select asp-for="Type" class="form-control" id="type-select">
+            <option value="Text" selected="@Model.Type == " Text"">Text</option>
+            <option value="Image" selected="@Model.Type == " Image"">Image</option>
+        </select>
+    </div>
+
+    <div class="mb-3" id="text-value" style="display: @(Model.Type == "Text" ? "block" : "none")">
+        <label asp-for="Value" class="form-label"></label>
+        <input asp-for="Value" class="form-control" />
+    </div>
+
+    <div class="mb-3" id="image-value" style="display: @(Model.Type == "Image" ? "block" : "none")">
+        @if (!string.IsNullOrWhiteSpace(Model.Value))
+        {
+            <div>
+                <p>Current Image:</p>
+                <img src="@Model.Value" alt="Current Image" style="width: 100px;" />
+            </div>
+        }
+        <label asp-for="Image" class="form-label mt-2"></label>
+        <input asp-for="Image" type="file" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+
+    <script>
+        document.getElementById("type-select").addEventListener("change", function () {
+            const type = this.value;
+            document.getElementById("text-value").style.display = type === "Text" ? "block" : "none";
+            document.getElementById("image-value").style.display = type === "Image" ? "block" : "none";
+        });
+    </script>
+

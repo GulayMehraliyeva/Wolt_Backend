@@ -1,0 +1,78 @@
+﻿@model List<OrderVM>
+
+<div class="orders" style="display:flex; flex-direction:column">
+    <h2>Orders</h2>
+    <table class="table" id="ordersTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Customer</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Status</th>
+                <th>Date</th>
+                <th>Total Price</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model)
+            {
+                <tr>
+                    <td>@order.Id</td>
+                    <td>@order.CustomerName</td>
+                    <td>@order.CustomerPhoneNumber</td>
+                    <td>@order.DeliveryAddress</td>
+                    <td>@order.Status</td>
+                    <td>@order.CreatedAt.ToLocalTime().ToString("g")</td>
+                    <td>@order.TotalPrice.ToString("0.00") ₼</td>
+                    <td>
+                        <button class="btn btn-sm btn-link show-more-btn" type="button" data-order-id="@order.Id">
+                            Show More
+                        </button>
+                    </td>
+                </tr>
+                <tr class="details-row" id="details-@order.Id" style="display:none; background-color:#f9f9f9;">
+                    <td colspan="8">
+                        <strong>Restaurant:</strong> @order.RestaurantName <br />
+                        <strong>Delivery Cost:</strong> @order.DeliveryCost.ToString("0.00") ₼ <br />
+                        <strong>Courier:</strong> @order.CourierName <br />
+                        <strong>Courier Phone:</strong> @order.CourierPhoneNumber <br />
+                        <strong>Estimated Delivery:</strong> @order.EstimatedDeliveryTime?.ToLocalTime().ToString("g") <br />
+                        <strong>Delivered At:</strong> @order.DeliveredAt?.ToLocalTime().ToString("g") <br />
+                        <strong>Notes:</strong> @order.Notes <br />
+                        <strong>Payment Method:</strong> @order.PaymentMethod <br />
+                        <strong>Items:</strong>
+                        <ul>
+                            @foreach (var item in order.Items)
+                            {
+                                <li>@item.MenuItemName - Qty: @item.Quantity - Price: @item.Price.ToString("0.00") ₼</li>
+                            }
+                        </ul>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const buttons = document.querySelectorAll(".show-more-btn");
+            buttons.forEach(btn => {
+                btn.addEventListener("click", function () {
+                    const orderId = this.getAttribute("data-order-id");
+                    const detailsRow = document.getElementById("details-" + orderId);
+
+                    if (detailsRow.style.display === "none") {
+                        detailsRow.style.display = "table-row";
+                        this.textContent = "Show Less";
+                    } else {
+                        detailsRow.style.display = "none";
+                        this.textContent = "Show More";
+                    }
+                });
+            });
+        });
+    </script>
+

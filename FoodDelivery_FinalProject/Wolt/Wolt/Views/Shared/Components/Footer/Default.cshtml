@@ -1,0 +1,46 @@
+﻿
+
+<footer class="footer pt-4 pb-2">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                <div class="logo">
+                    <img src="@Model.Settings["Logo"]" />
+
+                </div>
+                <div class="app">
+                    <div class="play-market">
+                        <img src="@Model.Settings["FooterGooglePlayLogo"]" />
+                    </div>
+                    <div class="apple">
+                        <img src="@Model.Settings["FooterAppleStoreLogo"]" />
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                <h5>Faydalı linklər</h5>
+                <ul class="list-unstyled">
+                    <li><a asp-controller="Home" asp-action="Index" class="text-white text-decoration-none">Home</a></li>
+                    <li><a asp-controller="Restaurant" asp-action="Index" class="text-white text-decoration-none">Restoranlar</a></li>
+                    <li><a asp-controller="Order" asp-action="Index" class="text-white text-decoration-none">Sifarişlər</a></li>
+                    <li><a asp-controller="Profile" asp-action="Index" class="text-white text-decoration-none">Profil</a></li>
+                </ul>
+            </div>
+
+            <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                <h5>Contact</h5>
+                <p>Email: @Model.Settings["Email"]</p>
+                <p>Phone: @Model.Settings["Phone"]</p>
+            </div>
+        </div>
+
+        <hr class="border-light" />
+
+        <div class="text-center">
+            <p class="mb-0">&copy; 2025 Wolt. Bütün hüquqlar qorunur.</p>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,51 @@
+﻿@model CourierDetailVM
+
+@if (Model.Orders == null || !Model.Orders.Any())
+{
+    <p>No orders assigned yet.</p>
+}
+else
+{
+    <div style="overflow-x:auto;">
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Customer</th>
+                    <th>Phone</th>
+                    <th>Delivery Address</th>
+                    <th>Total Price</th>
+                    <th>Status</th>
+                    <th>Created At</th>
+                    <th>Delivered At</th>
+                    <th>Items</th>
+                    <th>Restaurant</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var order in Model.Orders)
+                {
+                    <tr>
+                        <td>@order.Id</td>
+                        <td>@order.CustomerName</td>
+                        <td>@order.CustomerPhoneNumber</td>
+                        <td>@order.DeliveryAddress</td>
+                        <td>@order.TotalPrice ₼</td>
+                        <td>@order.Status</td>
+                        <td>@order.CreatedAt.ToString("g")</td>
+                        <td>@order.DeliveredAt?.ToString("g") ?? "Pending"</td>
+                        <td>
+                            <ul style="padding-left:15px;">
+                                @foreach (var item in order.Items)
+                                {
+                                    <li>@item.MenuItemName (@("x" + item.Quantity)) - @item.Price ₼</li>
+                                }
+                            </ul>
+                        </td>
+                        <td>@order.RestaurantName</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

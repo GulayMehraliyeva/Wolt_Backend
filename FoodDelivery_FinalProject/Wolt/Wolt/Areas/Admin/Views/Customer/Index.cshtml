@@ -1,0 +1,47 @@
+﻿@model List<CustomerVM>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Address</th>
+            <th>Roles</th>
+            <th>Options</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>@customer.FullName</td>
+                <td>@customer.UserName</td>
+                <td>@customer.Email</td>
+                <td>@customer.PhoneNumber</td>
+                <td>@customer.Address</td>
+                <td>@string.Join(", ", customer.Roles ?? Enumerable.Empty<string>())</td> <!-- Roles column -->
+
+                <td>
+                    <a asp-action="Detail" asp-route-id="@customer.Id" class="btn btn-primary btn-sm">Detail</a>
+
+                    <form asp-action="Delete" asp-route-id="@customer.Id" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+
+                    <form asp-action="MakeAdmin" method="post" style="display:inline;">
+                        <input type="hidden" name="userId" value="@customer.UserId" />
+                        <button type="submit" class="btn btn-success btn-sm">Make Admin</button>
+                    </form>
+
+                    <form asp-action="RemoveAdmin" method="post" style="display:inline;">
+                        <input type="hidden" name="userId" value="@customer.UserId" />
+                        <button type="submit" class="btn btn-warning btn-sm">Remove Admin</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

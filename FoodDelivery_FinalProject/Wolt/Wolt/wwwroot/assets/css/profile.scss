@@ -1,0 +1,263 @@
+body {
+    background-color: black;
+}
+
+#sidebar-part {
+    .profile-sidebar {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .sidebar {
+
+        margin-top: 100px;
+        font-weight: bold;
+
+
+        ul {
+            font-size: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            list-style: none;
+
+            li {
+                a {
+                    color: white;
+                    text-decoration: none;
+                    transition: all .3s;
+
+                    &:hover {
+                        color: #009de0;
+                    }
+
+                }
+
+                &.active a {
+                    color: #009de0;
+                    font-weight: bold;
+                }
+
+
+            }
+        }
+
+
+
+    }
+
+    h1 {
+        color: white;
+        font-weight: bold;
+    }
+
+    .profile-info {
+        margin-top: 40px;
+        font-weight: bold;
+
+
+
+        ul {
+            font-size: 19px;
+            display: flex;
+            flex-direction: column;
+            gap: 27px;
+            list-style: none;
+
+            list-style: none;
+
+            li {
+
+
+                p {
+                    color: white;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    #favorites-section {
+        .favorite {}
+
+        .image {
+            width: 200px;
+            margin-top: 73px;
+            margin-right: 282px;
+
+            img {
+                width: 100%;
+                border-radius: 10px;
+
+            }
+        }
+
+        h3 {
+            color: white;
+        }
+
+
+    }
+
+    #settings-section {
+        .change-password {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            label {
+                color: white;
+                font-size: 20px;
+            }
+        }
+
+
+    }
+}
+
+
+body {
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.profile-sidebar {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.sidebar {
+    flex: none;
+    width: 250px;
+    height: 100%;
+    max-height: 600px;
+    overflow-y: auto;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    padding: 1rem;
+    top: 2rem;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    margin-bottom: 1rem;
+}
+
+.sidebar a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #ccc;
+    font-weight: 500;
+    transition: 0.3s;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+}
+
+.sidebar li.active a,
+.sidebar a:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.content-section {
+    flex: 3;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    padding: 2rem;
+}
+
+h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #333;
+    padding-bottom: 0.5rem;
+}
+
+.profile-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.profile-info li {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.profile-info i {
+    margin-right: 8px;
+    color: #bbb;
+}
+
+.change-password label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 500;
+}
+
+.change-password input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    border: 1px solid #444;
+    background-color: #2b2b2b;
+    color: white;
+}
+
+.change-password button {
+    background-color: #4caf50;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.change-password button:hover {
+    background-color: #45a049;
+}
+
+.favorite {
+    display: flex;
+    background-color: #2b2b2b;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.favorite .image img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.favorite .content {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.favorite h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}

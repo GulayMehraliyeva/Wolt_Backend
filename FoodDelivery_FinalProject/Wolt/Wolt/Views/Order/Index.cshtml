@@ -1,0 +1,195 @@
+﻿@model IEnumerable<OrderVM>
+
+@section Styles {
+    <link rel="stylesheet" href="~/assets/css/orders.css" />
+}
+
+<section id="orders" class="orders-section">
+    <div class="container">
+        <h1>Sifarişlərim</h1>
+
+        @foreach (var order in Model)
+        {
+            <div class="order-card">
+                <div class="order-header">
+                    <h2>Sifariş #@order.Id</h2>
+                    <div class="order-status-area">
+                        <span class="status @order.Status.ToString().ToLower()">@order.Status</span>
+                        <button class="details-btn" onclick="toggleDetails('@order.Id')">Detalları göstər</button>
+                    </div>
+                </div>
+
+                <div id="details-@order.Id" class="order-body" style="display: none;">
+                    <div><strong>Restoran:</strong> @order.RestaurantName</div>
+                    <div><strong>Kuryer:</strong> @(order.CourierName ?? "Təyin edilməyib") (@(order.CourierPhoneNumber ?? "-"))</div>
+                    <div><strong>Ünvan:</strong> @order.DeliveryAddress</div>
+                    <div><strong>Ödəniş üsulu:</strong> @order.PaymentMethod</div>
+                    <div><strong>Toplam məbləğ:</strong> @order.TotalPrice ₼</div>
+                    <div><strong>Təxmini çatdırılma:</strong> @(order.EstimatedDeliveryTime?.ToString("dd.MM.yyyy HH:mm") ?? "-")</div>
+                    <div><strong>Çatdırılma vaxtı:</strong> @(order.DeliveredAt?.ToString("dd.MM.yyyy HH:mm") ?? "-")</div>
+                    <div><strong>Çatdırılma qiyməti:</strong> @order.DeliveryCost</div>
+
+                    <div class="order-items-section">
+                        <h4>Məhsullar</h4>
+                        <ul class="order-items">
+                            @foreach (var item in order.Items)
+                            {
+                                <li class="order-item">
+                                    <img src="~/assets/images/@item.Image" alt="@item.MenuItemName" />
+                                    <div class="item-details">
+                                        <div><strong>@item.MenuItemName</strong></div>
+                                        <div>@item.Quantity x @item.Price.ToString("0.##") ₼</div>
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+
+@section Scripts {
+    <script src="~/assets/js/orders.js" asp-append-version="true"></script>
+
+    <script>
+        function toggleDetails(id) {
+            const el = document.getElementById('details-' + id);
+            el.style.display = el.style.display === 'none' ? 'block' : 'none';
+        }
+
+
+    </script>
+}
+
+<style>
+    .orders-section {
+        padding: 40px 0;
+        color: #f0f0f0;
+        background-color: #000;
+    }
+
+    .order-card {
+        background-color: #111;
+        color: #f0f0f0;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.03);
+        transition: background 0.3s ease;
+        border: 1px solid #222;
+        margin-top: 40px;
+    }
+
+        .order-card:hover {
+            background-color: #1a1a1a;
+        }
+
+    .order-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #333;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+    }
+
+        .order-header h2 {
+            font-size: 1.4rem;
+            margin: 0;
+        }
+
+    .order-status-area {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .status {
+        padding: 5px 12px;
+        border-radius: 6px;
+        font-weight: bold;
+        font-size: 0.95rem;
+        text-transform: capitalize;
+    }
+
+        .status.gözləyir {
+            background-color: #ffc107;
+            color: #000;
+        }
+
+        .status.hazırlanır {
+            background-color: #17a2b8;
+            color: #fff;
+        }
+
+        .status.yolda {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .status.çatdırıldı {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        .status.təsdiqlənmədi {
+            background-color: #dc3545;
+            color: #fff;
+        }
+
+    /* Button */
+    .details-btn {
+        background-color: #333;
+        color: #eee;
+        padding: 6px 12px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: background 0.2s ease;
+    }
+
+        .details-btn:hover {
+            background-color: #555;
+        }
+
+    /* Order details section */
+    .order-body > div {
+        margin-bottom: 10px;
+        font-size: 0.95rem;
+    }
+
+    .order-items-section {
+        margin-top: 15px;
+    }
+
+    .order-items {
+        list-style: none;
+        padding: 0;
+        margin: 10px 0 0 0;
+    }
+
+    .order-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+        background-color: #222;
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #333;
+    }
+
+        .order-item img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            margin-right: 15px;
+            border-radius: 6px;
+            border: 1px solid #444;
+        }
+
+    .item-details div {
+        color: #ccc;
+    }
+</style>

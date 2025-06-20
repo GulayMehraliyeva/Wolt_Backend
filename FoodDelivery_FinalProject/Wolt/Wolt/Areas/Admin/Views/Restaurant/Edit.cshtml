@@ -1,0 +1,60 @@
+﻿@model RestaurantEditVM
+
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="ExistingImage" />
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="Name">Name</label>
+        <input type="text" asp-for="Name" class="form-control" accept="image/*" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Address">Address</label>
+        <input type="text" asp-for="Address" class="form-control" accept="image/*" />
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Phone">Phone</label>
+        <input type="text" asp-for="Phone" class="form-control" accept="image/*" />
+        <span asp-validation-for="Phone" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="EstimatedDeliveryTime">EstimatedDeliveryTime</label>
+        <input type="text" asp-for="EstimatedDeliveryTime" class="form-control" accept="image/*" />
+        <span asp-validation-for="EstimatedDeliveryTime" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DeliveryCost">DeliveryCost</label>
+        <input type="text" asp-for="DeliveryCost" class="form-control" accept="image/*" />
+        <span asp-validation-for="DeliveryCost" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="RestaurantCategoryId">Category</label>
+        <select asp-for="RestaurantCategoryId" asp-items="Model.Categories" class="form-control">
+            <option value="">-- Select Category --</option>
+        </select>
+        <span asp-validation-for="RestaurantCategoryId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Image">Image</label>
+        <input type="file" asp-for="Image" class="form-control" accept="image/*" />
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Current Image:</label>
+        <img src="~/assets/images/@Model.ExistingImage" alt="Current Image" style="width:400px; height:200px;" />
+    </div>
+
+    <button type="submit" class="btn btn-primary me-2">Submit</button>
+    <a asp-controller="Restaurant" asp-action="Index" class="btn btn-light">Cancel</a>
+</form>

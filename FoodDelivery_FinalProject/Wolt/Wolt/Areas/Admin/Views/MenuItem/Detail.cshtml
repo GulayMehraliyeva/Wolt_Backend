@@ -1,0 +1,54 @@
+﻿@model MenuItemDetailVM
+
+@{
+    ViewData["Title"] = "Menu Item Details";
+}
+
+<div class="container mt-5">
+         <div class="row g-0">
+            <div class="col-md-4">
+                @if (!string.IsNullOrEmpty(Model.Image))
+                {
+                    <img src="~/assets/images/@Model.Image" alt="@Model.Name" class="img-fluid rounded-start" style="max-height: 300px; width: 100%;" />
+                }
+                else
+                {
+                    <div class="d-flex align-items-center justify-content-center bg-light" style="height: 300px;">
+                        <span class="text-muted">No Image Available</span>
+                    </div>
+                }
+            </div>
+
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h1 class="card-title">@Model.Name</h1>
+                <h6 class="text-muted"><strong>Restaurant:</strong><span class="fw-semibold">@Model.RestaurantName</span></h6>
+                <h5 class="text-muted mb-3"><strong>Category:</strong> <span class="fw-semibold">@Model.CategoryName</span></h5>
+
+                    <p class="card-text">@Model.Description</p>
+
+                    <div class="mb-3">
+                        <strong>Price:</strong> <span class="fs-4 text-success">@Model.Price.ToString("C")</span>
+                    </div>
+
+                    @if (Model.DiscountNames != null && Model.DiscountNames.Any())
+                    {
+                        <div class="mb-3">
+                            <strong>Discounts:</strong>
+                            <ul class="list-group list-group-flush">
+                                @foreach (var discount in Model.DiscountNames)
+                                {
+                                    <li class="list-group-item px-0">@discount</li>
+                                }
+                            </ul>
+                        </div>
+                    }
+
+                    <a href="@Url.Action("Index", "MenuItem", new { area = "Admin" })" class="btn btn-primary mt-3">
+                        <i class="bi bi-arrow-left-circle"></i> Back to Menu Items
+                    </a>
+                </div>
+            </div>
+        </div>
+</div>
+

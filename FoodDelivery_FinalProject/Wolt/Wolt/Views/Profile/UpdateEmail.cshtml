@@ -1,0 +1,50 @@
+﻿@model UpdateEmailVM
+
+<form method="post" style="max-width:400px; margin:auto; padding:20px; background-color:#1a1a1a; border-radius:8px;">
+    <div class="form-group mb-3">
+        <label style="color:#eee;" for="Email">New Email</label>
+        <input asp-for="Email"
+               class="form-control"
+               style="background-color:#333; color:#eee; border:1px solid #555;" />
+        <span asp-validation-for="Email" class="text-danger small"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100"
+            style="background-color:#0d6efd; border:none; font-weight:bold;">
+        Update
+    </button>
+</form>
+
+<style>
+    .form-control {
+        background-color: #333 !important;
+        color: #eee !important;
+        border: 1px solid #555 !important;
+    }
+
+        .form-control:focus {
+            background-color: #444 !important;
+            color: #fff !important;
+            border-color: #0d6efd !important;
+            box-shadow: 0 0 5px #0d6efd !important;
+        }
+
+    label {
+        color: #eee;
+    }
+
+    .text-danger {
+        color: #ff6b6b !important;
+    }
+
+    .btn-primary {
+        background-color: #0d6efd;
+        border: none;
+        font-weight: 600;
+    }
+
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+        }
+
+</style>

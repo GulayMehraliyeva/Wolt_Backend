@@ -1,0 +1,105 @@
+﻿@model MenuItemEditVM
+@{
+    ViewData["Title"] = "Edit Menu Item";
+}
+
+<h2>Edit Menu Item</h2>
+
+<form asp-action="Edit" asp-area="Admin" asp-route-id="@Model.Id"
+      method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+
+    <input type="hidden" asp-for="ExistingImage" />
+
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <input asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Price"></label>
+        <input asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="RestaurantId">Restaurant</label>
+        <select asp-for="RestaurantId"
+                asp-items="Model.Restaurants"
+                class="form-control" id="restaurantSelect">
+            <option value="">-- Select Restaurant --</option>
+        </select>
+        <span asp-validation-for="RestaurantId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CategoryId">Category</label>
+        <select asp-for="CategoryId"
+                class="form-control" id="categorySelect">
+            <option value="">-- Select Category --</option>
+        </select>
+        <span asp-validation-for="CategoryId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DiscountIds">Discounts (optional)</label>
+        <select asp-for="DiscountIds"
+                asp-items="Model.Discounts"
+                multiple="multiple"
+                class="form-control">
+        </select>
+        <span asp-validation-for="DiscountIds" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Current Image</label><br />
+        <img src="~/assets/images/@Model.ExistingImage"
+             alt="current image" width="120" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Image">Replace Image (optional)</label>
+        <input type="file" asp-for="Image" class="form-control" />
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</form>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            loadCategories($('#restaurantSelect').val(), @Model.CategoryId);
+
+            $('#restaurantSelect').on('change', function () {
+                loadCategories($(this).val(), null);
+            });
+        });
+
+        function loadCategories(restaurantId, selectedCategoryId) {
+            var $cat = $('#categorySelect');
+            $cat.empty().append('<option value="">-- Select Category --</option>');
+
+            if (!restaurantId) { return; }
+
+            var url = '@Url.Action("GetCategoriesByRestaurant", "MenuItem", new { area = "Admin" })';
+            $.get(url + '?restaurantId=' + restaurantId, function (data) {
+                if (data && data.length) {
+                    $.each(data, function (i, c) {
+                        var opt = $('<option/>').val(c.id).text(c.name);
+                        if (selectedCategoryId && c.id == selectedCategoryId) opt.prop('selected', true);
+                        $cat.append(opt);
+                    });
+                }
+            });
+        }
+    </script>
+

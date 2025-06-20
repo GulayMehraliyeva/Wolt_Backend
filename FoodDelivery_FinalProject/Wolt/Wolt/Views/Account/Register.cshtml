@@ -1,0 +1,181 @@
+﻿@model RegisterVM
+
+@{
+    Layout = null;
+}
+
+
+<form method="post" asp-action="Register">
+    <div class="text-danger" asp-validation-summary="All"></div>
+    <label>
+        <p class="label-txt">ENTER YOUR FULLNAME</p>
+        <input asp-for="FullName" class="input" name="FullName" style="color:white;">
+        <div class="line-box">
+            <div class="line"></div>
+        </div>
+        <span asp-validation-for="FullName" class="text-danger d-block mt-1"
+              style="text-align:left !important"></span>
+    </label>
+    <label>
+        <p class="label-txt">ENTER YOUR USERNAME</p>
+        <input asp-for="UserName" class="input" name="UserName" style="color:white;">
+        <div class="line-box">
+            <div class="line"></div>
+        </div>
+        <span asp-validation-for="UserName" class="text-danger d-block mt-1"
+              style="text-align:left !important"></span>
+    </label>
+    <label>
+        <p class="label-txt">ENTER YOUR EMAIL</p>
+        <input asp-for="Email" type="email" class="input" name="Email" style="color:white;">
+        <div class="line-box">
+            <div class="line"></div>
+        </div>
+        <span asp-validation-for="Email" class="text-danger d-block mt-1" style="text-align:left !important"></span>
+    </label>
+    <label>
+        <p class="label-txt">ENTER YOUR PHONE</p>
+        <input asp-for="PhoneNumber" class="input" name="PhoneNumber" style="color:white;">
+        <div class="line-box">
+            <div class="line"></div>
+        </div>
+        <span asp-validation-for="PhoneNumber" class="text-danger d-block mt-1" style="text-align:left !important"></span>
+    </label>
+    <label>
+        <p class="label-txt">ENTER YOUR ADDRESS</p>
+        <input asp-for="Address" class="input" name="Address" style="color:white;">
+        <div class="line-box">
+            <div class="line"></div>
+        </div>
+        <span asp-validation-for="Address" class="text-danger d-block mt-1" style="text-align:left !important"></span>
+    </label>
+    <label>
+        <p class="label-txt">ENTER YOUR PASSWORD</p>
+        <input asp-for="Password" class="input" type="password" name="Password" style="color:white;">
+        <div class="line-box">
+            <div class="line"></div>
+        </div>
+        <span asp-validation-for="Password" class="text-danger d-block mt-1"
+              style="text-align:left !important"></span>
+    </label>
+    <label>
+        <p class="label-txt">ENTER YOUR CONFIRM PASSWORD</p>
+        <input asp-for="ConfirmPassword" class="input" type="password" name="ConfirmPassword" style="color:white;">
+        <div class="line-box">
+            <div class="line"></div>
+        </div>
+        <span asp-validation-for="ConfirmPassword" class="text-danger d-block mt-1"
+              style="text-align:left !important"></span>
+    </label>
+    <button type="submit" class="btn btn-success">Submit</button>
+    <a asp-action="Login" class="d-block mt-1"
+       style="margin-left: 15px; color: #0056b3; font-weight: bold; cursor: pointer;">Go to Login</a>
+</form>
+
+
+<style>
+    body{
+        background-color: black;
+    }
+
+    form {
+        width: 20%;
+        margin: 60px auto;
+        background:#161515;
+        padding: 60px 120px 80px 120px;
+        text-align: center;
+        -webkit-box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+        box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+        border-radius: 50px;
+    }
+
+    label {
+        display: block;
+        position: relative;
+        margin: 40px 0px;
+    }
+
+    .label-txt {
+        position: absolute;
+        top: -1.6em;
+        padding: 10px;
+        font-family: sans-serif;
+        font-size: .8em;
+        letter-spacing: 1px;
+        color: rgb(120,120,120);
+        transition: ease .3s;
+    }
+
+    .input {
+        width: 100%;
+        padding: 10px;
+        background: transparent;
+        border: none;
+        outline: none;
+    }
+
+    .line-box {
+        position: relative;
+        width: 100%;
+        height: 2px;
+        background: #BCBCBC;
+    }
+
+    .line {
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        top: 0px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #0056b3;
+        transition: ease .6s;
+    }
+
+    .input:focus + .line-box .line {
+        width: 100%;
+    }
+
+    .label-active {
+        top: -3em;
+    }
+
+    button {
+        display: inline-block;
+        padding: 12px 24px;
+        background: gray;
+        font-weight: bold;
+        color: white;
+        border: none;
+        outline: none;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: ease .3s;
+    }
+
+        button:hover {
+            background:#0056b3;
+            color: #ffffff;
+        }
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".input").each(function () {
+            if ($(this).val() !== '') {
+                $(this).parent().find(".label-txt").addClass('label-active');
+            }
+        });
+
+        $('.input').focus(function () {
+            $(this).parent().find(".label-txt").addClass('label-active');
+        });
+
+        $(".input").focusout(function () {
+            if ($(this).val() == '') {
+                $(this).parent().find(".label-txt").removeClass('label-active');
+            }
+        });
+    });
+</script>

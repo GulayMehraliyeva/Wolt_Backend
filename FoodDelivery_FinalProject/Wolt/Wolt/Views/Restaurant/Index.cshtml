@@ -1,0 +1,300 @@
+﻿@model RestaurantVMUI
+
+@section Styles {
+    <link rel="stylesheet" href="~/assets/css/restaurants.css" />
+}
+
+
+<main>
+    <section id="categories">
+        <div class="brands-arrows">
+            <h1>Kateqoriyalar</h1>
+            <div class="arrows position-absolute w-100 d-flex justify-content-between">
+                <div class="left-arrow d-flex align-items-center justify-content-center bg-dark text-info rounded-circle"
+                     style="width: 40px; height: 40px; cursor: pointer;">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </div>
+                <div class="right-arrow d-flex align-items-center justify-content-center bg-dark text-info rounded-circle"
+                     style="width: 40px; height: 40px; cursor: pointer;">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </div>
+        </div>
+
+        <div id="categories-slider" class="container-fluid overflow-hidden">
+            <div class="row flex-nowrap transition" id="categories-row">
+                @foreach(var category in Model.RestaurantCategories)
+                {
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 image-item">
+                        <a asp-controller="RestaurantCategory" asp-action="Detail" asp-route-id="@category.Id" class="category-card">
+                            <div class="image">
+                                <img src="~/assets/images/@category.Image" class="img-fluid">
+                            </div>
+                            <h4>@category.Name</h4>
+                            <p>@category.NumberOfRestaurants</p>
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+
+    <section id="all-restaurants">
+        <div class="title-filter">
+            <h1>Bütün Restoranlar</h1>
+
+            <div class="filter-sort" style="display:flex; gap:20px; margin-right:20px">
+                <div class="filter-dropdown">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-danger dropdown-toggle"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                            Sırala
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item sort-option" data-sort="newest">Yeni</a>
+                            <a class="dropdown-item sort-option" data-sort="oldest">Köhnə</a>
+                            <a class="dropdown-item sort-option" data-sort="name_asc">A-Z</a>
+                            <a class="dropdown-item sort-option" data-sort="name_desc">Z-A</a>
+                            <a class="dropdown-item sort-option" data-sort="rating_high">Ən yüksək reytinq</a>
+                            <a class="dropdown-item sort-option" data-sort="rating_low">Ən aşağı reytinq</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filters">
+                    <button class="filter" data-bs-toggle="modal" data-bs-target="#filterModal">
+                        <span>Filtrlər</span>
+                        <i class="fa-solid fa-filter"></i>
+                    </button>
+
+                    <div class="modal fade" id="filterModal" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <form asp-action="Filter" method="post" id="filterForm">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Filtrlər</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                    </div>
+
+                                    <div class="modal-body">
+
+                                        <h5>Çatdırılma</h5>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="FreeDelivery" value="true" id="freeDelivery">
+                                            <label class="form-check-label" for="freeDelivery">
+                                                Pulsuz çatdırılma
+                                            </label>
+                                        </div>
+
+                                        <h5 class="mt-3">Çatdırılma müddəti</h5>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="MaxDeliveryTime" value="20" id="maxTime20">
+                                            <label class="form-check-label" for="maxTime20">20 dəq və az</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="MaxDeliveryTime" value="30" id="maxTime30">
+                                            <label class="form-check-label" for="maxTime30">30 dəq və az</label>
+                                        </div>
+
+                                        <h5 class="mt-3">Reytinq</h5>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="SelectedRatings" value="5" id="rating5">
+                                            <label class="form-check-label" for="rating5">4-5</label>
+                                        </div>
+
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="SelectedRatings" value="4" id="rating4">
+                                            <label class="form-check-label" for="rating4">3-4</label>
+                                        </div>
+
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="SelectedRatings" value="3" id="rating3">
+                                            <label class="form-check-label" for="rating3">2-3</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="SelectedRatings" value="3" id="rating3">
+                                            <label class="form-check-label" for="rating3"> < 2 </label>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-primary">Tətbiq et</button>
+                                        <button type="button" class="btn btn-secondary" id="clearFiltersBtn">Sıfırla</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           
+        </div>
+
+        <div class="container">
+
+            <div id="restaurants-container">
+                @await Html.PartialAsync("_RestaurantsListPartial", Model)
+            </div>
+
+        </div>
+
+
+    </section>
+</main>
+
+
+@section Scripts {
+    <script src="~/assets/js/restaurants.js" asp-append-version="true"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let currentSort = "newest";
+            const restaurantsContainer = document.getElementById("restaurants-container");
+            const filterForm = document.getElementById("filterForm");
+            const clearBtn = document.getElementById("clearFiltersBtn");
+
+            clearBtn?.addEventListener("click", function () {
+                filterForm.reset();
+            });
+
+            function loadSortedPage(sortOrder = "newest", page = 1) {
+                fetch(`/Restaurant/GetSortedRestaurants?sortOrder=${sortOrder}&page=${page}`)
+                    .then(response => response.text())
+                    .then(html => {
+                        restaurantsContainer.innerHTML = html;
+                        attachPaginationEvents(); 
+                    });
+            }
+
+            document.querySelectorAll(".sort-option").forEach(option => {
+                option.addEventListener("click", () => {
+                    currentSort = option.getAttribute("data-sort");
+                    loadSortedPage(currentSort, 1);
+                });
+            });
+
+
+            function attachPaginationEvents() {
+                const buttons = restaurantsContainer.querySelectorAll("button.page, button.arrow");
+                buttons.forEach(button => {
+                    button.addEventListener("click", () => {
+                        const page = button.getAttribute("data-page");
+                        if (page) {
+                            loadSortedPage(currentSort, page);
+                        }
+                    });
+                });
+            }
+
+            filterForm?.addEventListener("submit", function (e) {
+                e.preventDefault();
+                const formData = new FormData(filterForm);
+                fetch(filterForm.action, {
+                    method: "POST",
+                    body: new URLSearchParams(formData),
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    }
+                })
+                    .then(res => res.text())
+                    .then(html => {
+                        restaurantsContainer.innerHTML = html;
+
+                        const modal = bootstrap.Modal.getInstance(document.getElementById("filterModal"));
+                        modal?.hide();
+
+                        attachPaginationEvents();
+                    });
+            });
+
+            const categoriesRow = document.getElementById("categories-row");
+            const leftArrow = document.querySelector("#categories .left-arrow");
+            const rightArrow = document.querySelector("#categories .right-arrow");
+
+            let currentIndex = 0;
+            const categoryItems = categoriesRow?.querySelectorAll(".image-item") || [];
+            const totalItems = categoryItems.length;
+            const visibleItems = 6;
+
+            function updateSlider() {
+                const itemWidth = categoryItems[0]?.offsetWidth || 0;
+                categoriesRow.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+                categoriesRow.style.transition = "transform 0.4s ease";
+            }
+
+            rightArrow?.addEventListener("click", () => {
+                if (currentIndex < totalItems - visibleItems) {
+                    currentIndex++;
+                } else {
+                    currentIndex = 0;
+                }
+                updateSlider();
+            });
+
+            leftArrow?.addEventListener("click", () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                } else {
+                    currentIndex = totalItems - visibleItems;
+                }
+                updateSlider();
+            });
+
+            attachPaginationEvents();
+        });
+    </script>
+}
+
+
+
+<style>
+    .filter-dropdown .btn-group .btn-danger.dropdown-toggle {
+        width: 200px;
+        height: 50px;
+        background-color: #ffffff33;
+        color: #fff;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        border: none;
+        transition: all 0.3s;
+        margin-top: 40px;
+    }
+
+        .filter-dropdown .btn-group .btn-danger.dropdown-toggle:hover {
+            cursor: pointer;
+            background-color: #ffffff28;
+        }
+
+    .filter-dropdown .dropdown-menu {
+        background-color: #2c2d35;
+        border-radius: 10px;
+        border: none;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .filter-dropdown .dropdown-menu a{
+        cursor:pointer;
+    }
+
+    .filter-dropdown .dropdown-item {
+        color: white;
+        padding: 12px 20px;
+        font-size: 16px;
+        transition: background 0.3s;
+    }
+
+        .filter-dropdown .dropdown-item:hover {
+            background-color: #3b3c46;
+            color: #fff;
+        }
+
+  
+</style>

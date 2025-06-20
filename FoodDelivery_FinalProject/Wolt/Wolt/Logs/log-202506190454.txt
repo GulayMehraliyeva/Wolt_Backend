@@ -1,0 +1,37 @@
+2025-06-19 04:54:56.056 +04:00 [INF] User profile is available. Using 'C:\Users\gulay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-19 04:54:56.377 +04:00 [INF] Now listening on: https://localhost:7288
+2025-06-19 04:54:56.378 +04:00 [INF] Now listening on: http://localhost:5226
+2025-06-19 04:54:56.440 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-19 04:54:56.441 +04:00 [INF] Hosting environment: Development
+2025-06-19 04:54:56.441 +04:00 [INF] Content root path: C:\Users\gulay\OneDrive\Рабочий стол\Wolt\Wolt\Wolt
+2025-06-19 04:54:56.662 +04:00 [INF] Request starting HTTP/2 POST https://localhost:7288/Admin/MenuItem/Edit/2 - multipart/form-data; boundary=----WebKitFormBoundaryC2w9nBDjjVRohcKS 1147
+2025-06-19 04:54:58.043 +04:00 [WRN] No store type was specified for the decimal property 'DiscountPercentage' on entity type 'Discount'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-19 04:54:58.044 +04:00 [WRN] No store type was specified for the decimal property 'TotalPrice' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-19 04:54:58.044 +04:00 [WRN] No store type was specified for the decimal property 'DeliveryCost' on entity type 'Restaurant'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-19 04:54:59.136 +04:00 [INF] Executed DbCommand (83ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2025-06-19 04:54:59.389 +04:00 [INF] Executed DbCommand (9ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2025-06-19 04:54:59.431 +04:00 [INF] Executed DbCommand (9ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2025-06-19 04:54:59.459 +04:00 [INF] Executed DbCommand (7ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-06-19 04:54:59.498 +04:00 [INF] Executed DbCommand (4ms) [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+2025-06-19 04:54:59.514 +04:00 [INF] Executing endpoint 'Wolt.Areas.Admin.Controllers.MenuItemController.Edit (Wolt)'
+2025-06-19 04:54:59.556 +04:00 [INF] Route matched with {area = "Admin", action = "Edit", controller = "MenuItem"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(Service.ViewModels.MenuItem.MenuItemEditVM) on controller Wolt.Areas.Admin.Controllers.MenuItemController (Wolt).
+2025-06-19 04:54:59.926 +04:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedDate], [m].[Name], [m].[RestaurantId], [r].[Id], [r].[Address], [r].[CreatedDate], [r].[DeliveryCost], [r].[EstimatedDeliveryTime], [r].[Image], [r].[Name], [r].[Phone], [r].[RestaurantCategoryId]
+FROM [MenuItemCategories] AS [m]
+INNER JOIN [Restaurants] AS [r] ON [m].[RestaurantId] = [r].[Id]

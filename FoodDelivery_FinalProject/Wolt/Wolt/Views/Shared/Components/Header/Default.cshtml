@@ -1,0 +1,99 @@
+﻿@model HeaderVM
+
+<header>
+    <div class="navbar">
+        <div class="logo-location">
+            <a asp-controller="Home" asp-action="Index">
+                <div class="logo">
+                    <img src="@Model.Settings["Logo"]" />
+                </div>
+            </a>
+            <div class="location">
+                <div class="location-icon">
+                    <i class="fa-solid fa-location-dot"></i>
+
+                </div>
+                <span class="street">@Model.UserAddress</span>
+            </div>
+        </div>
+
+        <form asp-controller="Home" asp-action="Search" method="get" class="search">
+            <div class="search-text">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" name="query" placeholder="Wolt-da axtarın..." />
+            </div>
+        </form>
+
+
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div class="account-cart">
+                <div class="account">
+                    <div class="profile">
+                        <span>@Model.UserFullName</span>
+                    </div>
+                    <div class="dropdown" id="dropdownToggle">
+                        <i class="fa-solid fa-circle-chevron-down"></i>
+                        <div class="test-div">
+                            <ul class="dropdown-menu" id="dropdownMenu">
+                                <li><a asp-controller="Profile" asp-action="Index">Profile</a></li>
+                                <li><a asp-controller="Order" asp-action="Index">Orders</a></li>
+                                <li>
+                                    <form asp-controller="Account" asp-action="Logout" method="post">
+                                        <button type="submit" style="border:none; border-radius:5px; background-color:red; font-weight:bold; color:white">Logout</button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+                <a asp-controller="Cart" asp-action="Index">
+                    <div class="cart">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                    </div>
+                </a>
+                
+            </div>
+        }
+        else
+        {
+            <div class="login-register">
+                <a asp-controller="Account" asp-action="Login" class="login" style="text-decoration:none;  display:flex; align-items:center; justify-content:center;">Daxil ol</a>
+                <a asp-controller="Account" asp-action="Register" class="register" style="text-decoration:none; display:flex; align-items:center; justify-content:center;">Qeydiyyatdan keçin</a>
+            </div>
+        }
+
+
+
+
+        <div class="line"></div>
+
+        <div class="second-navbar-div" style="width:100%;display:flex; align-items:center; justify-content:center;">
+            <div class="second-navbar">
+                <div class="home nav-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" ? "active" : "")">
+                    <a asp-controller="Home" asp-action="Index">Home</a>
+                </div>
+                <div class="restaurants nav-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Restaurant" ? "active" : "")">
+                    <a asp-controller="Restaurant" asp-action="Index"><i class="fa-solid fa-utensils"></i> Restoranlar</a>
+                </div>
+            </div>
+        </div>
+        
+
+    </div>
+</header>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const navItems = document.querySelectorAll(".second-navbar .nav-item");
+
+        navItems.forEach(item => {
+            item.addEventListener("click", function () {
+                navItems.forEach(i => i.classList.remove("active"));
+                item.classList.add("active");
+            });
+        });
+    });
+</script>
+

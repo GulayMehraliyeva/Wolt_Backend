@@ -1,0 +1,28 @@
+﻿@model OrderEditVM
+@using Domain.Helpers.Enums
+@using Microsoft.AspNetCore.Mvc.Rendering
+
+<h2>Sifariş Tənzimləmə</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="OrderId" />
+
+    <div class="form-group">
+        <label>Status</label>
+        <select asp-for="Status" class="form-control" asp-items="Html.GetEnumSelectList<OrderStatus>()"></select>
+    </div>
+
+    <div class="form-group">
+        <label>Kuryer seç</label>
+        <select asp-for="CourierId" class="form-control" asp-items="Model.Couriers">
+            <option value="">-- Kuryer seçilməyib --</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Estimated Delivery Time</label>
+        <input asp-for="EstimatedDeliveryTime" type="datetime-local" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Yadda saxla</button>
+</form>

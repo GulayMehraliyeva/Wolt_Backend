@@ -1,0 +1,17 @@
+﻿@model RestaurantCategoryCreateVM
+
+
+<form method="post" asp-area="Admin" asp-controller="RestaurantCategory" asp-action="Create" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="input" class="control-label">Name</label><i class="bar"></i>
+        <input type="text" required="required" asp-for="Name" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputUsername1">Image</label>
+        <input type="file" class="form-control" id="exampleInputUsername1" asp-for="Image">
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary me-2">Submit</button>
+    <a asp-controller="RestaurantCategory" asp-action="Index" class="btn btn-light">Cancel</a>
+</form>

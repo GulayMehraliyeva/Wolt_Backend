@@ -1,0 +1,64 @@
+﻿@model RestaurantCategoryDetailVM
+
+<section class="category-detail container">
+    <div class="text-center mb-4">
+        <h2>@Model.Category.Name</h2>
+    </div>
+
+    <div class="row">
+        @foreach (var restaurant in Model.Restaurants)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="~/assets/images/@restaurant.Image" class="card-img-top" />
+                    <div class="card-body">
+                        <h5 class="card-title" style="color:white">@restaurant.Name</h5>
+                        <p class="card-text">@restaurant.Address</p>
+                        <p>Çatdırılma: @restaurant.EstimatedDeliveryTime dəq</p>
+                        <p>Qiymət: @restaurant.DeliveryCost ₼</p>
+                        <p>Reytinq: @restaurant.AverageRating ★</p>
+                        <a href="@Url.Action("Index", "Menu", new { restaurantId = restaurant.Id })" class="btn btn-primary">Ətraflı</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+
+
+<style>
+    body {
+        background-color: #121212; /* Very dark background */
+        color: #e0e0e0; /* Light gray text for readability */
+    }
+
+    .category-detail .card {
+        background-color: #1f1f1f; /* Dark card background */
+        border-radius: 8px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .category-detail .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 24px rgba(0, 123, 255, 0.6);
+        }
+
+    .category-detail h2, .category-detail p {
+        color: #e0e0e0;
+    }
+
+    .category-detail .btn-outline-info {
+        color: #0dcaf0;
+        border-color: #0dcaf0;
+    }
+
+        .category-detail .btn-outline-info:hover {
+            background-color: #0dcaf0;
+            color: #121212;
+        }
+
+    .category-detail img {
+        border-radius: 6px;
+    }
+
+</style>

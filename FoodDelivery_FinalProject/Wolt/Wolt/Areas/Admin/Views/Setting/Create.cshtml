@@ -1,0 +1,40 @@
+﻿@model SettingCreateVM
+
+
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label asp-for="Key" class="form-label"></label>
+        <input asp-for="Key" class="form-control" />
+        <span asp-validation-for="Key" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Type" class="form-label"></label>
+        <select asp-for="Type" class="form-control" id="type-select">
+            <option value="Text">Text</option>
+            <option value="Image">Image</option>
+        </select>
+    </div>
+
+    <div class="mb-3" id="text-value">
+        <label asp-for="Value" class="form-label"></label>
+        <input asp-for="Value" class="form-control" />
+    </div>
+
+    <div class="mb-3" id="image-value" style="display:none;">
+        <label asp-for="Image" class="form-label"></label>
+        <input asp-for="Image" type="file" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Create</button>
+</form>
+
+
+    <script>
+        document.getElementById("type-select").addEventListener("change", function () {
+            const type = this.value;
+            document.getElementById("text-value").style.display = type === "Text" ? "block" : "none";
+            document.getElementById("image-value").style.display = type === "Image" ? "block" : "none";
+        });
+    </script>
+

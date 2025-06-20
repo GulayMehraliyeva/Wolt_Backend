@@ -1,0 +1,72 @@
+body {
+  background-color: black;
+}
+
+#orders h1 {
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 50px;
+}
+#orders .order-table {
+  color: white;
+}
+#orders .order-table table {
+  border-collapse: separate;
+  border-spacing: 70px 15px;
+}
+#orders .order-table tr th {
+  font-size: 20px;
+}
+#orders .order-table tr .title-image {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+#orders .order-table tr .title-image .title h6 {
+  color: white;
+}
+#orders .order-table tr .title-image .title p {
+  color: rgba(255, 255, 255, 0.719);
+  width: 250px;
+}
+#orders .order-table tr .title-image .title .discount-price {
+  display: flex;
+  gap: 10px;
+}
+#orders .order-table tr .title-image .title .discount-price .discountedprice {
+  color: red;
+}
+#orders .order-table tr .title-image .image {
+  width: 150px;
+}
+#orders .order-table tr .title-image .image img {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+}
+#orders .order-table .status {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  display: inline-block;
+}
+#orders .order-table .status.preparing {
+  background-color: orange;
+  color: white;
+}
+#orders .order-table .status.out-for-delivery {
+  background-color: blue;
+  color: white;
+}
+#orders .order-table .status.delivered {
+  background-color: green;
+  color: white;
+}
+#orders .order-table .status.canceled {
+  background-color: red;
+  color: white;
+}/*# sourceMappingURL=orders.css.map */

@@ -1,0 +1,303 @@
+body {
+    background-color: black;
+}
+
+
+#menu {
+    .sidebar {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            list-style: none;
+
+            a {
+                text-decoration: none;
+                font-size: 17px;
+                font-weight: bold;
+                color: rgba(255, 255, 255, 0.682);
+
+                &:hover {
+                    color: white;
+                }
+            }
+        }
+
+        h1 {
+            color: white;
+            font-weight: bold;
+        }
+
+        .comments {
+            .my-comment {
+                display: flex;
+                flex-direction: column;
+
+                button{
+                    border: none;
+                    background:none;
+                    margin-top: 10px;
+                    border-radius: 7px;
+                    color: white;
+                    height: 50px;
+                    transition: all .3s;
+
+                    &:hover{
+                        background-color: #1a1a1a;
+                    }
+                }
+
+                input {
+                    height: 80px;
+                    border-radius: 10px;
+                    padding-bottom: 50px;
+                    padding-left: 10px;
+                    background-color: rgba(51, 50, 50, 0.49);
+                    border: none;
+
+                    &::placeholder {
+                        color: white;
+                        text-align: left;
+                        vertical-align: top;
+                        font-size: 12px;
+                        font-weight: bold;
+                    }
+                }
+            }
+
+            .other-comments {
+                margin-top: 50px;
+
+                .comment {
+                    color: white;
+
+                    .image-name {
+                        display: flex;
+                        align-items: center;
+                        gap: 20px;
+
+                        .image {
+                            width: 50px;
+                            height: 50px;
+
+                            img {
+                                width: 100%;
+                                height: 100%;
+                                border-radius: 50%;
+
+                            }
+                        }
+                    }
+
+                    .description{
+                        margin-top: 7px;
+                    }
+
+                }
+
+            }
+        }
+    }
+
+    .restaurant-menu {
+        .image-like {
+            position: relative;
+            margin-top: 90px;
+
+            .image {
+                img {
+                    width: 100%;
+                    border-radius: 20px;
+                    display: block;
+
+                }
+            }
+
+            .like-button {
+                position: absolute;
+                width: 50px;
+                height: 50px;
+                background-color: #1a1a1ac1;
+                border-radius: 16px;
+                color: rgba(255, 255, 255, 0.682);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                top: 10px;
+                right: 10px;
+                transition: all 0.3s ease;
+                cursor: pointer;
+
+                &:hover {
+                    background: #1a1a1a;
+                    color: white;
+                }
+            }
+        }
+
+        .rating-delivery-time {
+            margin-top: 20px;
+            display: flex;
+            color: white;
+            gap: 20px;
+            justify-content: center;
+
+            .line {
+                height: 30px;
+                background-color: #ffffff8e;
+                width: 1px;
+            }
+
+
+        }
+
+        .special-offers {
+            margin-top: 20px;
+
+            h2 {
+                font-weight: bold;
+                color: white;
+            }
+
+            .title-image {
+                margin-top: 20px;
+                display: flex;
+                justify-content: space-between;
+
+                .title {
+                    h6 {
+                        color: white;
+
+                    }
+
+                    p {
+                        color: rgba(255, 255, 255, 0.719);
+                    }
+
+
+                    .discount-price {
+                        display: flex;
+                        gap: 10px;
+
+                        .discountedprice {
+                            color: red;
+                        }
+
+                        .price {
+                            text-decoration: line-through;
+                        }
+                    }
+                }
+
+                .image-button {
+                    position: relative;
+
+                    .image {
+                        width: 150px;
+
+                        img {
+                            width: 100%;
+                            display: block;
+                            border-radius: 10px;
+                        }
+
+
+                    }
+
+                    button {
+                        position: absolute;
+                        top: 5px;
+                        right: 5px;
+                        border-radius: 50%;
+                        background-color: #1a1a1a95;
+                        color: white;
+                        border: none;
+                        transition: all .3s ease;
+
+                        &:hover{
+                            background-color: #1a1a1a;
+                        }
+                    }
+                }
+
+            }
+        }
+
+        .category {
+            margin-top: 20px;
+
+            h2 {
+                font-weight: bold;
+                color: white;
+            }
+
+            .title-image {
+                margin-top: 20px;
+                display: flex;
+                justify-content: space-between;
+
+                .title {
+                    h6 {
+                        color: white;
+
+                    }
+
+                    p {
+                        color: rgba(255, 255, 255, 0.719);
+                    }
+
+
+                    .discount-price {
+                        .price{
+                            color: #009de0;
+                        }
+
+                        
+                    }
+                }
+
+                .image-button {
+                    position: relative;
+
+                    .image {
+                        width: 150px;
+
+                        img {
+                            width: 100%;
+                            display: block;
+                            border-radius: 10px;
+                        }
+
+
+                    }
+
+                    button {
+                        position: absolute;
+                        top: 5px;
+                        right: 5px;
+                        border-radius: 50%;
+                        background-color: #1a1a1a95;
+                        color: white;
+                        border: none;
+                        transition: all .3s ease;
+
+                        &:hover{
+                            background-color: #1a1a1a;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+.line{
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.433);
+}

@@ -1,0 +1,164 @@
+﻿@model CartVM
+
+@section Styles {
+    <link rel="stylesheet" href="~/assets/css/cart.css" />
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Error"]
+    </div>
+}
+
+
+<main>
+    <section id="cart" style="width:100%;">
+        <div class="container">
+            <div class="cart-table">
+                <table>
+                    <tr>
+                        <th>Məhsul</th>
+                        <th>Miqdar</th>
+                        <th>Qiymət</th>
+                        <th>Sil</th>
+                    </tr>
+
+                    @for (int i = 0; i < Model.Items.Count; i++)
+                    {
+                        var item = Model.Items[i];
+                        <tr data-id="@item.Id" data-price="@item.Price" data-discounted-price="@item.DiscountedPrice">
+                            <td>
+                                <div class="title-image">
+                                    <div class="image-button">
+                                        <div class="image">
+                                            <img src="assets/images/@item.Image" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="title">
+                                        <h6>@item.MenuItemName</h6>
+                                        <p>@item.Description</p>
+                                        <div class="discount-price">
+                                            @if (item.DiscountedPrice < item.Price)
+                                            {
+                                                <span class="price text-decoration-line-through">@item.Price ₼</span>
+                                                <span class="price text-danger fw-bold">@item.DiscountedPrice ₼</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="price">@item.Price ₼</span>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="cart-counter">
+                                    <button type="button" onclick="updateQuantity(@item.Id, -1)">-</button>
+                                    <input type="number" id="counter-@item.Id" value="@item.Quantity" min="1" onchange="quantityChanged(@item.Id)">
+                                    <button type="button" onclick="updateQuantity(@item.Id, 1)">+</button>
+                                </div>
+                            </td>
+
+                            <td id="item-total-@item.Id">
+                                @(Math.Round(item.Quantity * item.DiscountedPrice, 2)) ₼
+                            </td>
+
+                            <td>
+                                <form method="post" asp-action="RemoveItem" asp-controller="Cart" style="display:inline;">
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="itemId" value="@item.Id" />
+                                    <button type="submit" class="remove-btn">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </table>
+
+                <div class="cart-summary">
+                    <div class="total">
+                        Cəmi: <span id="total-price">@Model.TotalPrice.ToString("0.00") ₼</span>
+                    </div>
+                    <form asp-controller="Cart" asp-action="CheckAndRedirectToOrder" method="post">
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="order-btn">Sifarişi tamamla</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+@section Scripts {
+    <script src="~/assets/js/cart.js" asp-append-version="true"></script>
+
+    <script>
+                function updateQuantity(itemId, delta) {
+            const input = document.getElementById(`counter-${itemId}`);
+            let current = parseInt(input.value);
+            current = isNaN(current) ? 1 : current + delta;
+            if (current < 1) current = 1;
+            input.value = current;
+
+            updateItemTotal(itemId);
+            updateTotalPrice();
+            updateQuantityOnServer(itemId, current);
+        }
+
+        function quantityChanged(itemId) {
+            const input = document.getElementById(`counter-${itemId}`);
+            let current = parseInt(input.value);
+            if (isNaN(current) || current < 1) {
+                current = 1;
+                input.value = current;
+            }
+
+            updateItemTotal(itemId);
+            updateTotalPrice();
+            updateQuantityOnServer(itemId, current);
+        }
+
+        function updateItemTotal(itemId) {
+            const input = document.getElementById(`counter-${itemId}`);
+            const row = document.querySelector(`tr[data-id='${itemId}']`);
+            const discountedPrice = parseFloat(row.dataset.discountedPrice);
+            const quantity = parseInt(input.value);
+            const total = (discountedPrice * quantity).toFixed(2);
+            const totalCell = document.getElementById(`item-total-${itemId}`);
+            if (totalCell) {
+                totalCell.innerText = `${total} ₼`;
+            }
+        }
+
+        function updateTotalPrice() {
+            let total = 0;
+            const rows = document.querySelectorAll("tr[data-id]");
+            rows.forEach(row => {
+                const itemId = row.dataset.id;
+                const discountedPrice = parseFloat(row.dataset.discountedPrice);
+                const quantity = parseInt(document.getElementById(`counter-${itemId}`).value);
+                total += discountedPrice * quantity;
+            });
+            const totalEl = document.getElementById("total-price");
+            if (totalEl) {
+                totalEl.innerText = `${total.toFixed(2)} ₼`;
+            }
+        }
+
+        function updateQuantityOnServer(itemId, quantity) {
+            const token = document.querySelector('input[name="__RequestVerificationToken"]')?.value;
+
+            fetch('/Cart/UpdateQuantity', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    ...(token && { 'RequestVerificationToken': token })
+                },
+                body: JSON.stringify({ cartItemId: itemId, quantity: quantity })
+            }).catch(error => console.error("Error updating cart item:", error));
+        }
+    </script>
+}

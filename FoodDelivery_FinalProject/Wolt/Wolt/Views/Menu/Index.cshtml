@@ -1,0 +1,356 @@
+﻿@model MenuVM
+
+@section Styles {
+    <link rel="stylesheet" href="~/assets/css/menu.css" />
+    <style>
+        .category-filter.active {
+            color: white !important;
+            font-weight: bold;
+        }
+    </style>
+}
+
+@if (TempData["ReviewError"] != null)
+{
+    <div class="alert alert-warning alert-dismissible fade show text-center mx-auto mt-3" role="alert" style="max-width: 600px;">
+        @TempData["ReviewError"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<main>
+    <section id="menu">
+        <div class="container" style="max-width: 1000px; margin: 0 auto;">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="sidebar">
+                        <h1>Kateqoriyalar</h1>
+                        <div class="menu-categories">
+                            <ul>
+                                <li><a href="#" data-category-id="all" class="category-filter active">Hamısı</a></li>
+                                <li><a href="#" data-category-id="special" class="category-filter">Xüsusi təkliflər</a></li>
+                                @foreach (var category in Model.MenuCategories)
+                                {
+                                    <li><a href="#" data-category-id="@category.Id" class="category-filter">@category.Name</a></li>
+                                }
+                            </ul>
+                        </div>
+
+                        <h1>Rəylər</h1>
+                        <div class="comments">
+                            <div class="my-comment">
+                                <form asp-action="Create" asp-controller="RestaurantReview" method="post" style="display: flex; gap: 10px; flex-direction: column;">
+                                    <input type="hidden" name="RestaurantId" value="@Model.Restaurant.Id" />
+                                    <input type="text" name="Comment" placeholder="Rəy yazın..." maxlength="200" required style="color: white;" />
+                                    <div class="rating-stars" style="margin-right:90px">
+                                        @for (int i = 5; i >= 1; i--)
+                                        {
+                                            <input type="radio" id="star-@i" name="Rating" value="@i" required />
+                                            <label for="star-@i" title="@i ulduz">★</label>
+                                        }
+                                    </div>
+                                    <button type="submit">Göndər</button>
+                                </form>
+                            </div>
+
+                            <div class="other-comments">
+                                @{
+                                    int index = 0;
+                                }
+                                @foreach (var review in Model.RestaurantReviews)
+                                {
+                                    var hiddenClass = index >= 3 ? "hidden-comment" : "";
+                                    <div class="comment @hiddenClass" data-index="@index">
+                                        <div class="image-name">
+                                            <div class="image">
+                                                <img src="~/assets/images/user-profile-login-avatar-heroes-user-blue-icons-circle-symbol-logo-thumbnail.png" alt="">
+                                            </div>
+                                            <h6>@review.CustomerName</h6>
+                                        </div>
+                                        <div class="description-delete" style="display:flex; justify-content:space-between; align-items:center;">
+                                            <div class="description">
+                                                <p><strong>@review.Rating ★</strong></p>
+                                                <p>@review.Comment</p>
+                                            </div>
+                                            @if (review.CustomerId == ViewBag.CurrentCustomerId)
+                                            {
+                                                <div class="delete">
+                                                    <form asp-action="Delete" asp-controller="RestaurantReview" method="post">
+                                                        <input type="hidden" name="id" value="@review.Id" />
+                                                        <button type="submit" class="btn btn-link p-0">
+                                                            <i class="fa-solid fa-trash text-danger"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                    index++;
+                                }
+                            </div>
+
+                            @if (Model.RestaurantReviews.Count() > 3)
+                            {
+                                <div class="show-more-wrapper" style="text-align:center; margin-top: 10px;">
+                                    <button id="show-more-btn" class="btn btn-primary" style="background-color:#007bb3;">Daha çox göstər</button>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                    <div class="restaurant-menu" id="menu-items-container">
+                        <div class="image-like" style="margin-top:35px !important">
+                            <h1 style="color:white; font-weight:bold;">@Model.Restaurant.Name</h1>
+                            <h5 style="color:white; font-weight:bold;">@Model.Restaurant.Address</h5>
+                            <h5 style="color:white; font-weight:bold;">@Model.Restaurant.Phone</h5>
+
+                            <div class="image">
+                                <img src="~/assets/images/@Model.Restaurant.Image" alt="">
+                            </div>
+                        </div>
+                        <div class="rating-delivery-time">
+                            <div class="rating">
+                                <p><i class="fa-solid fa-star"></i> @Model.Restaurant.AverageRating</p>
+                            </div>
+                            <div class="line"></div>
+                            <div class="delivery">
+                                <p><i class="fa-solid fa-motorcycle"></i> @Model.Restaurant.DeliveryCost ₼</p>
+                            </div>
+                            <div class="line"></div>
+                            <div class="time">
+                                <p><i class="fa-solid fa-stopwatch"></i> @Model.Restaurant.EstimatedDeliveryTime dəq</p>
+                            </div>
+                        </div>
+
+                        <div class="special-offers-block" data-category-id="special">
+                            <div class="special-offers">
+                                <h2>Xüsusi təkliflər</h2>
+                                @foreach (var menuItem in Model.MenuItems.Where(m => m.DiscountedPrice != null && m.DiscountedPrice < m.Price))
+                                {
+                                    <div class="menu-item" data-category-id="@menuItem.CategoryId">
+                                        <div class="title-image">
+                                            <div class="title">
+                                                <h6>@menuItem.Name</h6>
+                                                <p>@menuItem.Description</p>
+                                                <div class="discount-price">
+                                                    <span class="discountedprice">@menuItem.DiscountedPrice ₼</span>
+                                                    <span class="price" style="color:rgba(255, 255, 255, 0.719)">@menuItem.Price ₼</span>
+                                                </div>
+                                            </div>
+                                            <div class="image-button">
+                                                <div class="image">
+                                                    <img src="@Url.Content("~/assets/images/" + menuItem.Image)" alt="@menuItem.Name">
+                                                </div>
+                                                <form asp-controller="Cart" asp-action="Add" method="post">
+                                                    <input type="hidden" name="menuItemId" value="@menuItem.Id" />
+                                                    <button class="add-button"><i class="fa-solid fa-plus"></i></button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                            <div class="line"></div>
+                        </div>
+
+                        @foreach (var category in Model.MenuCategories)
+                        {
+                            <div class="category-block" data-category-id="@category.Id">
+                                <div class="category">
+                                    <h2>@category.Name</h2>
+                                    @foreach (var menuItem in Model.MenuItems.Where(m => m.CategoryId == category.Id))
+                                    {
+
+
+                                        <div class="menu-item" data-category-id="@menuItem.CategoryId">
+                                            <div class="title-image">
+                                                <div class="title">
+                                                    <h6>@menuItem.Name</h6>
+                                                    <p>@menuItem.Description</p>
+                                                    <div class="discount-price">
+
+                                                        @if (menuItem.DiscountedPrice != null && menuItem.DiscountedPrice < menuItem.Price)
+                                                        {
+                                                            <span class="discountedprice" style="color:red">@menuItem.DiscountedPrice ₼</span>
+                                                            <span class="price" style="text-decoration:line-through; color:rgba(255,255,255,0.719);">@menuItem.Price ₼</span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <span class="price">@menuItem.Price ₼</span>
+                                                        }
+                                                    </div>
+                                                </div>
+                                                <div class="image-button">
+                                                    <div class="image">
+                                                        <img src="@Url.Content("~/assets/images/" + menuItem.Image)" alt="@menuItem.Name">
+                                                    </div>
+                                                    <form asp-controller="Cart" asp-action="Add" method="post">
+                                                        <input type="hidden" name="menuItemId" value="@menuItem.Id" />
+                                                        <button class="add-button"><i class="fa-solid fa-plus"></i></button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                                <div class="line"></div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+@section Scripts {
+    <script src="~/assets/js/menu.js" asp-append-version="true"></script>
+}
+
+<style>
+    .rating-stars {
+        direction: rtl;
+        display: flex;
+        gap: 5px;
+    }
+
+        .rating-stars input[type="radio"] {
+            display: none;
+        }
+
+        .rating-stars label {
+            font-size: 24px;
+            color: #ccc;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+            .rating-stars input[type="radio"]:checked ~ label,
+            .rating-stars label:hover,
+            .rating-stars label:hover ~ label {
+                color: gold;
+            }
+
+
+    .comments {
+        color: white;
+        max-width: 300px;
+        margin: 0 auto;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+        transform: translateX(-26px);
+    }
+
+    .my-comment form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        background-color: #1c1c1c;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    }
+
+    .my-comment input[type="text"] {
+        padding: 10px;
+        border-radius: 8px;
+        border: none;
+        background-color: #2b2b2b;
+        color: white;
+        font-size: 14px;
+    }
+
+    .rating-stars {
+        display: flex;
+        justify-content: flex-start;
+        gap: 5px;
+        direction: rtl;
+    }
+
+        .rating-stars input[type="radio"] {
+            display: none;
+        }
+
+        .rating-stars label {
+            font-size: 24px;
+            color: #555;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+            .rating-stars input[type="radio"]:checked ~ label,
+            .rating-stars label:hover,
+            .rating-stars label:hover ~ label {
+                color: gold;
+            }
+
+    .my-comment button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px;
+        font-size: 15px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+        .my-comment button:hover {
+            background-color: #0056b3;
+        }
+
+    .other-comments {
+        margin-top: 30px;
+    }
+
+    .comment {
+        background-color: #1c1c1c;
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.05);
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .comments .image-name {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 8px;
+    }
+
+    .comments .image img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #007bff;
+    }
+
+    .comments .description {
+        overflow: hidden;
+        max-height: 400px;
+        overflow-y: auto;
+    }
+
+        .comments .description p {
+            margin: 5px 0;
+            word-wrap: break-word;
+        }
+
+        .comments .description strong {
+            color: gold;
+        }
+
+    .hidden-comment {
+        display: none;
+    }
+
+    .category-filter.active {
+        color: white !important;
+        font-weight: bold;
+    }
+</style>

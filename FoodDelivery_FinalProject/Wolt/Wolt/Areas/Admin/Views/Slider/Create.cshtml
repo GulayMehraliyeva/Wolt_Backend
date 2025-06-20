@@ -1,0 +1,15 @@
+﻿@model SliderCreateVM
+
+<div class="container mt-5">
+    <div class="card-body">
+        <form class="forms-sample" method="post" asp-action="Create" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="exampleInputUsername1">Slider</label>
+                <input type="file" class="form-control" id="exampleInputUsername1" asp-for="Image">
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary me-2">Submit</button>
+            <a asp-controller="Slider" asp-action="Index" class="btn btn-light">Cancel</a>
+        </form>
+    </div>
+</div>

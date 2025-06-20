@@ -1,0 +1,57 @@
+﻿@model CustomerDetailVM
+
+@if (Model.Orders != null && Model.Orders.Any())
+{
+    <div style="overflow-x: auto; max-width: 100%;">
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>Order #</th>
+                    <th>Status</th>
+                    <th>Created At</th>
+                    <th>Delivery Address</th>
+                    <th>Notes</th>
+                    <th>Payment Method</th>
+                    <th>Total Price</th>
+                    <th>Restaurant</th>
+                    <th>Courier</th>
+                    <th>Courier Phone</th>
+                    <th>Estimated Delivery</th>
+                    <th>Delivered At</th>
+                    <th>Items</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var order in Model.Orders)
+                {
+                    <tr>
+                        <td>@order.Id</td>
+                        <td>@order.Status</td>
+                        <td>@order.CreatedAt.ToString("yyyy-MM-dd HH:mm")</td>
+                        <td>@order.DeliveryAddress</td>
+                        <td>@order.Notes</td>
+                        <td>@order.PaymentMethod</td>
+                        <td>$@order.TotalPrice</td>
+                        <td>@order.RestaurantName</td>
+                        <td>@(order.CourierName ?? "Not assigned")</td>
+                        <td>@(order.CourierPhoneNumber ?? "-")</td>
+                        <td>@(order.EstimatedDeliveryTime?.ToString("yyyy-MM-dd HH:mm") ?? "-")</td>
+                        <td>@(order.DeliveredAt?.ToString("yyyy-MM-dd HH:mm") ?? "-")</td>
+                        <td>
+                            <ul class="mb-0 ps-3">
+                                @foreach (var item in order.Items)
+                                {
+                                    <li>@item.MenuItemName x @item.Quantity ($@item.Price)</li>
+                                }
+                            </ul>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <p>No orders found for this customer.</p>
+}

@@ -1,0 +1,46 @@
+﻿@model PlaceOrderVM
+
+<form asp-action="PlaceOrder" method="post" class="p-4 rounded bg-dark text-light shadow-lg" style="max-width: 600px; margin: auto; margin-top:50px">
+    @Html.AntiForgeryToken()
+
+    <div class="form-group mb-3">
+        <label asp-for="DeliveryAddress" class="form-label">Ünvan</label>
+        <input asp-for="DeliveryAddress" class="form-control bg-transparent text-light border-secondary" placeholder="Ünvanı daxil edin" />
+        <span asp-validation-for="DeliveryAddress" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Notes" class="form-label">Qeyd (optional)</label>
+        <textarea asp-for="Notes" class="form-control bg-transparent text-light border-secondary" rows="3" placeholder="Qeyd əlavə edin..."></textarea>
+    </div>
+
+    <div class="form-group mb-4">
+        <label asp-for="PaymentMethod" class="form-label">Ödəniş üsulu:</label>
+        <select asp-for="PaymentMethod" class="form-control bg-transparent text-light border-secondary" id="paymentMethodSelect">
+            <option class="bg-dark text-light" value="0">Nağd</option>
+            <option class="bg-dark text-light" value="1">Kart</option>
+        </select>
+        <span asp-validation-for="PaymentMethod" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-outline-success w-100">Təsdiqlə və sifarişi tamamla</button>
+</form>
+
+
+<style>
+    .form-control::placeholder {
+        color: #aaa;
+    }
+
+    .form-control:focus {
+        background-color: #1e1e1e;
+        color: #fff;
+        border-color: #28a745;
+        box-shadow: none;
+    }
+
+    select option {
+        background-color: #212529;
+        color: #f8f9fa;
+    }
+</style>

@@ -1,0 +1,51 @@
+﻿@model List<OrderVM>
+
+
+<div class="orders" style="display:flex; flex-direction:column">
+    <h2>Orders</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Customer</th>
+                <th>Address</th>
+                <th>Status</th>
+                <th>Courier</th>
+                <th>Courier Phone</th>
+                <th>Created Date</th>
+                <th>Estimated Delivery</th>
+                <th>Delivered At</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model)
+            {
+                <tr>
+                    <td>@order.Id</td>
+                    <td>@order.CustomerName</td>
+                    <td>@order.DeliveryAddress</td>
+                    <td>@order.Status</td>
+                    <td>@(order.CourierName ?? "Not Assigned")</td>
+                    <td>@(string.IsNullOrEmpty(order.CourierPhoneNumber) ? "Not Assigned" : order.CourierPhoneNumber)</td>
+                    <td>@order.CreatedAt.ToString("dd.MM.yyyy")</td>
+                    <td>
+                        @(order.EstimatedDeliveryTime.HasValue
+                            ? order.EstimatedDeliveryTime.Value.ToString("dd.MM.yyyy HH:mm")
+                            : "Not Set")
+                    </td>
+                    <td>
+                        @(order.DeliveredAt.HasValue
+                            ? order.DeliveredAt.Value.ToLocalTime().ToString("dd.MM.yyyy HH:mm")
+                            : "Not Delivered")
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@order.Id" class="btn btn-sm btn-primary">Edit</a>
+                        <a asp-action="Detail" asp-route-id="@order.Id" class="btn btn-sm btn-info ml-2">Detail</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

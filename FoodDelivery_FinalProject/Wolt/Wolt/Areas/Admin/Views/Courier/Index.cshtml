@@ -1,0 +1,57 @@
+﻿@model IEnumerable<CourierVM>
+
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Full Name</th>
+                    <th>UserName</th>
+                    <th>Email</th>
+                <th>Roles</th>
+                    <th>Vehicle</th>
+                    <th>IsAvailable</th>
+
+                    <th>Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.FullName</td>
+                        <td>@item.UserName</td>
+                        <td>@item.Email</td>
+                    <td>@string.Join(", ", item.Roles ?? Enumerable.Empty<string>())</td> 
+                        <td>@item.VehicleType</td>
+                        <td>@(item.IsAvailable ? "Yes" : "No")</td>
+
+                    <td>
+                        <a asp-action="Detail" asp-route-userId="@item.Id" class="btn btn-primary btn-sm">Detail</a>
+                        <a asp-action="Edit" asp-route-userId="@item.Id" class="btn btn-secondary btn-sm">Edit</a>
+
+                        <form asp-action="Delete" asp-route-userId="@item.Id" method="post" style="display:inline;">
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+
+                        <form asp-action="MakeAdmin" method="post" style="display:inline;">
+                            <input type="hidden" name="userId" value="@item.Id" />
+                            <button type="submit" class="btn btn-success btn-sm">Make Admin</button>
+                        </form>
+
+                        <form asp-action="RemoveAdmin" method="post" style="display:inline;">
+                            <input type="hidden" name="userId" value="@item.Id" />
+                            <button type="submit" class="btn btn-warning btn-sm">Remove Admin</button>
+                        </form>
+                    </td>
+
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    <a asp-controller="Courier" asp-action="CourierRegister" class="btn btn-success mt-3">Register New Courier</a>
+
+    </div>
+
+
+

@@ -1,0 +1,24 @@
+﻿@model IEnumerable<RestaurantVM>
+
+<div class="container mt-5">
+    <div class="text-center mb-4">
+        <h2 class="fw-bold">Select a Restaurant</h2>
+        <p class="text-muted">Click a restaurant to view its reviews</p>
+    </div>
+
+    <div class="row justify-content-center">
+        @foreach (var restaurant in Model)
+        {
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">@restaurant.Name</h5>
+                        <a asp-action="ReviewsByRestaurant" asp-route-restaurantId="@restaurant.Id" class="btn btn-outline-primary mt-2">
+                            View Reviews
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

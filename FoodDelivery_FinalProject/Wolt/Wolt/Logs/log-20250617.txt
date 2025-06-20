@@ -1,0 +1,492 @@
+2025-06-17 06:15:27.885 +04:00 [INF] User profile is available. Using 'C:\Users\gulay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-17 06:15:28.220 +04:00 [INF] Now listening on: https://localhost:7288
+2025-06-17 06:15:28.220 +04:00 [INF] Now listening on: http://localhost:5226
+2025-06-17 06:15:28.266 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-17 06:15:28.266 +04:00 [INF] Hosting environment: Development
+2025-06-17 06:15:28.266 +04:00 [INF] Content root path: C:\Users\gulay\OneDrive\Рабочий стол\Wolt\Wolt\Wolt
+2025-06-17 06:15:29.598 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/ - null null
+2025-06-17 06:15:30.152 +04:00 [INF] Executing endpoint 'Wolt.Controllers.HomeController.Index (Wolt)'
+2025-06-17 06:15:30.185 +04:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Wolt.Controllers.HomeController (Wolt).
+2025-06-17 06:15:31.129 +04:00 [WRN] No store type was specified for the decimal property 'DiscountPercentage' on entity type 'Discount'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-17 06:15:31.129 +04:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'MenuItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-17 06:15:31.129 +04:00 [WRN] No store type was specified for the decimal property 'TotalPrice' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-17 06:15:31.129 +04:00 [WRN] No store type was specified for the decimal property 'DeliveryCost' on entity type 'Restaurant'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-17 06:15:32.685 +04:00 [INF] Executed DbCommand (101ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Image]
+FROM [Sliders] AS [s]
+2025-06-17 06:15:33.417 +04:00 [INF] Executed DbCommand (355ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[Address], [r].[CreatedDate], [r].[DeliveryCost], [r].[EstimatedDeliveryTime], [r].[Image], [r].[Name], [r].[Phone], [r].[RestaurantCategoryId], [r0].[Id], [r0].[CreatedDate], [r0].[Image], [r0].[Name], [r1].[Id], [r1].[Comment], [r1].[CreatedDate], [r1].[CustomerId], [r1].[Rating], [r1].[RestaurantId]
+FROM [Restaurants] AS [r]
+INNER JOIN [RestaurantCategories] AS [r0] ON [r].[RestaurantCategoryId] = [r0].[Id]
+LEFT JOIN [RestaurantReviews] AS [r1] ON [r].[Id] = [r1].[RestaurantId]
+ORDER BY [r].[Id], [r0].[Id]
+2025-06-17 06:15:33.634 +04:00 [INF] Executing ViewResult, running view Index.
+2025-06-17 06:15:33.864 +04:00 [INF] Executed DbCommand (86ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-06-17 06:15:33.984 +04:00 [INF] Executed DbCommand (6ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Address], [c].[CreatedDate], [c].[UserId]
+FROM [Customers] AS [c]
+WHERE [c].[UserId] = @__user_Id_0
+2025-06-17 06:15:34.025 +04:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-17 06:15:34.086 +04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-17 06:15:34.248 +04:00 [INF] Executed ViewResult - view Index executed in 615.2463ms.
+2025-06-17 06:15:34.254 +04:00 [INF] Executed action Wolt.Controllers.HomeController.Index (Wolt) in 4067.3833ms
+2025-06-17 06:15:34.254 +04:00 [INF] Executed endpoint 'Wolt.Controllers.HomeController.Index (Wolt)'
+2025-06-17 06:15:34.276 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/ - 200 null text/html; charset=utf-8 4679.0941ms
+2025-06-17 06:15:34.335 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-17 06:15:34.338 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/js/home.js?v=ydKx2CpiF9rQ0UB5YCXfFUkq2ctS0PUA7aGY-v31lD8 - null null
+2025-06-17 06:15:34.345 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 9.1532ms
+2025-06-17 06:15:34.346 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_vs/browserLink - null null
+2025-06-17 06:15:34.346 +04:00 [INF] The file /assets/js/home.js was not modified
+2025-06-17 06:15:34.346 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/js/home.js?v=ydKx2CpiF9rQ0UB5YCXfFUkq2ctS0PUA7aGY-v31lD8 - 304 null text/javascript 8.5961ms
+2025-06-17 06:15:34.419 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 73.2546ms
+2025-06-17 06:15:37.495 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/admin/dashboard - null null
+2025-06-17 06:15:37.526 +04:00 [INF] Executing endpoint 'Wolt.Areas.Admin.Controllers.DashboardController.Index (Wolt)'
+2025-06-17 06:15:37.530 +04:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Wolt.Areas.Admin.Controllers.DashboardController (Wolt).
+2025-06-17 06:15:37.534 +04:00 [INF] Executing ViewResult, running view Index.
+2025-06-17 06:15:37.592 +04:00 [INF] Executed ViewResult - view Index executed in 60.8968ms.
+2025-06-17 06:15:37.593 +04:00 [INF] Executed action Wolt.Areas.Admin.Controllers.DashboardController.Index (Wolt) in 62.485ms
+2025-06-17 06:15:37.593 +04:00 [INF] Executed endpoint 'Wolt.Areas.Admin.Controllers.DashboardController.Index (Wolt)'
+2025-06-17 06:15:37.593 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/admin/dashboard - 200 null text/html; charset=utf-8 98.2085ms
+2025-06-17 06:15:37.778 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-17 06:15:37.779 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 0.9143ms
+2025-06-17 06:15:37.779 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_vs/browserLink - null null
+2025-06-17 06:15:37.789 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 9.6109ms
+2025-06-17 06:15:40.342 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/Admin/Courier - null null
+2025-06-17 06:15:40.381 +04:00 [INF] Executing endpoint 'Wolt.Areas.Admin.Controllers.CourierController.Index (Wolt)'
+2025-06-17 06:15:40.386 +04:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Courier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Wolt.Areas.Admin.Controllers.CourierController (Wolt).
+2025-06-17 06:15:40.519 +04:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CreatedDate], [c].[IsAvailable], [c].[UserId], [c].[VehicleType], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Couriers] AS [c]
+INNER JOIN [AspNetUsers] AS [a] ON [c].[UserId] = [a].[Id]
+2025-06-17 06:15:40.552 +04:00 [INF] Executing ViewResult, running view Index.
+2025-06-17 06:15:40.566 +04:00 [INF] Executed ViewResult - view Index executed in 14.8997ms.
+2025-06-17 06:15:40.566 +04:00 [INF] Executed action Wolt.Areas.Admin.Controllers.CourierController.Index (Wolt) in 179.9074ms
+2025-06-17 06:15:40.566 +04:00 [INF] Executed endpoint 'Wolt.Areas.Admin.Controllers.CourierController.Index (Wolt)'
+2025-06-17 06:15:40.567 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/Admin/Courier - 200 null text/html; charset=utf-8 225.1886ms
+2025-06-17 06:15:40.590 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-17 06:15:40.590 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_vs/browserLink - null null
+2025-06-17 06:15:40.591 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 0.4262ms
+2025-06-17 06:15:40.599 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 8.478ms
+2025-06-17 16:25:37.141 +04:00 [INF] User profile is available. Using 'C:\Users\gulay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-17 16:25:37.373 +04:00 [INF] Now listening on: https://localhost:7288
+2025-06-17 16:25:37.374 +04:00 [INF] Now listening on: http://localhost:5226
+2025-06-17 16:25:37.412 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-17 16:25:37.413 +04:00 [INF] Hosting environment: Development
+2025-06-17 16:25:37.413 +04:00 [INF] Content root path: C:\Users\gulay\OneDrive\Рабочий стол\Wolt\Wolt\Wolt
+2025-06-17 16:25:38.427 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/ - null null
+2025-06-17 16:25:38.781 +04:00 [INF] Executing endpoint 'Wolt.Controllers.HomeController.Index (Wolt)'
+2025-06-17 16:25:39.001 +04:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Wolt.Controllers.HomeController (Wolt).
+2025-06-17 16:25:40.100 +04:00 [WRN] No store type was specified for the decimal property 'DiscountPercentage' on entity type 'Discount'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-17 16:25:40.100 +04:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'MenuItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-17 16:25:40.100 +04:00 [WRN] No store type was specified for the decimal property 'TotalPrice' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-17 16:25:40.100 +04:00 [WRN] No store type was specified for the decimal property 'DeliveryCost' on entity type 'Restaurant'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-17 16:25:41.622 +04:00 [INF] Executed DbCommand (111ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Image]
+FROM [Sliders] AS [s]
+2025-06-17 16:25:42.018 +04:00 [INF] Executed DbCommand (39ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[Address], [r].[CreatedDate], [r].[DeliveryCost], [r].[EstimatedDeliveryTime], [r].[Image], [r].[Name], [r].[Phone], [r].[RestaurantCategoryId], [r0].[Id], [r0].[CreatedDate], [r0].[Image], [r0].[Name], [r1].[Id], [r1].[Comment], [r1].[CreatedDate], [r1].[CustomerId], [r1].[Rating], [r1].[RestaurantId]
+FROM [Restaurants] AS [r]
+INNER JOIN [RestaurantCategories] AS [r0] ON [r].[RestaurantCategoryId] = [r0].[Id]
+LEFT JOIN [RestaurantReviews] AS [r1] ON [r].[Id] = [r1].[RestaurantId]
+ORDER BY [r].[Id], [r0].[Id]
+2025-06-17 16:25:42.162 +04:00 [INF] Executing ViewResult, running view Index.
+2025-06-17 16:25:42.298 +04:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-17 16:25:42.360 +04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-17 16:25:42.550 +04:00 [INF] Executed ViewResult - view Index executed in 392.5687ms.
+2025-06-17 16:25:42.554 +04:00 [INF] Executed action Wolt.Controllers.HomeController.Index (Wolt) in 3551.523ms
+2025-06-17 16:25:42.554 +04:00 [INF] Executed endpoint 'Wolt.Controllers.HomeController.Index (Wolt)'
+2025-06-17 16:25:42.573 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/ - 200 null text/html; charset=utf-8 4147.8349ms
+2025-06-17 16:25:42.636 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/css/home.css - null null
+2025-06-17 16:25:42.637 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/css/style.css - null null
+2025-06-17 16:25:42.637 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/images/d6a9b76e-2a88-4ce7-a6d1-542f8ba1d968.png - null null
+2025-06-17 16:25:42.643 +04:00 [INF] The file /assets/images/d6a9b76e-2a88-4ce7-a6d1-542f8ba1d968.png was not modified
+2025-06-17 16:25:42.643 +04:00 [INF] The file /assets/css/style.css was not modified
+2025-06-17 16:25:42.643 +04:00 [INF] The file /assets/css/home.css was not modified
+2025-06-17 16:25:42.644 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/css/style.css - 304 null text/css 6.8748ms
+2025-06-17 16:25:42.644 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/images/d6a9b76e-2a88-4ce7-a6d1-542f8ba1d968.png - 304 null image/png 6.7339ms
+2025-06-17 16:25:42.644 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/css/home.css - 304 null text/css 7.0575ms
+2025-06-17 16:25:42.679 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-17 16:25:42.679 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/js/home.js?v=ydKx2CpiF9rQ0UB5YCXfFUkq2ctS0PUA7aGY-v31lD8 - null null
+2025-06-17 16:25:42.679 +04:00 [INF] The file /assets/js/home.js was not modified
+2025-06-17 16:25:42.680 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/js/home.js?v=ydKx2CpiF9rQ0UB5YCXfFUkq2ctS0PUA7aGY-v31lD8 - 304 null text/javascript 0.6646ms
+2025-06-17 16:25:42.680 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/js/script.js - null null
+2025-06-17 16:25:42.680 +04:00 [INF] The file /assets/js/script.js was not modified
+2025-06-17 16:25:42.680 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/js/script.js - 304 null text/javascript 0.5693ms
+2025-06-17 16:25:42.685 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 5.8692ms
+2025-06-17 16:25:42.692 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/images/4f594469-57f2-4a2f-b543-5d2c4e748ec5.png - null null
+2025-06-17 16:25:42.693 +04:00 [INF] The file /assets/images/4f594469-57f2-4a2f-b543-5d2c4e748ec5.png was not modified
+2025-06-17 16:25:42.696 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/images/4f594469-57f2-4a2f-b543-5d2c4e748ec5.png - 304 null image/png 3.7447ms
+2025-06-17 16:25:42.696 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_vs/browserLink - null null
+2025-06-17 16:25:42.696 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/images/4e413400-cec5-4cab-a7bf-ba01c48d0e16.png - null null
+2025-06-17 16:25:42.697 +04:00 [INF] The file /assets/images/4e413400-cec5-4cab-a7bf-ba01c48d0e16.png was not modified
+2025-06-17 16:25:42.697 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/images/4e413400-cec5-4cab-a7bf-ba01c48d0e16.png - 304 null image/png 0.6033ms
+2025-06-17 16:25:42.810 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 113.7369ms
+2025-06-17 16:25:43.295 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/favicon.ico - null null
+2025-06-17 16:25:43.315 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/favicon.ico - 404 0 null 20.698ms
+2025-06-17 16:25:43.323 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7288/favicon.ico, Response status code: 404
+2025-06-17 16:25:49.770 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/Account/Login - null null
+2025-06-17 16:25:49.783 +04:00 [INF] Executing endpoint 'Wolt.Controllers.AccountController.Login (Wolt)'
+2025-06-17 16:25:49.786 +04:00 [INF] Route matched with {action = "Login", controller = "Account", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller Wolt.Controllers.AccountController (Wolt).
+2025-06-17 16:25:49.881 +04:00 [INF] Executing ViewResult, running view Login.
+2025-06-17 16:25:49.933 +04:00 [INF] Executed ViewResult - view Login executed in 53.1515ms.
+2025-06-17 16:25:49.933 +04:00 [INF] Executed action Wolt.Controllers.AccountController.Login (Wolt) in 146.8138ms
+2025-06-17 16:25:49.934 +04:00 [INF] Executed endpoint 'Wolt.Controllers.AccountController.Login (Wolt)'
+2025-06-17 16:25:49.936 +04:00 [WRN] Unable to configure Browser Link script injection on the response. 
+2025-06-17 16:25:49.937 +04:00 [WRN] Unable to configure browser refresh script injection on the response. Consider manually adding '<script src="/_framework/aspnetcore-browser-refresh.js"></script>' to the body of the page.
+2025-06-17 16:25:49.938 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/Account/Login - 200 null text/html; charset=utf-8 167.7949ms
+2025-06-17 16:25:56.612 +04:00 [INF] Request starting HTTP/2 POST https://localhost:7288/Account/Login - application/x-www-form-urlencoded 223
+2025-06-17 16:25:56.618 +04:00 [INF] Executing endpoint 'Wolt.Controllers.AccountController.Login (Wolt)'
+2025-06-17 16:25:56.642 +04:00 [INF] Route matched with {action = "Login", controller = "Account", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Service.ViewModels.Account.LoginVM) on controller Wolt.Controllers.AccountController (Wolt).
+2025-06-17 16:25:56.818 +04:00 [INF] Executed DbCommand (62ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-06-17 16:25:56.843 +04:00 [INF] Executed DbCommand (9ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-06-17 16:25:57.148 +04:00 [INF] Executed DbCommand (8ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2025-06-17 16:25:57.180 +04:00 [INF] Executed DbCommand (11ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2025-06-17 16:25:57.194 +04:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-06-17 16:25:57.222 +04:00 [INF] Executed DbCommand (4ms) [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+2025-06-17 16:25:57.229 +04:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2025-06-17 16:25:57.232 +04:00 [INF] Executing RedirectResult, redirecting to /.
+2025-06-17 16:25:57.232 +04:00 [INF] Executed action Wolt.Controllers.AccountController.Login (Wolt) in 589.7606ms
+2025-06-17 16:25:57.232 +04:00 [INF] Executed endpoint 'Wolt.Controllers.AccountController.Login (Wolt)'
+2025-06-17 16:25:57.232 +04:00 [INF] Request finished HTTP/2 POST https://localhost:7288/Account/Login - 302 0 null 620.9085ms
+2025-06-17 16:25:57.237 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/ - null null
+2025-06-17 16:25:57.243 +04:00 [INF] Executing endpoint 'Wolt.Controllers.HomeController.Index (Wolt)'
+2025-06-17 16:25:57.243 +04:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Wolt.Controllers.HomeController (Wolt).
+2025-06-17 16:25:57.250 +04:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Image]
+FROM [Sliders] AS [s]
+2025-06-17 16:25:57.262 +04:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[Address], [r].[CreatedDate], [r].[DeliveryCost], [r].[EstimatedDeliveryTime], [r].[Image], [r].[Name], [r].[Phone], [r].[RestaurantCategoryId], [r0].[Id], [r0].[CreatedDate], [r0].[Image], [r0].[Name], [r1].[Id], [r1].[Comment], [r1].[CreatedDate], [r1].[CustomerId], [r1].[Rating], [r1].[RestaurantId]
+FROM [Restaurants] AS [r]
+INNER JOIN [RestaurantCategories] AS [r0] ON [r].[RestaurantCategoryId] = [r0].[Id]
+LEFT JOIN [RestaurantReviews] AS [r1] ON [r].[Id] = [r1].[RestaurantId]
+ORDER BY [r].[Id], [r0].[Id]
+2025-06-17 16:25:57.265 +04:00 [INF] Executing ViewResult, running view Index.
+2025-06-17 16:25:57.278 +04:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-06-17 16:25:57.295 +04:00 [INF] Executed DbCommand (8ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Address], [c].[CreatedDate], [c].[UserId]
+FROM [Customers] AS [c]
+WHERE [c].[UserId] = @__user_Id_0
+2025-06-17 16:25:57.321 +04:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-17 16:25:57.329 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-17 16:25:57.331 +04:00 [INF] Executed ViewResult - view Index executed in 66.7685ms.
+2025-06-17 16:25:57.332 +04:00 [INF] Executed action Wolt.Controllers.HomeController.Index (Wolt) in 88.0817ms
+2025-06-17 16:25:57.332 +04:00 [INF] Executed endpoint 'Wolt.Controllers.HomeController.Index (Wolt)'
+2025-06-17 16:25:57.332 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/ - 200 null text/html; charset=utf-8 95.2235ms
+2025-06-17 16:25:57.371 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-17 16:25:57.371 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_vs/browserLink - null null
+2025-06-17 16:25:57.373 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 2.4986ms
+2025-06-17 16:25:57.389 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 17.5722ms
+2025-06-17 16:25:59.517 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/admin/dashboard - null null
+2025-06-17 16:25:59.522 +04:00 [INF] Executing endpoint 'Wolt.Areas.Admin.Controllers.DashboardController.Index (Wolt)'
+2025-06-17 16:25:59.527 +04:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Wolt.Areas.Admin.Controllers.DashboardController (Wolt).
+2025-06-17 16:25:59.530 +04:00 [INF] Executing ViewResult, running view Index.
+2025-06-17 16:25:59.586 +04:00 [INF] Executed ViewResult - view Index executed in 58.1771ms.
+2025-06-17 16:25:59.587 +04:00 [INF] Executed action Wolt.Areas.Admin.Controllers.DashboardController.Index (Wolt) in 59.1874ms
+2025-06-17 16:25:59.587 +04:00 [INF] Executed endpoint 'Wolt.Areas.Admin.Controllers.DashboardController.Index (Wolt)'
+2025-06-17 16:25:59.587 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/admin/dashboard - 200 null text/html; charset=utf-8 69.8402ms
+2025-06-17 16:25:59.748 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-17 16:25:59.748 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_vs/browserLink - null null
+2025-06-17 16:25:59.748 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 0.4035ms
+2025-06-17 16:25:59.754 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 6.0048ms
+2025-06-17 16:26:00.396 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/courier/dashboard - null null
+2025-06-17 16:26:00.439 +04:00 [INF] Executing endpoint 'Wolt.Areas.Courier.Controllers.DashboardController.Index (Wolt)'
+2025-06-17 16:26:00.440 +04:00 [INF] Route matched with {area = "Courier", action = "Index", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Wolt.Areas.Courier.Controllers.DashboardController (Wolt).
+2025-06-17 16:26:00.442 +04:00 [INF] Executing ViewResult, running view Index.
+2025-06-17 16:26:00.478 +04:00 [INF] Executed ViewResult - view Index executed in 37.2507ms.
+2025-06-17 16:26:00.478 +04:00 [INF] Executed action Wolt.Areas.Courier.Controllers.DashboardController.Index (Wolt) in 37.8182ms
+2025-06-17 16:26:00.478 +04:00 [INF] Executed endpoint 'Wolt.Areas.Courier.Controllers.DashboardController.Index (Wolt)'
+2025-06-17 16:26:00.478 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/courier/dashboard - 200 null text/html; charset=utf-8 82.6002ms
+2025-06-17 16:26:00.656 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-17 16:26:00.656 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 0.2729ms
+2025-06-17 16:26:00.663 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_vs/browserLink - null null
+2025-06-17 16:26:00.669 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 6.658ms
+2025-06-17 16:26:04.941 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/Courier/Order - null null
+2025-06-17 16:26:04.944 +04:00 [INF] Executing endpoint 'Wolt.Areas.Courier.Controllers.OrderController.Index (Wolt)'
+2025-06-17 16:26:04.951 +04:00 [INF] Route matched with {area = "Courier", action = "Index", controller = "Order"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Wolt.Areas.Courier.Controllers.OrderController (Wolt).
+2025-06-17 16:26:04.989 +04:00 [INF] Executed DbCommand (5ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2025-06-17 16:26:05.075 +04:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2025-06-17 16:26:05.222 +04:00 [INF] Executed DbCommand (132ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[CreatedDate], [t].[IsAvailable], [t].[UserId], [t].[VehicleType], [t].[Id0], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[Email], [t].[EmailConfirmed], [t].[FullName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UserName], [t0].[Id], [t0].[CourierId], [t0].[CreatedDate], [t0].[CustomerId], [t0].[DeliveredAt], [t0].[DeliveryAddress], [t0].[EstimatedDeliveryTime], [t0].[Notes], [t0].[PaymentMethod], [t0].[Status], [t0].[TotalPrice], [t0].[Id0], [t0].[Address], [t0].[CreatedDate0], [t0].[UserId], [t0].[Id1], [t0].[AccessFailedCount], [t0].[ConcurrencyStamp], [t0].[Email], [t0].[EmailConfirmed], [t0].[FullName], [t0].[LockoutEnabled], [t0].[LockoutEnd], [t0].[NormalizedEmail], [t0].[NormalizedUserName], [t0].[PasswordHash], [t0].[PhoneNumber], [t0].[PhoneNumberConfirmed], [t0].[SecurityStamp], [t0].[TwoFactorEnabled], [t0].[UserName], [t0].[Id2], [t0].[CreatedDate1], [t0].[MenuItemId], [t0].[OrderId], [t0].[Quantity], [t0].[Id00], [t0].[CategoryId], [t0].[CreatedDate00], [t0].[Description], [t0].[Image], [t0].[Name], [t0].[Price], [t0].[Id10], [t0].[CreatedDate10], [t0].[Name0], [t0].[RestaurantId], [t0].[Id20], [t0].[Address0], [t0].[CreatedDate2], [t0].[DeliveryCost], [t0].[EstimatedDeliveryTime0], [t0].[Image0], [t0].[Name1], [t0].[Phone], [t0].[RestaurantCategoryId]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedDate], [c].[IsAvailable], [c].[UserId], [c].[VehicleType], [a].[Id] AS [Id0], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+    FROM [Couriers] AS [c]
+    INNER JOIN [AspNetUsers] AS [a] ON [c].[UserId] = [a].[Id]
+    WHERE [c].[UserId] = @__userId_0
+) AS [t]
+LEFT JOIN (
+    SELECT [o].[Id], [o].[CourierId], [o].[CreatedDate], [o].[CustomerId], [o].[DeliveredAt], [o].[DeliveryAddress], [o].[EstimatedDeliveryTime], [o].[Notes], [o].[PaymentMethod], [o].[Status], [o].[TotalPrice], [c0].[Id] AS [Id0], [c0].[Address], [c0].[CreatedDate] AS [CreatedDate0], [c0].[UserId], [a0].[Id] AS [Id1], [a0].[AccessFailedCount], [a0].[ConcurrencyStamp], [a0].[Email], [a0].[EmailConfirmed], [a0].[FullName], [a0].[LockoutEnabled], [a0].[LockoutEnd], [a0].[NormalizedEmail], [a0].[NormalizedUserName], [a0].[PasswordHash], [a0].[PhoneNumber], [a0].[PhoneNumberConfirmed], [a0].[SecurityStamp], [a0].[TwoFactorEnabled], [a0].[UserName], [t1].[Id] AS [Id2], [t1].[CreatedDate] AS [CreatedDate1], [t1].[MenuItemId], [t1].[OrderId], [t1].[Quantity], [t1].[Id0] AS [Id00], [t1].[CategoryId], [t1].[CreatedDate0] AS [CreatedDate00], [t1].[Description], [t1].[Image], [t1].[Name], [t1].[Price], [t1].[Id1] AS [Id10], [t1].[CreatedDate1] AS [CreatedDate10], [t1].[Name0], [t1].[RestaurantId], [t1].[Id2] AS [Id20], [t1].[Address] AS [Address0], [t1].[CreatedDate2], [t1].[DeliveryCost], [t1].[EstimatedDeliveryTime] AS [EstimatedDeliveryTime0], [t1].[Image0], [t1].[Name1], [t1].[Phone], [t1].[RestaurantCategoryId]
+    FROM [Orders] AS [o]
+    INNER JOIN [Customers] AS [c0] ON [o].[CustomerId] = [c0].[Id]
+    INNER JOIN [AspNetUsers] AS [a0] ON [c0].[UserId] = [a0].[Id]
+    LEFT JOIN (
+        SELECT [o0].[Id], [o0].[CreatedDate], [o0].[MenuItemId], [o0].[OrderId], [o0].[Quantity], [m].[Id] AS [Id0], [m].[CategoryId], [m].[CreatedDate] AS [CreatedDate0], [m].[Description], [m].[Image], [m].[Name], [m].[Price], [m0].[Id] AS [Id1], [m0].[CreatedDate] AS [CreatedDate1], [m0].[Name] AS [Name0], [m0].[RestaurantId], [r].[Id] AS [Id2], [r].[Address], [r].[CreatedDate] AS [CreatedDate2], [r].[DeliveryCost], [r].[EstimatedDeliveryTime], [r].[Image] AS [Image0], [r].[Name] AS [Name1], [r].[Phone], [r].[RestaurantCategoryId]
+        FROM [OrderItems] AS [o0]
+        INNER JOIN [MenuItems] AS [m] ON [o0].[MenuItemId] = [m].[Id]
+        INNER JOIN [MenuItemCategories] AS [m0] ON [m].[CategoryId] = [m0].[Id]
+        INNER JOIN [Restaurants] AS [r] ON [m0].[RestaurantId] = [r].[Id]
+    ) AS [t1] ON [o].[Id] = [t1].[OrderId]
+) AS [t0] ON [t].[Id] = [t0].[CourierId]
+ORDER BY [t].[Id], [t].[Id0], [t0].[Id], [t0].[Id0], [t0].[Id1], [t0].[Id2], [t0].[Id00], [t0].[Id10]
+2025-06-17 16:26:05.226 +04:00 [INF] Executing StatusCodeResult, setting HTTP status code 404
+2025-06-17 16:26:05.226 +04:00 [INF] Executed action Wolt.Areas.Courier.Controllers.OrderController.Index (Wolt) in 275.404ms
+2025-06-17 16:26:05.226 +04:00 [INF] Executed endpoint 'Wolt.Areas.Courier.Controllers.OrderController.Index (Wolt)'
+2025-06-17 16:26:05.227 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/Courier/Order - 404 0 null 285.6206ms
+2025-06-17 16:26:12.602 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-17 16:26:12.603 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 0.3851ms
+2025-06-17 16:27:02.784 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/ - null null
+2025-06-17 16:27:02.787 +04:00 [INF] Executing endpoint 'Wolt.Controllers.HomeController.Index (Wolt)'
+2025-06-17 16:27:02.787 +04:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Wolt.Controllers.HomeController (Wolt).
+2025-06-17 16:27:02.801 +04:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Image]
+FROM [Sliders] AS [s]
+2025-06-17 16:27:02.811 +04:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[Address], [r].[CreatedDate], [r].[DeliveryCost], [r].[EstimatedDeliveryTime], [r].[Image], [r].[Name], [r].[Phone], [r].[RestaurantCategoryId], [r0].[Id], [r0].[CreatedDate], [r0].[Image], [r0].[Name], [r1].[Id], [r1].[Comment], [r1].[CreatedDate], [r1].[CustomerId], [r1].[Rating], [r1].[RestaurantId]
+FROM [Restaurants] AS [r]
+INNER JOIN [RestaurantCategories] AS [r0] ON [r].[RestaurantCategoryId] = [r0].[Id]
+LEFT JOIN [RestaurantReviews] AS [r1] ON [r].[Id] = [r1].[RestaurantId]
+ORDER BY [r].[Id], [r0].[Id]
+2025-06-17 16:27:02.814 +04:00 [INF] Executing ViewResult, running view Index.
+2025-06-17 16:27:02.824 +04:00 [INF] Executed DbCommand (6ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-06-17 16:27:02.829 +04:00 [INF] Executed DbCommand (4ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Address], [c].[CreatedDate], [c].[UserId]
+FROM [Customers] AS [c]
+WHERE [c].[UserId] = @__user_Id_0
+2025-06-17 16:27:02.832 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-17 16:27:02.836 +04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-17 16:27:02.838 +04:00 [INF] Executed ViewResult - view Index executed in 23.5588ms.
+2025-06-17 16:27:02.838 +04:00 [INF] Executed action Wolt.Controllers.HomeController.Index (Wolt) in 51.1463ms
+2025-06-17 16:27:02.838 +04:00 [INF] Executed endpoint 'Wolt.Controllers.HomeController.Index (Wolt)'
+2025-06-17 16:27:02.838 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/ - 200 null text/html; charset=utf-8 54.6138ms
+2025-06-17 16:27:02.900 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-17 16:27:02.900 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 0.4303ms
+2025-06-17 16:27:08.782 +04:00 [INF] Request starting HTTP/2 POST https://localhost:7288/Account/Logout - application/x-www-form-urlencoded 225
+2025-06-17 16:27:08.785 +04:00 [INF] Executing endpoint 'Wolt.Controllers.AccountController.Logout (Wolt)'
+2025-06-17 16:27:08.794 +04:00 [INF] Route matched with {action = "Logout", controller = "Account", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Logout() on controller Wolt.Controllers.AccountController (Wolt).
+2025-06-17 16:27:08.806 +04:00 [INF] AuthenticationScheme: Identity.Application signed out.
+2025-06-17 16:27:08.823 +04:00 [INF] AuthenticationScheme: Identity.External signed out.
+2025-06-17 16:27:08.825 +04:00 [INF] AuthenticationScheme: Identity.TwoFactorUserId signed out.
+2025-06-17 16:27:08.825 +04:00 [INF] Executing RedirectResult, redirecting to /.
+2025-06-17 16:27:08.825 +04:00 [INF] Executed action Wolt.Controllers.AccountController.Logout (Wolt) in 30.8921ms
+2025-06-17 16:27:08.825 +04:00 [INF] Executed endpoint 'Wolt.Controllers.AccountController.Logout (Wolt)'
+2025-06-17 16:27:08.825 +04:00 [INF] Request finished HTTP/2 POST https://localhost:7288/Account/Logout - 302 0 null 42.8301ms
+2025-06-17 16:27:08.829 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/ - null null
+2025-06-17 16:27:08.831 +04:00 [INF] Executing endpoint 'Wolt.Controllers.HomeController.Index (Wolt)'
+2025-06-17 16:27:08.831 +04:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Wolt.Controllers.HomeController (Wolt).
+2025-06-17 16:27:08.836 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Image]
+FROM [Sliders] AS [s]
+2025-06-17 16:27:08.843 +04:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[Address], [r].[CreatedDate], [r].[DeliveryCost], [r].[EstimatedDeliveryTime], [r].[Image], [r].[Name], [r].[Phone], [r].[RestaurantCategoryId], [r0].[Id], [r0].[CreatedDate], [r0].[Image], [r0].[Name], [r1].[Id], [r1].[Comment], [r1].[CreatedDate], [r1].[CustomerId], [r1].[Rating], [r1].[RestaurantId]
+FROM [Restaurants] AS [r]
+INNER JOIN [RestaurantCategories] AS [r0] ON [r].[RestaurantCategoryId] = [r0].[Id]
+LEFT JOIN [RestaurantReviews] AS [r1] ON [r].[Id] = [r1].[RestaurantId]
+ORDER BY [r].[Id], [r0].[Id]
+2025-06-17 16:27:08.845 +04:00 [INF] Executing ViewResult, running view Index.
+2025-06-17 16:27:08.855 +04:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-17 16:27:08.857 +04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-17 16:27:08.858 +04:00 [INF] Executed ViewResult - view Index executed in 13.6526ms.
+2025-06-17 16:27:08.859 +04:00 [INF] Executed action Wolt.Controllers.HomeController.Index (Wolt) in 27.6024ms
+2025-06-17 16:27:08.859 +04:00 [INF] Executed endpoint 'Wolt.Controllers.HomeController.Index (Wolt)'
+2025-06-17 16:27:08.861 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/ - 200 null text/html; charset=utf-8 31.5188ms
+2025-06-17 16:27:08.883 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_vs/browserLink - null null
+2025-06-17 16:27:08.888 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-17 16:27:08.889 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 0.9057ms
+2025-06-17 16:27:08.892 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 9.5706ms
+2025-06-17 16:27:11.772 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/admin/dashboard - null null
+2025-06-17 16:27:11.782 +04:00 [INF] Executing endpoint 'Wolt.Areas.Admin.Controllers.DashboardController.Index (Wolt)'
+2025-06-17 16:27:11.782 +04:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Wolt.Areas.Admin.Controllers.DashboardController (Wolt).
+2025-06-17 16:27:11.782 +04:00 [INF] Executing ViewResult, running view Index.
+2025-06-17 16:27:11.784 +04:00 [INF] Executed ViewResult - view Index executed in 1.9296ms.
+2025-06-17 16:27:11.784 +04:00 [INF] Executed action Wolt.Areas.Admin.Controllers.DashboardController.Index (Wolt) in 2.1812ms
+2025-06-17 16:27:11.784 +04:00 [INF] Executed endpoint 'Wolt.Areas.Admin.Controllers.DashboardController.Index (Wolt)'
+2025-06-17 16:27:11.784 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/admin/dashboard - 200 null text/html; charset=utf-8 13.2049ms
+2025-06-17 16:27:11.957 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-17 16:27:11.957 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 0.3043ms
+2025-06-17 16:27:11.966 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_vs/browserLink - null null
+2025-06-17 16:27:11.970 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 3.8867ms
+2025-06-17 16:27:22.654 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/courier/dashboard - null null
+2025-06-17 16:27:22.658 +04:00 [INF] Executing endpoint 'Wolt.Areas.Courier.Controllers.DashboardController.Index (Wolt)'
+2025-06-17 16:27:22.658 +04:00 [INF] Route matched with {area = "Courier", action = "Index", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Wolt.Areas.Courier.Controllers.DashboardController (Wolt).
+2025-06-17 16:27:22.659 +04:00 [INF] Executing ViewResult, running view Index.
+2025-06-17 16:27:22.662 +04:00 [INF] Executed ViewResult - view Index executed in 3.0709ms.
+2025-06-17 16:27:22.662 +04:00 [INF] Executed action Wolt.Areas.Courier.Controllers.DashboardController.Index (Wolt) in 3.2813ms
+2025-06-17 16:27:22.662 +04:00 [INF] Executed endpoint 'Wolt.Areas.Courier.Controllers.DashboardController.Index (Wolt)'
+2025-06-17 16:27:22.662 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/courier/dashboard - 200 null text/html; charset=utf-8 7.4581ms
+2025-06-17 16:27:22.859 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-17 16:27:22.860 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 0.343ms
+2025-06-17 16:27:22.862 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_vs/browserLink - null null
+2025-06-17 16:27:22.867 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 4.2983ms
+2025-06-17 16:27:26.565 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/Courier/Order - null null
+2025-06-17 16:27:26.567 +04:00 [INF] Executing endpoint 'Wolt.Areas.Courier.Controllers.OrderController.Index (Wolt)'
+2025-06-17 16:27:26.567 +04:00 [INF] Route matched with {area = "Courier", action = "Index", controller = "Order"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Wolt.Areas.Courier.Controllers.OrderController (Wolt).
+2025-06-17 16:27:26.613 +04:00 [INF] Executed action Wolt.Areas.Courier.Controllers.OrderController.Index (Wolt) in 45.9252ms
+2025-06-17 16:27:26.615 +04:00 [INF] Executed endpoint 'Wolt.Areas.Courier.Controllers.OrderController.Index (Wolt)'
+2025-06-17 16:27:26.616 +04:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Wolt.Areas.Courier.Controllers.OrderController.Index() in C:\Users\gulay\OneDrive\Рабочий стол\Wolt\Wolt\Wolt\Areas\Courier\Controllers\OrderController.cs:line 28
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-06-17 16:27:26.842 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/Courier/Order - 500 null text/html; charset=utf-8 276.5066ms
+2025-06-17 16:27:26.863 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_vs/browserLink - null null
+2025-06-17 16:27:26.873 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-17 16:27:26.875 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 1.99ms
+2025-06-17 16:27:26.875 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 11.9081ms
+2025-06-17 16:42:08.707 +04:00 [INF] User profile is available. Using 'C:\Users\gulay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-17 16:42:08.964 +04:00 [INF] Now listening on: https://localhost:7288
+2025-06-17 16:42:08.964 +04:00 [INF] Now listening on: http://localhost:5226
+2025-06-17 16:42:08.998 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-17 16:42:08.999 +04:00 [INF] Hosting environment: Development
+2025-06-17 16:42:08.999 +04:00 [INF] Content root path: C:\Users\gulay\OneDrive\Рабочий стол\Wolt\Wolt\Wolt
+2025-06-17 16:42:09.483 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/ - null null
+2025-06-17 16:42:09.644 +04:00 [INF] Executing endpoint 'Wolt.Controllers.HomeController.Index (Wolt)'
+2025-06-17 16:42:09.680 +04:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Wolt.Controllers.HomeController (Wolt).
+2025-06-17 16:42:10.717 +04:00 [WRN] No store type was specified for the decimal property 'DiscountPercentage' on entity type 'Discount'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-17 16:42:10.717 +04:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'MenuItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-17 16:42:10.717 +04:00 [WRN] No store type was specified for the decimal property 'TotalPrice' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-17 16:42:10.717 +04:00 [WRN] No store type was specified for the decimal property 'DeliveryCost' on entity type 'Restaurant'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-17 16:42:11.920 +04:00 [INF] Executed DbCommand (58ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Image]
+FROM [Sliders] AS [s]
+2025-06-17 16:42:12.290 +04:00 [INF] Executed DbCommand (50ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[Address], [r].[CreatedDate], [r].[DeliveryCost], [r].[EstimatedDeliveryTime], [r].[Image], [r].[Name], [r].[Phone], [r].[RestaurantCategoryId], [r0].[Id], [r0].[CreatedDate], [r0].[Image], [r0].[Name], [r1].[Id], [r1].[Comment], [r1].[CreatedDate], [r1].[CustomerId], [r1].[Rating], [r1].[RestaurantId]
+FROM [Restaurants] AS [r]
+INNER JOIN [RestaurantCategories] AS [r0] ON [r].[RestaurantCategoryId] = [r0].[Id]
+LEFT JOIN [RestaurantReviews] AS [r1] ON [r].[Id] = [r1].[RestaurantId]
+ORDER BY [r].[Id], [r0].[Id]
+2025-06-17 16:42:12.411 +04:00 [INF] Executing ViewResult, running view Index.
+2025-06-17 16:42:12.520 +04:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-17 16:42:12.574 +04:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-17 16:42:12.697 +04:00 [INF] Executed ViewResult - view Index executed in 288.487ms.
+2025-06-17 16:42:12.703 +04:00 [INF] Executed action Wolt.Controllers.HomeController.Index (Wolt) in 3022.0671ms
+2025-06-17 16:42:12.703 +04:00 [INF] Executed endpoint 'Wolt.Controllers.HomeController.Index (Wolt)'
+2025-06-17 16:42:12.717 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/ - 200 null text/html; charset=utf-8 3236.0709ms
+2025-06-17 16:42:12.774 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-17 16:42:12.784 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 9.0594ms
+2025-06-17 16:42:12.785 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_vs/browserLink - null null
+2025-06-17 16:42:12.829 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 43.6366ms
+2025-06-17 16:42:14.895 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/admin/dashboard - null null
+2025-06-17 16:42:14.917 +04:00 [INF] Executing endpoint 'Wolt.Areas.Admin.Controllers.DashboardController.Index (Wolt)'
+2025-06-17 16:42:14.921 +04:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Wolt.Areas.Admin.Controllers.DashboardController (Wolt).
+2025-06-17 16:42:14.929 +04:00 [INF] Executing ViewResult, running view Index.
+2025-06-17 16:42:14.987 +04:00 [INF] Executed ViewResult - view Index executed in 63.57ms.
+2025-06-17 16:42:14.988 +04:00 [INF] Executed action Wolt.Areas.Admin.Controllers.DashboardController.Index (Wolt) in 66.5315ms
+2025-06-17 16:42:14.988 +04:00 [INF] Executed endpoint 'Wolt.Areas.Admin.Controllers.DashboardController.Index (Wolt)'
+2025-06-17 16:42:14.989 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/admin/dashboard - 200 null text/html; charset=utf-8 93.425ms
+2025-06-17 16:42:15.141 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-17 16:42:15.143 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 1.3902ms
+2025-06-17 16:42:15.156 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_vs/browserLink - null null
+2025-06-17 16:42:15.173 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 17.3145ms
+2025-06-17 16:42:15.759 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/courier/dashboard - null null
+2025-06-17 16:42:15.773 +04:00 [INF] Executing endpoint 'Wolt.Areas.Courier.Controllers.DashboardController.Index (Wolt)'
+2025-06-17 16:42:15.775 +04:00 [INF] Route matched with {area = "Courier", action = "Index", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Wolt.Areas.Courier.Controllers.DashboardController (Wolt).
+2025-06-17 16:42:15.777 +04:00 [INF] Executing ViewResult, running view Index.
+2025-06-17 16:42:15.811 +04:00 [INF] Executed ViewResult - view Index executed in 35.0853ms.
+2025-06-17 16:42:15.811 +04:00 [INF] Executed action Wolt.Areas.Courier.Controllers.DashboardController.Index (Wolt) in 35.8905ms
+2025-06-17 16:42:15.812 +04:00 [INF] Executed endpoint 'Wolt.Areas.Courier.Controllers.DashboardController.Index (Wolt)'
+2025-06-17 16:42:15.812 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/courier/dashboard - 200 null text/html; charset=utf-8 52.8822ms
+2025-06-17 16:42:15.967 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-17 16:42:15.967 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 0.4531ms
+2025-06-17 16:42:15.977 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_vs/browserLink - null null
+2025-06-17 16:42:15.992 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 14.5776ms
+2025-06-17 16:42:17.592 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/Courier/Order - null null
+2025-06-17 16:42:17.596 +04:00 [INF] Executing endpoint 'Wolt.Areas.Courier.Controllers.OrderController.Index (Wolt)'
+2025-06-17 16:42:17.603 +04:00 [INF] Route matched with {area = "Courier", action = "Index", controller = "Order"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Wolt.Areas.Courier.Controllers.OrderController (Wolt).
+2025-06-17 16:42:17.712 +04:00 [INF] Executed action Wolt.Areas.Courier.Controllers.OrderController.Index (Wolt) in 108.7094ms
+2025-06-17 16:42:17.712 +04:00 [INF] Executed endpoint 'Wolt.Areas.Courier.Controllers.OrderController.Index (Wolt)'
+2025-06-17 16:42:17.716 +04:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Wolt.Areas.Courier.Controllers.OrderController.Index() in C:\Users\gulay\OneDrive\Рабочий стол\Wolt\Wolt\Wolt\Areas\Courier\Controllers\OrderController.cs:line 28
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-06-17 16:42:17.777 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/Courier/Order - 500 null text/html; charset=utf-8 185.0105ms
+2025-06-17 16:42:17.802 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_vs/browserLink - null null
+2025-06-17 16:42:17.802 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-17 16:42:17.803 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 0.5315ms
+2025-06-17 16:42:17.811 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 8.4308ms

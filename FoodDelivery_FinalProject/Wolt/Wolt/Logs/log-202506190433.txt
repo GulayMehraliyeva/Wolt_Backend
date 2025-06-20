@@ -1,0 +1,39 @@
+2025-06-19 04:33:01.115 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/Admin/MenuItem/GetCategoriesByRestaurant?restaurantId=2 - null null
+2025-06-19 04:33:01.132 +04:00 [INF] Executing endpoint 'Wolt.Areas.Admin.Controllers.MenuItemController.GetCategoriesByRestaurant (Wolt)'
+2025-06-19 04:33:01.143 +04:00 [INF] Route matched with {area = "Admin", action = "GetCategoriesByRestaurant", controller = "MenuItem"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCategoriesByRestaurant(Int32) on controller Wolt.Areas.Admin.Controllers.MenuItemController (Wolt).
+2025-06-19 04:33:01.306 +04:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedDate], [m].[Name], [m].[RestaurantId], [r].[Id], [r].[Address], [r].[CreatedDate], [r].[DeliveryCost], [r].[EstimatedDeliveryTime], [r].[Image], [r].[Name], [r].[Phone], [r].[RestaurantCategoryId]
+FROM [MenuItemCategories] AS [m]
+INNER JOIN [Restaurants] AS [r] ON [m].[RestaurantId] = [r].[Id]
+2025-06-19 04:33:01.311 +04:00 [INF] Executing JsonResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[Service.ViewModels.MenuCategory.MenuCategoryVM, Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType1`2[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Wolt, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-06-19 04:33:01.324 +04:00 [INF] Executed action Wolt.Areas.Admin.Controllers.MenuItemController.GetCategoriesByRestaurant (Wolt) in 165.9667ms
+2025-06-19 04:33:01.325 +04:00 [INF] Executed endpoint 'Wolt.Areas.Admin.Controllers.MenuItemController.GetCategoriesByRestaurant (Wolt)'
+2025-06-19 04:33:01.325 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/Admin/MenuItem/GetCategoriesByRestaurant?restaurantId=2 - 200 null application/json; charset=utf-8 209.7337ms
+2025-06-19 04:33:11.565 +04:00 [INF] Request starting HTTP/2 POST https://localhost:7288/Admin/MenuItem/Create - multipart/form-data; boundary=----WebKitFormBoundarycAKiT8KDggrl84cC 4648
+2025-06-19 04:33:11.575 +04:00 [INF] Executing endpoint 'Wolt.Areas.Admin.Controllers.MenuItemController.Create (Wolt)'
+2025-06-19 04:33:11.576 +04:00 [INF] Route matched with {area = "Admin", action = "Create", controller = "MenuItem"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Service.ViewModels.MenuItem.MenuItemCreateVM) on controller Wolt.Areas.Admin.Controllers.MenuItemController (Wolt).
+2025-06-19 04:33:11.622 +04:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedDate], [m].[Name], [m].[RestaurantId], [r].[Id], [r].[Address], [r].[CreatedDate], [r].[DeliveryCost], [r].[EstimatedDeliveryTime], [r].[Image], [r].[Name], [r].[Phone], [r].[RestaurantCategoryId]
+FROM [MenuItemCategories] AS [m]
+INNER JOIN [Restaurants] AS [r] ON [m].[RestaurantId] = [r].[Id]
+2025-06-19 04:33:11.628 +04:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[Id], [d].[CreatedDate], [d].[DiscountPercentage], [d].[EndDate], [d].[IsActive], [d].[Name]
+FROM [Discounts] AS [d]
+2025-06-19 04:33:11.643 +04:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[Address], [r].[CreatedDate], [r].[DeliveryCost], [r].[EstimatedDeliveryTime], [r].[Image], [r].[Name], [r].[Phone], [r].[RestaurantCategoryId], [r0].[Id], [r0].[CreatedDate], [r0].[Image], [r0].[Name], [r1].[Id], [r1].[Comment], [r1].[CreatedDate], [r1].[CustomerId], [r1].[Rating], [r1].[RestaurantId]
+FROM [Restaurants] AS [r]
+INNER JOIN [RestaurantCategories] AS [r0] ON [r].[RestaurantCategoryId] = [r0].[Id]
+LEFT JOIN [RestaurantReviews] AS [r1] ON [r].[Id] = [r1].[RestaurantId]
+ORDER BY [r].[Id], [r0].[Id]
+2025-06-19 04:33:11.648 +04:00 [INF] Executing ViewResult, running view Create.
+2025-06-19 04:33:11.663 +04:00 [INF] Executed ViewResult - view Create executed in 16.116ms.
+2025-06-19 04:33:11.664 +04:00 [INF] Executed action Wolt.Areas.Admin.Controllers.MenuItemController.Create (Wolt) in 87.9812ms
+2025-06-19 04:33:11.664 +04:00 [INF] Executed endpoint 'Wolt.Areas.Admin.Controllers.MenuItemController.Create (Wolt)'
+2025-06-19 04:33:11.664 +04:00 [INF] Request finished HTTP/2 POST https://localhost:7288/Admin/MenuItem/Create - 200 null text/html; charset=utf-8 99.1843ms
+2025-06-19 04:33:11.698 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_vs/browserLink - null null
+2025-06-19 04:33:11.706 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 04:33:11.707 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 1.0257ms
+2025-06-19 04:33:11.720 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 21.896ms
+2025-06-19 04:33:11.797 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/admin/src/images/arrow-down.svg - null null
+2025-06-19 04:33:11.799 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/admin/src/images/arrow-down.svg - 404 0 null 2.3699ms
+2025-06-19 04:33:11.799 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7288/admin/src/images/arrow-down.svg, Response status code: 404

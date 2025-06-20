@@ -1,0 +1,44 @@
+﻿@model List<DiscountVM>
+
+<div class="container mt-4">
+    <h3>Discounts</h3>
+
+    <a asp-action="Create" class="btn btn-success mb-3">Create New Discount</a>
+
+    @if (Model.Any())
+    {
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Percentage</th>
+                    <th>Is Active</th>
+                    <th>End Date</th>
+                    <th>Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var discount in Model)
+                {
+                    <tr>
+                        <td>@discount.Name</td>
+                        <td>@discount.DiscountPercentage %</td>
+                        <td>@(discount.IsActive ? "Yes" : "No")</td>
+                        <td>@(discount.EndDate?.ToString("yyyy-MM-dd") ?? "No End")</td>
+                        <td>
+                            <a asp-action="Detail" asp-route-id="@discount.Id" class="btn btn-primary btn-sm">Detail</a>
+                            <a asp-action="Edit" asp-route-id="@discount.Id" class="btn btn-secondary btn-sm">Edit</a>
+                            <form asp-action="Delete" asp-route-id="@discount.Id" method="post" class="d-inline">
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No discounts found.</p>
+    }
+</div>

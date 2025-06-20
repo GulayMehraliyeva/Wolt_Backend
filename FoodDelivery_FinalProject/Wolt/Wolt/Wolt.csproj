@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Services\Service.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.16" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.16">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.16" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.16">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
+    <PackageReference Include="Serilog.AspNetCore" Version="8.0.3" />
+    <PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
+    <PackageReference Include="Stripe.net" Version="48.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Views\Account\" />
+    <Folder Include="wwwroot\admin\dist\assets\vendors\font-awesome\css\" />
+    <Folder Include="wwwroot\admin\dist\assets\vendors\font-awesome\fonts\" />
+    <Folder Include="wwwroot\admin\dist\assets\vendors\mdi\css\" />
+    <Folder Include="wwwroot\admin\dist\assets\vendors\mdi\fonts\" />
+    <Folder Include="wwwroot\admin\dist\assets\vendors\select2-bootstrap-theme\" />
+    <Folder Include="wwwroot\admin\dist\assets\vendors\simple-line-icons\css\" />
+    <Folder Include="wwwroot\admin\dist\assets\vendors\simple-line-icons\fonts\" />
+    <Folder Include="wwwroot\admin\dist\docs\" />
+    <Folder Include="wwwroot\admin\dist\pages\charts\" />
+    <Folder Include="wwwroot\admin\dist\pages\forms\" />
+    <Folder Include="wwwroot\admin\dist\pages\icons\" />
+    <Folder Include="wwwroot\admin\dist\pages\samples\" />
+    <Folder Include="wwwroot\admin\dist\pages\tables\" />
+    <Folder Include="wwwroot\admin\dist\pages\ui-features\" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,27 @@
+﻿@model IEnumerable<RestaurantVM>
+
+<div class="restaurants">
+    <div class="row">
+        @foreach (var restaurant in Model)
+        {
+            <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+                <a href="@Url.Action("Index", "Menu", new { restaurantId = restaurant.Id })" class="restaurant-card">
+                    <div class="image">
+                        <img src="~/assets/images/@restaurant.Image" class="img-fluid" />
+                    </div>
+                    <div class="content-rating">
+                        <div class="content">
+                            <div class="name">
+                                <h6>@restaurant.Name</h6>
+                            </div>
+                            <p>@restaurant.CategoryName</p>
+                        </div>
+                        <div class="rating">
+                            <span><i class="fa-solid fa-star"></i> @restaurant.AverageRating</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+</div>

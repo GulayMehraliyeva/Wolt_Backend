@@ -1,0 +1,129 @@
+﻿@model ProfileVM
+
+@section Styles {
+    <link rel="stylesheet" href="~/assets/css/profile.css" />
+}
+
+<main>
+    <section id="sidebar-part">
+        <div class="container">
+            <div class="profile-sidebar">
+
+                <div class="sidebar">
+                    <ul>
+                        <li class="active">
+                            <a href="#"><i class="fa-solid fa-user"></i> Profil</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa-solid fa-gear"></i> Parametrlər</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa-regular fa-heart"></i> Sevimlilər</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="profile-section" class="content-section">
+                    <h1>Profil</h1>
+                    <div class="profile-info">
+                        <ul>
+                            <li>
+                                <p><i class="fa-solid fa-user"></i> @Model.FullName</p>
+                            </li>
+                            <li>
+                                <p><i class="fa-solid fa-phone"></i> @Model.PhoneNumber</p>
+                            </li>
+                            <li>
+                                <p><i class="fa-solid fa-envelope"></i> @Model.Email</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="settings-section" class="content-section" style="display: none;">
+                    <h1>Parametrlər</h1>
+                    <div class="change-password">
+
+                        <h3>Şifrəni dəyiş</h3>
+                        <form asp-action="ChangePassword" method="post">
+                            <label>İndiki Şifrə:</label>
+                            <input type="password" name="currentPassword" required />
+                            <br />
+                            <label>Yeni Şifrə:</label>
+                            <input type="password" name="newPassword" required />
+                            <br />
+                            <label>Şifrəni Təsdiqlə:</label>
+                            <input type="password" name="confirmPassword" required />
+                            <br />
+                            <button type="submit">Dəyiş</button>
+                        </form>
+
+                        <hr />
+
+                        <h3>Email ünvanını dəyiş</h3>
+                        <form asp-action="UpdateEmail" method="post">
+                            <label>Yeni Email:</label>
+                            <input type="email" name="newEmail" required />
+                            <br />
+                            <button type="submit">Dəyiş</button>
+                        </form>
+
+                        <hr />
+
+                        <h3>Telefon nömrəsini dəyiş</h3>
+                        <form asp-action="UpdatePhoneNumber" method="post">
+                            <label>Yeni Telefon Nömrəsi:</label>
+                            <input type="text" name="newPhoneNumber" required />
+                            <br />
+                            <button type="submit">Dəyiş</button>
+                        </form>
+
+                    </div>
+                </div>
+
+                <div id="favorites-section" class="content-section" style="display: none;">
+                    <div class="favorite">
+                        <div class="image">
+                            <img src="assets/images/r3.avif" alt="">
+                        </div>
+                        <div class="content">
+                            <h3>Name</h3>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</main>
+
+
+@section Scripts {
+    <script src="~/assets/js/profile.js" asp-append-version="true"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const links = document.querySelectorAll(".sidebar ul li");
+            const sections = document.querySelectorAll(".content-section");
+
+            links.forEach((link, index) => {
+                link.addEventListener("click", function () {
+                    links.forEach(l => l.classList.remove("active"));
+                    this.classList.add("active");
+
+                    sections.forEach(s => s.style.display = "none");
+                    sections[index].style.display = "block";
+                });
+            });
+
+            var successMessage = '@(TempData["Success"] ?? "")';
+            var errorMessage = '@(TempData["Error"] ?? "")';
+
+            if (successMessage) {
+                alert(successMessage);
+            } else if (errorMessage) {
+                alert(errorMessage);
+            }
+        });
+    </script>
+
+}

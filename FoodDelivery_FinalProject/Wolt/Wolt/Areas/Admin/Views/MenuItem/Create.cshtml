@@ -1,0 +1,95 @@
+﻿@model MenuItemCreateVM
+
+<form asp-action="Create" enctype="multipart/form-data" method="post">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <input asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Price"></label>
+        <input asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="RestaurantId">Restaurant</label>
+        <select asp-for="RestaurantId" asp-items="Model.Restaurants" class="form-control" id="restaurantSelect">
+            <option value="">-- Select Restaurant --</option>
+        </select>
+        <span asp-validation-for="RestaurantId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CategoryId">Category</label>
+        <select asp-for="CategoryId" class="form-control" id="categorySelect">
+            <option value="">-- Select Category --</option>
+        </select>
+        <span asp-validation-for="CategoryId" class="text-danger"></span>
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="SelectedDiscountIds">Discounts (optional)</label>
+        <select asp-for="SelectedDiscountIds" asp-items="Model.Discounts" class="form-control" multiple="multiple">
+        </select>
+        <span asp-validation-for="SelectedDiscountIds" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputUsername1">Image</label>
+        <input type="file" class="form-control" id="exampleInputUsername1" asp-for="Image">
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</form>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        const $restaurantSelect = $('#restaurantSelect');
+        const $categorySelect = $('#categorySelect');
+
+        // Disable initially
+        $categorySelect.prop('disabled', true);
+
+        $restaurantSelect.change(function () {
+            const restaurantId = $(this).val();
+            $categorySelect.empty().append('<option value="">-- Select Category --</option>');
+
+            if (!restaurantId) {
+                $categorySelect.prop('disabled', true);
+                return;
+            }
+
+            const url = '@Url.Action("GetCategoriesByRestaurant", "MenuItem", new { area = "Admin" })';
+
+            $.get(url + '?restaurantId=' + restaurantId, function (data) {
+                if (data && data.length > 0) {
+                    $.each(data, function (i, category) {
+                        $categorySelect.append('<option value="' + category.id + '">' + category.name + '</option>');
+                    });
+                    $categorySelect.prop('disabled', false);
+                } else {
+                    $categorySelect.prop('disabled', true);
+                }
+            });
+        });
+
+        // Ensure category select is enabled before form submits
+        $('form').submit(function () {
+            $categorySelect.prop('disabled', false);
+        });
+    });
+</script>

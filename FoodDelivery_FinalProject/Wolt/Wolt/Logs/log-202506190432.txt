@@ -1,0 +1,49 @@
+2025-06-19 04:32:44.129 +04:00 [INF] User profile is available. Using 'C:\Users\gulay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-19 04:32:44.390 +04:00 [INF] Now listening on: https://localhost:7288
+2025-06-19 04:32:44.390 +04:00 [INF] Now listening on: http://localhost:5226
+2025-06-19 04:32:44.437 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-19 04:32:44.438 +04:00 [INF] Hosting environment: Development
+2025-06-19 04:32:44.438 +04:00 [INF] Content root path: C:\Users\gulay\OneDrive\Рабочий стол\Wolt\Wolt\Wolt
+2025-06-19 04:32:44.542 +04:00 [INF] Request starting HTTP/2 POST https://localhost:7288/Admin/MenuItem/Create - multipart/form-data; boundary=----WebKitFormBoundaryJzAfANXY133tF9IZ 4647
+2025-06-19 04:32:44.912 +04:00 [INF] Executing endpoint 'Wolt.Areas.Admin.Controllers.MenuItemController.Create (Wolt)'
+2025-06-19 04:32:44.949 +04:00 [INF] Route matched with {area = "Admin", action = "Create", controller = "MenuItem"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Service.ViewModels.MenuItem.MenuItemCreateVM) on controller Wolt.Areas.Admin.Controllers.MenuItemController (Wolt).
+2025-06-19 04:32:45.995 +04:00 [WRN] No store type was specified for the decimal property 'DiscountPercentage' on entity type 'Discount'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-19 04:32:45.995 +04:00 [WRN] No store type was specified for the decimal property 'TotalPrice' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-19 04:32:45.996 +04:00 [WRN] No store type was specified for the decimal property 'DeliveryCost' on entity type 'Restaurant'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-19 04:32:47.486 +04:00 [INF] Executed DbCommand (58ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedDate], [m].[Name], [m].[RestaurantId], [r].[Id], [r].[Address], [r].[CreatedDate], [r].[DeliveryCost], [r].[EstimatedDeliveryTime], [r].[Image], [r].[Name], [r].[Phone], [r].[RestaurantCategoryId]
+FROM [MenuItemCategories] AS [m]
+INNER JOIN [Restaurants] AS [r] ON [m].[RestaurantId] = [r].[Id]
+2025-06-19 04:32:47.719 +04:00 [INF] Executed DbCommand (36ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[Id], [d].[CreatedDate], [d].[DiscountPercentage], [d].[EndDate], [d].[IsActive], [d].[Name]
+FROM [Discounts] AS [d]
+2025-06-19 04:32:47.874 +04:00 [INF] Executed DbCommand (40ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[Address], [r].[CreatedDate], [r].[DeliveryCost], [r].[EstimatedDeliveryTime], [r].[Image], [r].[Name], [r].[Phone], [r].[RestaurantCategoryId], [r0].[Id], [r0].[CreatedDate], [r0].[Image], [r0].[Name], [r1].[Id], [r1].[Comment], [r1].[CreatedDate], [r1].[CustomerId], [r1].[Rating], [r1].[RestaurantId]
+FROM [Restaurants] AS [r]
+INNER JOIN [RestaurantCategories] AS [r0] ON [r].[RestaurantCategoryId] = [r0].[Id]
+LEFT JOIN [RestaurantReviews] AS [r1] ON [r].[Id] = [r1].[RestaurantId]
+ORDER BY [r].[Id], [r0].[Id]
+2025-06-19 04:32:47.947 +04:00 [INF] Executing ViewResult, running view Create.
+2025-06-19 04:32:48.206 +04:00 [INF] Executed ViewResult - view Create executed in 261.4173ms.
+2025-06-19 04:32:48.211 +04:00 [INF] Executed action Wolt.Areas.Admin.Controllers.MenuItemController.Create (Wolt) in 3261.0416ms
+2025-06-19 04:32:48.211 +04:00 [INF] Executed endpoint 'Wolt.Areas.Admin.Controllers.MenuItemController.Create (Wolt)'
+2025-06-19 04:32:48.225 +04:00 [INF] Request finished HTTP/2 POST https://localhost:7288/Admin/MenuItem/Create - 200 null text/html; charset=utf-8 3685.3954ms
+2025-06-19 04:32:48.340 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 04:32:48.340 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_vs/browserLink - null null
+2025-06-19 04:32:48.345 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 5.2302ms
+2025-06-19 04:32:48.362 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/.well-known/appspecific/com.chrome.devtools.json - null null
+2025-06-19 04:32:48.374 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/.well-known/appspecific/com.chrome.devtools.json - 404 0 null 11.8791ms
+2025-06-19 04:32:48.374 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7288/.well-known/appspecific/com.chrome.devtools.json, Response status code: 404
+2025-06-19 04:32:48.380 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 39.812ms
+2025-06-19 04:32:48.469 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/admin/src/images/arrow-down.svg - null null
+2025-06-19 04:32:48.503 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/admin/src/images/arrow-down.svg - 404 0 null 33.2375ms
+2025-06-19 04:32:48.503 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7288/admin/src/images/arrow-down.svg, Response status code: 404
+2025-06-19 04:32:48.605 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/admin/src/assets/vendors/mdi/css/materialdesignicons.css.map - null null
+2025-06-19 04:32:48.630 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/admin/src/assets/vendors/mdi/css/materialdesignicons.css.map - 404 0 null 25.2338ms
+2025-06-19 04:32:48.630 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7288/admin/src/assets/vendors/mdi/css/materialdesignicons.css.map, Response status code: 404
+2025-06-19 04:32:48.738 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/admin/src/assets/vendors/js/perfect-scrollbar.min.js.map - null null
+2025-06-19 04:32:48.739 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/admin/src/assets/vendors/js/perfect-scrollbar.min.js.map - 404 0 null 1.4579ms
+2025-06-19 04:32:48.739 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7288/admin/src/assets/vendors/js/perfect-scrollbar.min.js.map, Response status code: 404
+2025-06-19 04:32:48.741 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/admin/src/assets/vendors/chart.js/chart.umd.js.map - null null
+2025-06-19 04:32:48.743 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/admin/src/assets/vendors/chart.js/chart.umd.js.map - 404 0 null 1.3098ms
+2025-06-19 04:32:48.743 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7288/admin/src/assets/vendors/chart.js/chart.umd.js.map, Response status code: 404

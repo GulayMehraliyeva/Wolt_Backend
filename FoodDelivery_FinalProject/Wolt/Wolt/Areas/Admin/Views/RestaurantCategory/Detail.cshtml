@@ -1,0 +1,10 @@
+﻿@model RestaurantCategoryVM
+
+<div class="container">
+    <h2><strong>Name:</strong> @Model.Name</h2>
+    <p style="margin-top:50px;"><strong>Image:</strong></p>
+    <img src="~/assets/images/@Model.Image" style="width:200px; height:200px;">
+    <p style="margin-top:50px;"><strong>Number of restaurants:</strong> </p>
+    @Model.NumberOfRestaurants
+</div>
+

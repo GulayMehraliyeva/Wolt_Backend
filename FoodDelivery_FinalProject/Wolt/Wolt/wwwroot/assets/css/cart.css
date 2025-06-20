@@ -1,0 +1,251 @@
+body {
+  background-color: black;
+}
+
+
+
+/* Original Styles - Unchanged */
+.title-image {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+    .title-image .title h6 {
+        color: white;
+    }
+
+    .title-image .title p {
+        color: rgba(255, 255, 255, 0.719);
+        width: 250px;
+    }
+
+    .title-image .title .discount-price {
+        display: flex;
+        gap: 10px;
+    }
+
+        .title-image .title .discount-price .discountedprice {
+            color: red;
+        }
+
+    .title-image .image-button {
+        position: relative;
+    }
+
+        .title-image .image-button .image {
+            width: 150px;
+        }
+
+            .title-image .image-button .image img {
+                width: 100%;
+                display: block;
+                border-radius: 10px;
+            }
+
+        .title-image .image-button button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            border-radius: 50%;
+            background-color: rgba(26, 26, 26, 0.5843137255);
+            color: white;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+            .title-image .image-button button:hover {
+                background-color: #1a1a1a;
+            }
+
+.cart-counter {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+    .cart-counter button {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+        .cart-counter button:hover {
+            background-color: #0056b3;
+        }
+
+    .cart-counter input {
+        width: 60px;
+        height: 40px;
+        text-align: center;
+        font-size: 18px;
+        border: 2px solid #ccc;
+        border-radius: 8px;
+        outline: none;
+        transition: border-color 0.3s;
+    }
+
+        .cart-counter input:focus {
+            border-color: #007bff;
+        }
+
+.remove-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+    .remove-btn:hover {
+        background-color: #b02a37;
+    }
+
+#cart .cart-table {
+    color: white;
+}
+
+    #cart .cart-table table {
+        border-collapse: separate;
+        border-spacing: 100px 15px;
+    }
+
+    #cart .cart-table tr th {
+        font-size: 20px;
+    }
+
+.cart-summary {
+    margin-top: 20px;
+    text-align: right;
+    padding: 20px;
+    border-top: 1px solid #ccc;
+}
+
+.total {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.order-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    .order-btn:hover {
+        background-color: #218838;
+    }
+
+/* ---------- Responsive Styles ---------- */
+@media (max-width: 992px) {
+    .title-image {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+        .title-image .title p {
+            width: 100%;
+        }
+
+    .cart-counter {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .cart-summary {
+        text-align: center;
+        padding: 20px 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    #cart .cart-table {
+        overflow-x: auto;
+    }
+
+        #cart .cart-table table {
+            min-width: 600px;
+        }
+
+    .title-image .image-button .image {
+        width: 120px;
+    }
+
+    .cart-counter input {
+        width: 50px;
+        font-size: 16px;
+    }
+
+    .cart-counter button {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+
+    .cart-summary .order-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    #cart .cart-table table {
+        border-spacing: 20px 10px;
+    }
+
+    #cart .cart-table tr th,
+    #cart .cart-table tr td {
+        font-size: 14px;
+        padding: 6px;
+    }
+
+    .title-image .image-button .image {
+        width: 100px;
+    }
+
+    .cart-counter {
+        gap: 8px;
+        padding: 8px 12px;
+    }
+
+        .cart-counter input {
+            width: 40px;
+            font-size: 14px;
+        }
+
+        .cart-counter button {
+            width: 30px;
+            height: 30px;
+            font-size: 16px;
+        }
+
+    .total {
+        font-size: 18px;
+    }
+
+    .order-btn {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}

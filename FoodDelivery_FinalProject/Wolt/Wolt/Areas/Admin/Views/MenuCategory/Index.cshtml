@@ -1,0 +1,90 @@
+﻿@model MenuCategoryIndexVM
+
+<div class="container mt-4">
+    <h4>Menu Categories</h4>
+
+    <form id="anti-forgery-form" method="post">
+        @Html.AntiForgeryToken()
+    </form>
+
+    <form method="get" asp-action="Index">
+        <div class="form-group mb-3">
+            <label for="restaurantFilter">Select Restaurant:</label>
+            <select id="restaurantFilter" name="restaurantId" class="form-control" onchange="this.form.submit()">
+                <option value="">-- Select a Restaurant --</option>
+                @foreach (var restaurant in Model.Restaurants)
+                {
+                    <option value="@restaurant.Value" selected="@(restaurant.Value == Model.SelectedRestaurantId?.ToString())">
+                        @restaurant.Text
+                    </option>
+                }
+            </select>
+        </div>
+    </form>
+
+    @if (Model.MenuCategories != null && Model.MenuCategories.Any())
+    {
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Restaurant</th>
+                        <th>Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.MenuCategories)
+                    {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td>@item.RestaurantName</td>
+                            <td>
+                                <a asp-action="Detail" asp-route-id="@item.Id" class="btn btn-primary btn-sm">Detail</a>
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-secondary btn-sm">Edit</a>
+
+                                <button type="button" class="btn btn-danger btn-sm" onclick="deleteCategory(@item.Id, this)">Delete</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else if (Model.SelectedRestaurantId.HasValue)
+    {
+        <p>No categories found for this restaurant.</p>
+    }
+
+    <a asp-action="Create" class="btn btn-success mt-3">Create New Category</a>
+</div>
+
+
+<script>
+    function getRequestVerificationToken() {
+        return document.querySelector('input[name="__RequestVerificationToken"]').value;
+    }
+
+    function deleteCategory(id, button) {
+        fetch(`/Admin/MenuCategory/DeleteAjax/${id}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'RequestVerificationToken': getRequestVerificationToken()
+            }
+        })
+            .then(response => {
+                if (!response.ok) throw new Error("Failed to delete.");
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    const row = button.closest('tr');
+                    row.remove();
+                }
+            })
+            .catch(error => {
+                console.error("Delete error:", error);
+            });
+    }
+</script>

@@ -1,0 +1,193 @@
+body {
+  background-color: black;
+}
+
+
+#offers-slider {
+  margin-top: 30px;
+}
+#offers-slider #slider-row {
+  transition: transform 0.5s ease-in-out;
+  will-change: transform;
+}
+#offers-slider .images {
+  margin-left: 18px;
+  position: relative;
+}
+#offers-slider .image {
+  width: 718px;
+  height: 395px;
+}
+#offers-slider .image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+#offers-slider .arrows {
+  transform: translateY(-600px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#offers-slider .arrows .left-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #1b4151;
+  color: #009de0;
+}
+#offers-slider .arrows .right-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #1b4151;
+  color: #009de0;
+}
+
+#info {
+  margin-top: 100px;
+  margin-left: 90px;
+}
+#info .info-card {
+  width: 350px;
+  height: 250px;
+  border: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1a1a1a;
+  color: #fff;
+  border-radius: 10px;
+  padding: 30px 20px;
+  margin: 20px 0;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
+}
+#info .info-card .content i {
+  font-size: 40px;
+  color: #009de0;
+  margin-bottom: 15px;
+}
+
+#popular-restaurants {
+  margin-top: 100px;
+  height: 710px;
+}
+#popular-restaurants h1 {
+  color: white;
+  text-align: center;
+  transform: translateY(20px);
+}
+#popular-restaurants .restaurant-card {
+  margin-top: 50px;
+  width: 300px;
+  height: 400x;
+  border: 1px;
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 20px;
+  color: #fff;
+  transition: all 0.3s;
+}
+#popular-restaurants .restaurant-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px rgba(0, 157, 224, 0.4);
+}
+#popular-restaurants .restaurant-card .image img {
+  width: 100%;
+  height: 180px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+#popular-restaurants .restaurant-card .content {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 35px;
+  color: #fff;
+  transform: translateY(-14px);
+}
+#popular-restaurants .restaurant-card .content h3 {
+  margin-left: 7px;
+}
+#popular-restaurants .restaurant-card .content .rating {
+  margin-right: 7px;
+}
+#popular-restaurants .restaurant-card .content .rating span {
+  display: inline-block;
+  background-color: #009de0;
+  padding: 4px 10px;
+  border-radius: 11px;
+  font-size: 14px;
+  color: #fff;
+}
+#popular-restaurants .restaurant-card .content .rating i {
+  color: #ffd700;
+  margin-right: 5px;
+}
+#popular-restaurants .more-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+#popular-restaurants .more-button .btn-more {
+  background-color: #009de0;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 157, 224, 0.3);
+}
+#popular-restaurants .more-button .btn-more:hover {
+  background-color: #007bb3;
+  box-shadow: 0 6px 15px rgba(0, 157, 224, 0.5);
+}
+#popular-restaurants .more-button .btn-more:hover i {
+  transform: translateX(5px);
+}
+#popular-restaurants .more-button .btn-more i {
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+}
+
+#brands {
+  margin-top: 150px;
+}
+#brands h1 {
+  margin-left: 30px;
+  color: white;
+}
+#brands .arrows {
+  z-index: 1;
+  margin-top: 110px;
+}
+#brands #brands-slider {
+  z-index: 0;
+  margin-top: 25px;
+}
+#brands #brands-slider #brands-row {
+  transition: transform 0.5s ease-in-out;
+  will-change: transform;
+}
+#brands #brands-slider #brands-row .image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}/*# sourceMappingURL=home.css.map */

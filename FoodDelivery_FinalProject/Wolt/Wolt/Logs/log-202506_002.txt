@@ -1,0 +1,45 @@
+2025-06-20 02:13:26.613 +04:00 [WRN] No store type was specified for the decimal property 'TotalPrice' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-20 02:13:27.035 +04:00 [WRN] No store type was specified for the decimal property 'TotalPrice' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-20 02:24:51.958 +04:00 [INF] User profile is available. Using 'C:\Users\gulay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-20 02:24:52.172 +04:00 [INF] Now listening on: https://localhost:7288
+2025-06-20 02:24:52.172 +04:00 [INF] Now listening on: http://localhost:5226
+2025-06-20 02:24:52.209 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-20 02:24:52.209 +04:00 [INF] Hosting environment: Development
+2025-06-20 02:24:52.209 +04:00 [INF] Content root path: C:\Users\gulay\OneDrive\Рабочий стол\Wolt\Wolt\Wolt
+2025-06-20 02:24:52.421 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/Admin/Slider - null null
+2025-06-20 02:24:53.681 +04:00 [WRN] No store type was specified for the decimal property 'TotalPrice' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-20 02:24:54.747 +04:00 [INF] Executed DbCommand (65ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2025-06-20 02:24:54.991 +04:00 [INF] Executed DbCommand (7ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2025-06-20 02:24:55.031 +04:00 [INF] Executed DbCommand (6ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2025-06-20 02:24:55.050 +04:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-06-20 02:24:55.081 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+2025-06-20 02:24:55.095 +04:00 [INF] Executing endpoint 'Wolt.Areas.Admin.Controllers.SliderController.Index (Wolt)'
+2025-06-20 02:24:55.111 +04:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Slider"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Wolt.Areas.Admin.Controllers.SliderController (Wolt).
+2025-06-20 02:24:55.393 +04:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Image]
+FROM [Sliders] AS [s]
+2025-06-20 02:24:55.441 +04:00 [INF] Executing ViewResult, running view Index.
+2025-06-20 02:24:55.598 +04:00 [INF] Executed ViewResult - view Index executed in 157.1758ms.
+2025-06-20 02:24:55.604 +04:00 [INF] Executed action Wolt.Areas.Admin.Controllers.SliderController.Index (Wolt) in 492.1476ms
+2025-06-20 02:24:55.605 +04:00 [INF] Executed endpoint 'Wolt.Areas.Admin.Controllers.SliderController.Index (Wolt)'
+2025-06-20 02:24:55.620 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-20 02:24:55.620 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_vs/browserLink - null null
+2025-06-20 02:24:55.621 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/Admin/Slider - 200 null text/html; charset=utf-8 3201.6784ms
+2025-06-20 02:24:55.626 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 6.481ms
+2025-06-20 02:24:55.658 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 37.6641ms

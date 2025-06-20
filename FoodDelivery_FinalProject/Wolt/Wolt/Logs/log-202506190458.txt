@@ -1,0 +1,37 @@
+2025-06-19 04:58:26.329 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/Admin/MenuItem - null null
+2025-06-19 04:58:26.345 +04:00 [INF] Executing endpoint 'Wolt.Areas.Admin.Controllers.MenuItemController.Index (Wolt)'
+2025-06-19 04:58:26.345 +04:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "MenuItem"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.Nullable`1[System.Int32]) on controller Wolt.Areas.Admin.Controllers.MenuItemController (Wolt).
+2025-06-19 04:58:26.364 +04:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CategoryId], [m].[CreatedDate], [m].[Description], [m].[Image], [m].[Name], [m].[Price], [m0].[Id], [m0].[CreatedDate], [m0].[Name], [m0].[RestaurantId], [t].[Id], [t].[CreatedDate], [t].[DiscountId], [t].[MenuItemId], [t].[Id0], [t].[CreatedDate0], [t].[DiscountPercentage], [t].[EndDate], [t].[IsActive], [t].[Name]
+FROM [MenuItems] AS [m]
+INNER JOIN [MenuItemCategories] AS [m0] ON [m].[CategoryId] = [m0].[Id]
+LEFT JOIN (
+    SELECT [m1].[Id], [m1].[CreatedDate], [m1].[DiscountId], [m1].[MenuItemId], [d].[Id] AS [Id0], [d].[CreatedDate] AS [CreatedDate0], [d].[DiscountPercentage], [d].[EndDate], [d].[IsActive], [d].[Name]
+    FROM [MenuItemDiscounts] AS [m1]
+    INNER JOIN [Discounts] AS [d] ON [m1].[DiscountId] = [d].[Id]
+) AS [t] ON [m].[Id] = [t].[MenuItemId]
+ORDER BY [m].[Id], [m0].[Id], [t].[Id]
+2025-06-19 04:58:26.376 +04:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[Address], [r].[CreatedDate], [r].[DeliveryCost], [r].[EstimatedDeliveryTime], [r].[Image], [r].[Name], [r].[Phone], [r].[RestaurantCategoryId], [r0].[Id], [r0].[CreatedDate], [r0].[Image], [r0].[Name], [r1].[Id], [r1].[Comment], [r1].[CreatedDate], [r1].[CustomerId], [r1].[Rating], [r1].[RestaurantId]
+FROM [Restaurants] AS [r]
+INNER JOIN [RestaurantCategories] AS [r0] ON [r].[RestaurantCategoryId] = [r0].[Id]
+LEFT JOIN [RestaurantReviews] AS [r1] ON [r].[Id] = [r1].[RestaurantId]
+ORDER BY [r].[Id], [r0].[Id]
+2025-06-19 04:58:26.377 +04:00 [INF] Executing ViewResult, running view Index.
+2025-06-19 04:58:26.379 +04:00 [INF] Executed ViewResult - view Index executed in 2.3151ms.
+2025-06-19 04:58:26.379 +04:00 [INF] Executed action Wolt.Areas.Admin.Controllers.MenuItemController.Index (Wolt) in 34.1028ms
+2025-06-19 04:58:26.379 +04:00 [INF] Executed endpoint 'Wolt.Areas.Admin.Controllers.MenuItemController.Index (Wolt)'
+2025-06-19 04:58:26.380 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/Admin/MenuItem - 200 null text/html; charset=utf-8 50.6551ms
+2025-06-19 04:58:26.419 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-19 04:58:26.420 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/images/59918c71-5a61-4ed4-8f74-3b1fea27ba2c-grape.png - null null
+2025-06-19 04:58:26.420 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 0.7648ms
+2025-06-19 04:58:26.420 +04:00 [INF] The file /assets/images/59918c71-5a61-4ed4-8f74-3b1fea27ba2c-grape.png was not modified
+2025-06-19 04:58:26.420 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/images/59918c71-5a61-4ed4-8f74-3b1fea27ba2c-grape.png - 304 null image/png 0.5942ms
+2025-06-19 04:58:26.427 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/images/acfd9ffc-0cf0-427c-9653-29fa2536311f-grape.png - null null
+2025-06-19 04:58:26.428 +04:00 [INF] The file /assets/images/acfd9ffc-0cf0-427c-9653-29fa2536311f-grape.png was not modified
+2025-06-19 04:58:26.428 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/images/acfd9ffc-0cf0-427c-9653-29fa2536311f-grape.png - 304 null image/png 0.7581ms
+2025-06-19 04:58:26.464 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_vs/browserLink - null null
+2025-06-19 04:58:26.468 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 4.0862ms
+2025-06-19 04:58:26.494 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/admin/src/images/arrow-down.svg - null null
+2025-06-19 04:58:26.495 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/admin/src/images/arrow-down.svg - 404 0 null 0.8604ms
+2025-06-19 04:58:26.495 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7288/admin/src/images/arrow-down.svg, Response status code: 404

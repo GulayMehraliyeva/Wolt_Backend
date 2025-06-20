@@ -1,0 +1,98 @@
+body {
+    background-color: black;
+}
+
+#orders {
+    h1 {
+        color: white;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .order-table {
+        table {
+            border-collapse: separate;
+            border-spacing: 70px 15px;
+        }
+
+        color: white;
+
+        tr {
+            th {
+                font-size: 20px;
+            }
+
+            .title-image {
+                margin-top: 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 30px;
+
+                .title {
+                    h6 {
+                        color: white;
+                    }
+
+                    p {
+                        color: rgba(255, 255, 255, 0.719);
+                        width: 250px;
+                    }
+
+                    .discount-price {
+                        display: flex;
+                        gap: 10px;
+
+                        .discountedprice {
+                            color: red;
+                        }
+
+                        .price {}
+                    }
+                }
+
+
+                .image {
+                    width: 150px;
+
+                    img {
+                        width: 100%;
+                        display: block;
+                        border-radius: 10px;
+                    }
+                }
+
+
+            }
+        }
+
+        .status {
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            display: inline-block;
+
+            &.preparing {
+                background-color: orange;
+                color: white;
+            }
+
+            &.out-for-delivery {
+                background-color: blue;
+                color: white;
+            }
+
+            &.delivered {
+                background-color: green;
+                color: white;
+            }
+
+            &.canceled {
+                background-color: red;
+                color: white;
+            }
+        }
+    }
+}

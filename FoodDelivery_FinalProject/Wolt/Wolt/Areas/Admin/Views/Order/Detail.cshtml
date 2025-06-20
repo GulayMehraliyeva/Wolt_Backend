@@ -1,0 +1,48 @@
+﻿@model OrderVM
+
+<div class="container mt-4">
+
+    <table class="table table-bordered">
+        <tr><th>Customer Name</th><td>@Model.CustomerName</td></tr>
+        <tr><th>Customer Phone</th><td>@Model.CustomerPhoneNumber</td></tr>
+        <tr><th>Delivery Address</th><td>@Model.DeliveryAddress</td></tr>
+        <tr><th>Notes</th><td>@Model.Notes</td></tr>
+        <tr><th>Payment Method</th><td>@Model.PaymentMethod</td></tr>
+        <tr><th>Status</th><td>@Model.Status</td></tr>
+        <tr><th>Total Price</th><td>@Model.TotalPrice ₼</td></tr>
+        <tr><th>Delivery Cost</th><td>@Model.DeliveryCost ₼</td></tr>
+        <tr><th>Created At</th><td>@Model.CreatedAt.ToString("dd.MM.yyyy HH:mm")</td></tr>
+        <tr><th>Restaurant</th><td>@Model.RestaurantName</td></tr>
+        <tr><th>Courier</th><td>@(Model.CourierName ?? "Not Assigned")</td></tr>
+        <tr><th>Courier Phone</th><td>@(Model.CourierPhoneNumber ?? "Not Assigned")</td></tr>
+        <tr><th>Estimated Delivery</th><td>@(Model.EstimatedDeliveryTime?.ToString("dd.MM.yyyy HH:mm") ?? "Not Set")</td></tr>
+        <tr><th>Delivered At</th><td>@(Model.DeliveredAt?.ToString("dd.MM.yyyy HH:mm") ?? "Not Delivered")</td></tr>
+    </table>
+
+    <h4>Ordered Items</h4>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Items)
+            {
+                <tr>
+                    <td>
+                        <img src="~/assets/images/@item.Image" width="100" />
+                    </td>
+                    <td>@item.MenuItemName</td>
+                    <td>@item.Price ₼</td>
+                    <td>@item.Quantity</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <a asp-action="Index" class="btn btn-secondary">Back to Orders</a>
+</div>

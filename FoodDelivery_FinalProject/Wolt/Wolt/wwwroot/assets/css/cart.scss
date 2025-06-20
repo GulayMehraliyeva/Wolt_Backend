@@ -1,0 +1,178 @@
+body {
+    background-color: black;
+}
+
+
+
+
+.title-image {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+
+    .title {
+        h6 {
+            color: white;
+
+        }
+
+        p {
+            color: rgba(255, 255, 255, 0.719);
+            width: 250px;
+        }
+
+
+        .discount-price {
+            display: flex;
+            gap: 10px;
+
+            .discountedprice {
+                color: red;
+            }
+
+            .price {}
+        }
+    }
+
+    .image-button {
+        position: relative;
+
+        .image {
+            width: 150px;
+
+            img {
+                width: 100%;
+                display: block;
+                border-radius: 10px;
+            }
+
+
+        }
+
+        button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            border-radius: 50%;
+            background-color: #1a1a1a95;
+            color: white;
+            border: none;
+            transition: all .3s ease;
+
+            &:hover {
+                background-color: #1a1a1a;
+            }
+        }
+    }
+
+}
+
+
+.cart-counter {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-counter button {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cart-counter button:hover {
+    background-color: #0056b3;
+}
+
+.cart-counter input {
+    width: 60px;
+    height: 40px;
+    text-align: center;
+    font-size: 18px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.cart-counter input:focus {
+    border-color: #007bff;
+}
+
+.remove-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.remove-btn:hover {
+  background-color: #b02a37;
+}
+
+
+
+
+#cart {
+    .cart-table {
+        table {
+            border-collapse: separate;
+            border-spacing: 100px 15px;
+        }
+
+        color: white;
+
+        tr {
+            th {
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+
+.cart-summary {
+  margin-top: 20px;
+  text-align: right;
+  padding: 20px;
+  border-top: 1px solid #ccc;
+}
+
+.total {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.order-btn {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.order-btn:hover {
+  background-color: #218838;
+}
+
+
+

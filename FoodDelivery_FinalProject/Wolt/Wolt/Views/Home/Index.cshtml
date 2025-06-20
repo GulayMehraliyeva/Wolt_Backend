@@ -1,0 +1,182 @@
+﻿@model HomeVM
+
+@section Styles {
+    <link rel="stylesheet" href="~/assets/css/home.css" />
+}
+
+
+<main>
+    <section id="offers-slider" class="position-relative overflow-hidden">
+        <div class="container-fluid">
+            <div class="row flex-nowrap transition" id="slider-row">
+                @foreach(var slider in Model.Sliders)
+                {
+                    <div class="col-12 col-sm-12 col-md-6 col-xl-6 image-item">
+                        <img src="assets/images/@slider.Image" class="img-fluid rounded">
+                    </div>
+                } 
+            </div>
+        </div>
+
+        <div class="arrows position-absolute w-100 d-flex justify-content-between px-3"
+             style="top: 50%; transform: translateY(-50%);">
+            <div class="left-arrow d-flex align-items-center justify-content-center bg-dark text-info rounded-circle"
+                 style="width: 40px; height: 40px; cursor: pointer;">
+                <i class="fa-solid fa-arrow-left"></i>
+            </div>
+            <div class="right-arrow d-flex align-items-center justify-content-center bg-dark text-info rounded-circle"
+                 style="width: 40px; height: 40px; cursor: pointer;">
+                <i class="fa-solid fa-arrow-right"></i>
+            </div>
+        </div>
+    </section>
+
+    <section id="info">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                    <div class="info-card">
+                        <div class="content">
+                            <i class="fa-solid fa-utensils"></i>
+                            <h4>Quality food</h4>
+                            <p>
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis incidunt unde
+                                aliquid minima sint quibusdam!
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                    <div class="info-card">
+                        <div class="content">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <h4>Online delivery</h4>
+                            <p>
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis incidunt unde
+                                aliquid minima sint quibusdam!
+                            </p>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                    <div class="info-card">
+                        <div class="content">
+                            <i class="fa fa-3x fa-headset"></i>
+                            <h4>24/7 Service</h4>
+                            <p>
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis incidunt unde
+                                aliquid minima sint quibusdam!
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="popular-restaurants">
+        <h1>Populyar Restoranlar</h1>
+        <div class="container">
+            <div class="row">
+                @foreach(var restaurant in Model.Restaurants.Take(8))
+                {
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+                        <div class="restaurant-card">
+                            <div class="image">
+                                <a href="@Url.Action("Index", "Menu", new { restaurantId = restaurant.Id })"><img src="assets/images/@restaurant.Image"></a>
+                            </div>
+                            <div class="content">
+                                <div class="res-cat">
+                                    <h5 style="margin-left:9px; font-weight:bold;">@restaurant.Name</h5>
+                                    <p style="margin-left:9px">@restaurant.CategoryName</p>
+                                </div>
+                                <div class="rating" style="margin-top:13px">
+                                    <span><i class="fa-solid fa-star"></i> 5</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+
+        </div>
+        <div class="more-button text-center mt-4">
+            <button class="btn-more">
+                Daha çox <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+    </section>
+
+    <section id="brands">
+        <div class="brands-arrows">
+            <h1>Brendlər</h1>
+            <div class="arrows position-absolute w-100 d-flex justify-content-between">
+                <div class="left-arrow d-flex align-items-center justify-content-center bg-dark text-info rounded-circle"
+                     style="width: 40px; height: 40px; cursor: pointer;">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </div>
+                <div class="right-arrow d-flex align-items-center justify-content-center bg-dark text-info rounded-circle"
+                     style="width: 40px; height: 40px; cursor: pointer;">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </div>
+        </div>
+
+        <div id="brands-slider" class="container-fluid overflow-hidden">
+            <div class="row flex-nowrap transition" id="brands-row">
+                <div class="col-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 image-item">
+                    <div class="image">
+                        <img src="assets/images/logo.jpg" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 image-item">
+                    <div class="image">
+                        <img src="assets/images/logo.jpg" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 image-item">
+                    <div class="image">
+                        <img src="assets/images/logo.jpg" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 image-item">
+                    <div class="image">
+                        <img src="assets/images/logo.jpg" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 image-item">
+                    <div class="image">
+                        <img src="assets/images/logo.jpg" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 image-item">
+                    <div class="image">
+                        <img src="assets/images/logo.jpg" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 image-item">
+                    <div class="image">
+                        <img src="assets/images/logo.jpg" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 image-item">
+                    <div class="image">
+                        <img src="assets/images/logo.jpg" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+
+@section Scripts {
+    <script src="~/assets/js/home.js" asp-append-version="true"></script>
+}

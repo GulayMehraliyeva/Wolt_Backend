@@ -1,0 +1,60 @@
+﻿@model RestaurantVMUI
+
+<div class="restaurants">
+    <div class="row">
+        @foreach (var restaurant in Model.Restaurants)
+        {
+            <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+                <a href="@Url.Action("Index", "Menu", new { restaurantId = restaurant.Id })" class="restaurant-card">
+                    <div class="image">
+                        <img src="~/assets/images/@restaurant.Image" class="img-fluid" />
+                    </div>
+                    <div class="content-rating">
+                        <div class="content">
+                            <div class="name">
+                                <h6>@restaurant.Name</h6>
+                            </div>
+                            <p>@restaurant.CategoryName</p>
+                        </div>
+                        <div class="rating">
+                            <span><i class="fa-solid fa-star"></i> @restaurant.AverageRating</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+
+    <section id="pagination-part">
+        <div class="pagination">
+            <ul>
+                @if (Model.CurrentPage > 1)
+                {
+                    <li>
+                        <button class="arrow left-arrow" data-page="@(Model.CurrentPage - 1)">
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </button>
+                    </li>
+                }
+
+                @for (int i = 1; i <= Model.TotalPages; i++)
+                {
+                    <li>
+                        <button class="page @(i == Model.CurrentPage ? "active" : "")" data-page="@i">
+                            @i
+                        </button>
+                    </li>
+                }
+
+                @if (Model.CurrentPage < Model.TotalPages)
+                {
+                    <li>
+                        <button class="arrow right-arrow" data-page="@(Model.CurrentPage + 1)">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </li>
+                }
+            </ul>
+        </div>
+    </section>
+</div>

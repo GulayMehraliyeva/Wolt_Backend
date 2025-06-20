@@ -1,0 +1,29 @@
+2025-06-17 06:16:42.896 +04:00 [INF] User profile is available. Using 'C:\Users\gulay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-17 06:16:43.145 +04:00 [INF] Now listening on: https://localhost:7288
+2025-06-17 06:16:43.145 +04:00 [INF] Now listening on: http://localhost:5226
+2025-06-17 06:16:43.189 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-17 06:16:43.198 +04:00 [INF] Hosting environment: Development
+2025-06-17 06:16:43.199 +04:00 [INF] Content root path: C:\Users\gulay\OneDrive\Рабочий стол\Wolt\Wolt\Wolt
+2025-06-17 06:16:43.383 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/Admin/Courier - null null
+2025-06-17 06:16:43.752 +04:00 [INF] Executing endpoint 'Wolt.Areas.Admin.Controllers.CourierController.Index (Wolt)'
+2025-06-17 06:16:43.773 +04:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Courier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Wolt.Areas.Admin.Controllers.CourierController (Wolt).
+2025-06-17 06:16:44.706 +04:00 [WRN] No store type was specified for the decimal property 'DiscountPercentage' on entity type 'Discount'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-17 06:16:44.707 +04:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'MenuItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-17 06:16:44.707 +04:00 [WRN] No store type was specified for the decimal property 'TotalPrice' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-17 06:16:44.707 +04:00 [WRN] No store type was specified for the decimal property 'DeliveryCost' on entity type 'Restaurant'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-17 06:16:45.934 +04:00 [INF] Executed DbCommand (66ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CreatedDate], [c].[IsAvailable], [c].[UserId], [c].[VehicleType], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Couriers] AS [c]
+INNER JOIN [AspNetUsers] AS [a] ON [c].[UserId] = [a].[Id]
+2025-06-17 06:16:46.153 +04:00 [INF] Executing ViewResult, running view Index.
+2025-06-17 06:16:46.285 +04:00 [INF] Executed ViewResult - view Index executed in 134.0086ms.
+2025-06-17 06:16:46.290 +04:00 [INF] Executed action Wolt.Areas.Admin.Controllers.CourierController.Index (Wolt) in 2516.6597ms
+2025-06-17 06:16:46.291 +04:00 [INF] Executed endpoint 'Wolt.Areas.Admin.Controllers.CourierController.Index (Wolt)'
+2025-06-17 06:16:46.304 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/Admin/Courier - 200 null text/html; charset=utf-8 2922.818ms
+2025-06-17 06:16:46.324 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-17 06:16:46.324 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_vs/browserLink - null null
+2025-06-17 06:16:46.330 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 5.8693ms
+2025-06-17 06:16:46.365 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 40.6677ms
+2025-06-17 06:16:46.591 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/admin/src/assets/images/favicon.png - null null
+2025-06-17 06:16:46.622 +04:00 [INF] Sending file. Request path: '/admin/src/assets/images/favicon.png'. Physical path: 'C:\Users\gulay\OneDrive\Рабочий стол\Wolt\Wolt\Wolt\wwwroot\admin\src\assets\images\favicon.png'
+2025-06-17 06:16:46.623 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/admin/src/assets/images/favicon.png - 200 672 image/png 31.8816ms
