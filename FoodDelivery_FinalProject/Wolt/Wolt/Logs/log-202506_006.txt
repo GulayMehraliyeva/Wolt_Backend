@@ -11601,3 +11601,1286 @@ FROM [Settings] AS [s]
 2025-06-21 03:40:47.073 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
 2025-06-21 03:40:47.074 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 0.3832ms
 2025-06-21 03:40:47.084 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 11.2457ms
+2025-06-21 04:31:20.268 +04:00 [INF] User profile is available. Using 'C:\Users\gulay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-21 04:31:20.498 +04:00 [INF] Now listening on: https://localhost:7288
+2025-06-21 04:31:20.498 +04:00 [INF] Now listening on: http://localhost:5226
+2025-06-21 04:31:20.532 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-21 04:31:20.532 +04:00 [INF] Hosting environment: Development
+2025-06-21 04:31:20.532 +04:00 [INF] Content root path: C:\Users\gulay\OneDrive\Рабочий стол\Wolt-Backend\FoodDelivery_FinalProject\Wolt\Wolt
+2025-06-21 04:31:23.672 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/ - null null
+2025-06-21 04:31:24.036 +04:00 [INF] Executing endpoint 'Wolt.Controllers.HomeController.Index (Wolt)'
+2025-06-21 04:31:24.109 +04:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Wolt.Controllers.HomeController (Wolt).
+2025-06-21 04:31:24.852 +04:00 [WRN] No store type was specified for the decimal property 'TotalPrice' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-21 04:31:25.626 +04:00 [INF] Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Image]
+FROM [Sliders] AS [s]
+2025-06-21 04:31:25.827 +04:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[Address], [r].[CreatedDate], [r].[DeliveryCost], [r].[EstimatedDeliveryTime], [r].[Image], [r].[Name], [r].[Phone], [r].[RestaurantCategoryId], [r0].[Id], [r0].[CreatedDate], [r0].[Image], [r0].[Name], [r1].[Id], [r1].[Comment], [r1].[CreatedDate], [r1].[CustomerId], [r1].[Rating], [r1].[RestaurantId]
+FROM [Restaurants] AS [r]
+INNER JOIN [RestaurantCategories] AS [r0] ON [r].[RestaurantCategoryId] = [r0].[Id]
+LEFT JOIN [RestaurantReviews] AS [r1] ON [r].[Id] = [r1].[RestaurantId]
+ORDER BY [r].[Id], [r0].[Id]
+2025-06-21 04:31:25.890 +04:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[CreatedDate], [b].[Image]
+FROM [Brands] AS [b]
+2025-06-21 04:31:25.907 +04:00 [INF] Executing ViewResult, running view Index.
+2025-06-21 04:31:25.968 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:31:26.002 +04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:31:26.092 +04:00 [INF] Executed ViewResult - view Index executed in 186.8933ms.
+2025-06-21 04:31:26.095 +04:00 [INF] Executed action Wolt.Controllers.HomeController.Index (Wolt) in 1983.4461ms
+2025-06-21 04:31:26.095 +04:00 [INF] Executed endpoint 'Wolt.Controllers.HomeController.Index (Wolt)'
+2025-06-21 04:31:26.106 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/ - 200 null text/html; charset=utf-8 2434.6585ms
+2025-06-21 04:31:26.125 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/images/22af87fc-c305-4e40-bff8-661a41aead4d-6h6cktd9.png - null null
+2025-06-21 04:31:26.125 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/images/40f5518f-7575-4e47-943b-5d4567c2a415-4cu3qwhf.png - null null
+2025-06-21 04:31:26.125 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/css/home.css - null null
+2025-06-21 04:31:26.125 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/css/style.css - null null
+2025-06-21 04:31:26.125 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/images/332dd7c2-b517-4949-8b55-326eed0061c0-tgic5j7i.png - null null
+2025-06-21 04:31:26.126 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/images/d6a9b76e-2a88-4ce7-a6d1-542f8ba1d968.png - null null
+2025-06-21 04:31:26.128 +04:00 [INF] The file /assets/images/d6a9b76e-2a88-4ce7-a6d1-542f8ba1d968.png was not modified
+2025-06-21 04:31:26.128 +04:00 [INF] The file /assets/images/40f5518f-7575-4e47-943b-5d4567c2a415-4cu3qwhf.png was not modified
+2025-06-21 04:31:26.128 +04:00 [INF] The file /assets/images/22af87fc-c305-4e40-bff8-661a41aead4d-6h6cktd9.png was not modified
+2025-06-21 04:31:26.128 +04:00 [INF] The file /assets/css/style.css was not modified
+2025-06-21 04:31:26.128 +04:00 [INF] The file /assets/images/332dd7c2-b517-4949-8b55-326eed0061c0-tgic5j7i.png was not modified
+2025-06-21 04:31:26.128 +04:00 [INF] The file /assets/css/home.css was not modified
+2025-06-21 04:31:26.129 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/images/d6a9b76e-2a88-4ce7-a6d1-542f8ba1d968.png - 304 null image/png 3.3407ms
+2025-06-21 04:31:26.129 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/images/22af87fc-c305-4e40-bff8-661a41aead4d-6h6cktd9.png - 304 null image/png 4.255ms
+2025-06-21 04:31:26.129 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/images/40f5518f-7575-4e47-943b-5d4567c2a415-4cu3qwhf.png - 304 null image/png 4.196ms
+2025-06-21 04:31:26.129 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/images/332dd7c2-b517-4949-8b55-326eed0061c0-tgic5j7i.png - 304 null image/png 4.0377ms
+2025-06-21 04:31:26.129 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/css/home.css - 304 null text/css 4.2599ms
+2025-06-21 04:31:26.129 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/css/style.css - 304 null text/css 4.2413ms
+2025-06-21 04:31:26.129 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/images/6b8d5b33-f5bd-4a5a-b2b9-5ac7eabb9ecd-zjksnpbt.png - null null
+2025-06-21 04:31:26.129 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-21 04:31:26.129 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/images/5c0ffd87-8ef6-45d7-b721-8e0d02b173d7-12sp0a32.png - null null
+2025-06-21 04:31:26.130 +04:00 [INF] The file /assets/images/5c0ffd87-8ef6-45d7-b721-8e0d02b173d7-12sp0a32.png was not modified
+2025-06-21 04:31:26.129 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/images/4e413400-cec5-4cab-a7bf-ba01c48d0e16.png - null null
+2025-06-21 04:31:26.129 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/js/home.js?v=ydKx2CpiF9rQ0UB5YCXfFUkq2ctS0PUA7aGY-v31lD8 - null null
+2025-06-21 04:31:26.130 +04:00 [INF] The file /assets/images/6b8d5b33-f5bd-4a5a-b2b9-5ac7eabb9ecd-zjksnpbt.png was not modified
+2025-06-21 04:31:26.129 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/js/script.js - null null
+2025-06-21 04:31:26.130 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/images/6b8d5b33-f5bd-4a5a-b2b9-5ac7eabb9ecd-zjksnpbt.png - 304 null image/png 0.589ms
+2025-06-21 04:31:26.130 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/images/0667ae72-e407-4223-9361-77ac4f35b390-gi1unl7b.png - null null
+2025-06-21 04:31:26.130 +04:00 [INF] The file /assets/images/4e413400-cec5-4cab-a7bf-ba01c48d0e16.png was not modified
+2025-06-21 04:31:26.130 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/images/5c0ffd87-8ef6-45d7-b721-8e0d02b173d7-12sp0a32.png - 304 null image/png 0.2942ms
+2025-06-21 04:31:26.130 +04:00 [INF] The file /assets/js/home.js was not modified
+2025-06-21 04:31:26.130 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/images/304c8306-0913-4eb3-942d-cc52a89eec69-zjksnpbt.png - null null
+2025-06-21 04:31:26.130 +04:00 [INF] The file /assets/js/script.js was not modified
+2025-06-21 04:31:26.130 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/js/script.js - 304 null text/javascript 0.8695ms
+2025-06-21 04:31:26.130 +04:00 [INF] The file /assets/images/304c8306-0913-4eb3-942d-cc52a89eec69-zjksnpbt.png was not modified
+2025-06-21 04:31:26.130 +04:00 [INF] The file /assets/images/0667ae72-e407-4223-9361-77ac4f35b390-gi1unl7b.png was not modified
+2025-06-21 04:31:26.130 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/js/home.js?v=ydKx2CpiF9rQ0UB5YCXfFUkq2ctS0PUA7aGY-v31lD8 - 304 null text/javascript 0.6735ms
+2025-06-21 04:31:26.130 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/images/4e413400-cec5-4cab-a7bf-ba01c48d0e16.png - 304 null image/png 0.631ms
+2025-06-21 04:31:26.130 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/images/f2c20c5e-bc09-4a57-aff2-42dda97f2612-lvzc9jug.png - null null
+2025-06-21 04:31:26.130 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/images/304c8306-0913-4eb3-942d-cc52a89eec69-zjksnpbt.png - 304 null image/png 0.1877ms
+2025-06-21 04:31:26.130 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/images/7562b2db-8d24-4481-89de-0e10fbc1bd34-potyxixq.png - null null
+2025-06-21 04:31:26.130 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/images/4f594469-57f2-4a2f-b543-5d2c4e748ec5.png - null null
+2025-06-21 04:31:26.130 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/images/0667ae72-e407-4223-9361-77ac4f35b390-gi1unl7b.png - 304 null image/png 0.3363ms
+2025-06-21 04:31:26.130 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/images/7f3808df-4079-4d8d-80d4-078fb1927a5d-9s1585ep.png - null null
+2025-06-21 04:31:26.130 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/images/193a403d-88cd-4792-9e95-41e1fcd1c78e-lvzc9jug.png - null null
+2025-06-21 04:31:26.130 +04:00 [INF] The file /assets/images/4f594469-57f2-4a2f-b543-5d2c4e748ec5.png was not modified
+2025-06-21 04:31:26.130 +04:00 [INF] The file /assets/images/7562b2db-8d24-4481-89de-0e10fbc1bd34-potyxixq.png was not modified
+2025-06-21 04:31:26.130 +04:00 [INF] The file /assets/images/f2c20c5e-bc09-4a57-aff2-42dda97f2612-lvzc9jug.png was not modified
+2025-06-21 04:31:26.131 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/images/4f594469-57f2-4a2f-b543-5d2c4e748ec5.png - 304 null image/png 0.1978ms
+2025-06-21 04:31:26.131 +04:00 [INF] The file /assets/images/7f3808df-4079-4d8d-80d4-078fb1927a5d-9s1585ep.png was not modified
+2025-06-21 04:31:26.131 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/images/f2c20c5e-bc09-4a57-aff2-42dda97f2612-lvzc9jug.png - 304 null image/png 0.4377ms
+2025-06-21 04:31:26.131 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/images/7562b2db-8d24-4481-89de-0e10fbc1bd34-potyxixq.png - 304 null image/png 0.2761ms
+2025-06-21 04:31:26.131 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/images/7f3808df-4079-4d8d-80d4-078fb1927a5d-9s1585ep.png - 304 null image/png 0.3238ms
+2025-06-21 04:31:26.131 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/images/5e19857b-be41-4a9b-a009-ff892e7106ef-lemon.png - null null
+2025-06-21 04:31:26.131 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/images/db36b0f0-8d0f-4aac-a97b-e25d5c1e8cc8-12sp0a32.png - null null
+2025-06-21 04:31:26.131 +04:00 [INF] The file /assets/images/193a403d-88cd-4792-9e95-41e1fcd1c78e-lvzc9jug.png was not modified
+2025-06-21 04:31:26.131 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_vs/browserLink - null null
+2025-06-21 04:31:26.131 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/images/193a403d-88cd-4792-9e95-41e1fcd1c78e-lvzc9jug.png - 304 null image/png 0.2814ms
+2025-06-21 04:31:26.131 +04:00 [INF] The file /assets/images/db36b0f0-8d0f-4aac-a97b-e25d5c1e8cc8-12sp0a32.png was not modified
+2025-06-21 04:31:26.131 +04:00 [INF] The file /assets/images/5e19857b-be41-4a9b-a009-ff892e7106ef-lemon.png was not modified
+2025-06-21 04:31:26.131 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/images/db36b0f0-8d0f-4aac-a97b-e25d5c1e8cc8-12sp0a32.png - 304 null image/png 0.1723ms
+2025-06-21 04:31:26.131 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/images/5e19857b-be41-4a9b-a009-ff892e7106ef-lemon.png - 304 null image/png 0.237ms
+2025-06-21 04:31:26.132 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 3.1178ms
+2025-06-21 04:31:26.222 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 91.1567ms
+2025-06-21 04:31:26.513 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/favicon.ico - null null
+2025-06-21 04:31:26.526 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/favicon.ico - 404 0 null 13.0804ms
+2025-06-21 04:31:26.526 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7288/favicon.ico, Response status code: 404
+2025-06-21 04:31:35.454 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/Account/Login - null null
+2025-06-21 04:31:35.465 +04:00 [INF] Executing endpoint 'Wolt.Controllers.AccountController.Login (Wolt)'
+2025-06-21 04:31:35.467 +04:00 [INF] Route matched with {action = "Login", controller = "Account", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller Wolt.Controllers.AccountController (Wolt).
+2025-06-21 04:31:35.533 +04:00 [INF] Executing ViewResult, running view Login.
+2025-06-21 04:31:35.573 +04:00 [INF] Executed ViewResult - view Login executed in 41.2542ms.
+2025-06-21 04:31:35.573 +04:00 [INF] Executed action Wolt.Controllers.AccountController.Login (Wolt) in 106.4284ms
+2025-06-21 04:31:35.573 +04:00 [INF] Executed endpoint 'Wolt.Controllers.AccountController.Login (Wolt)'
+2025-06-21 04:31:35.575 +04:00 [WRN] Unable to configure Browser Link script injection on the response. 
+2025-06-21 04:31:35.576 +04:00 [WRN] Unable to configure browser refresh script injection on the response. Consider manually adding '<script src="/_framework/aspnetcore-browser-refresh.js"></script>' to the body of the page.
+2025-06-21 04:31:35.577 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/Account/Login - 200 null text/html; charset=utf-8 122.5389ms
+2025-06-21 04:31:43.029 +04:00 [INF] Request starting HTTP/2 POST https://localhost:7288/Account/Login - application/x-www-form-urlencoded 223
+2025-06-21 04:31:43.032 +04:00 [INF] Executing endpoint 'Wolt.Controllers.AccountController.Login (Wolt)'
+2025-06-21 04:31:43.045 +04:00 [INF] Route matched with {action = "Login", controller = "Account", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Service.ViewModels.Account.LoginVM) on controller Wolt.Controllers.AccountController (Wolt).
+2025-06-21 04:31:43.165 +04:00 [INF] Executed DbCommand (27ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-06-21 04:31:43.179 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-06-21 04:31:43.352 +04:00 [INF] Executing ViewResult, running view Login.
+2025-06-21 04:31:43.355 +04:00 [INF] Executed ViewResult - view Login executed in 3.46ms.
+2025-06-21 04:31:43.355 +04:00 [INF] Executed action Wolt.Controllers.AccountController.Login (Wolt) in 309.9895ms
+2025-06-21 04:31:43.355 +04:00 [INF] Executed endpoint 'Wolt.Controllers.AccountController.Login (Wolt)'
+2025-06-21 04:31:43.355 +04:00 [WRN] Unable to configure Browser Link script injection on the response. 
+2025-06-21 04:31:43.355 +04:00 [WRN] Unable to configure browser refresh script injection on the response. Consider manually adding '<script src="/_framework/aspnetcore-browser-refresh.js"></script>' to the body of the page.
+2025-06-21 04:31:43.356 +04:00 [INF] Request finished HTTP/2 POST https://localhost:7288/Account/Login - 200 null text/html; charset=utf-8 327.1271ms
+2025-06-21 04:31:50.309 +04:00 [INF] Request starting HTTP/2 POST https://localhost:7288/Account/Login - application/x-www-form-urlencoded 223
+2025-06-21 04:31:50.311 +04:00 [INF] Executing endpoint 'Wolt.Controllers.AccountController.Login (Wolt)'
+2025-06-21 04:31:50.312 +04:00 [INF] Route matched with {action = "Login", controller = "Account", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Service.ViewModels.Account.LoginVM) on controller Wolt.Controllers.AccountController (Wolt).
+2025-06-21 04:31:50.333 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-06-21 04:31:50.336 +04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-06-21 04:31:50.430 +04:00 [INF] Executed DbCommand (11ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2025-06-21 04:31:50.457 +04:00 [INF] Executed DbCommand (7ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2025-06-21 04:31:50.469 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-06-21 04:31:50.490 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+2025-06-21 04:31:50.492 +04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-06-21 04:31:50.494 +04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+2025-06-21 04:31:50.499 +04:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2025-06-21 04:31:50.501 +04:00 [INF] Executing RedirectResult, redirecting to /.
+2025-06-21 04:31:50.501 +04:00 [INF] Executed action Wolt.Controllers.AccountController.Login (Wolt) in 189.3576ms
+2025-06-21 04:31:50.501 +04:00 [INF] Executed endpoint 'Wolt.Controllers.AccountController.Login (Wolt)'
+2025-06-21 04:31:50.501 +04:00 [INF] Request finished HTTP/2 POST https://localhost:7288/Account/Login - 302 0 null 192.6535ms
+2025-06-21 04:31:50.509 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/ - null null
+2025-06-21 04:31:50.516 +04:00 [INF] Executing endpoint 'Wolt.Controllers.HomeController.Index (Wolt)'
+2025-06-21 04:31:50.516 +04:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Wolt.Controllers.HomeController (Wolt).
+2025-06-21 04:31:50.522 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Image]
+FROM [Sliders] AS [s]
+2025-06-21 04:31:50.531 +04:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[Address], [r].[CreatedDate], [r].[DeliveryCost], [r].[EstimatedDeliveryTime], [r].[Image], [r].[Name], [r].[Phone], [r].[RestaurantCategoryId], [r0].[Id], [r0].[CreatedDate], [r0].[Image], [r0].[Name], [r1].[Id], [r1].[Comment], [r1].[CreatedDate], [r1].[CustomerId], [r1].[Rating], [r1].[RestaurantId]
+FROM [Restaurants] AS [r]
+INNER JOIN [RestaurantCategories] AS [r0] ON [r].[RestaurantCategoryId] = [r0].[Id]
+LEFT JOIN [RestaurantReviews] AS [r1] ON [r].[Id] = [r1].[RestaurantId]
+ORDER BY [r].[Id], [r0].[Id]
+2025-06-21 04:31:50.544 +04:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[CreatedDate], [b].[Image]
+FROM [Brands] AS [b]
+2025-06-21 04:31:50.544 +04:00 [INF] Executing ViewResult, running view Index.
+2025-06-21 04:31:50.552 +04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-06-21 04:31:50.564 +04:00 [INF] Executed DbCommand (6ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Address], [c].[CreatedDate], [c].[UserId]
+FROM [Customers] AS [c]
+WHERE [c].[UserId] = @__user_Id_0
+2025-06-21 04:31:50.584 +04:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:31:50.590 +04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:31:50.595 +04:00 [INF] Executed ViewResult - view Index executed in 50.9986ms.
+2025-06-21 04:31:50.595 +04:00 [INF] Executed action Wolt.Controllers.HomeController.Index (Wolt) in 78.823ms
+2025-06-21 04:31:50.595 +04:00 [INF] Executed endpoint 'Wolt.Controllers.HomeController.Index (Wolt)'
+2025-06-21 04:31:50.595 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/ - 200 null text/html; charset=utf-8 86.2255ms
+2025-06-21 04:31:50.778 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-21 04:31:50.778 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_vs/browserLink - null null
+2025-06-21 04:31:50.780 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 2.0062ms
+2025-06-21 04:31:50.784 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 5.8257ms
+2025-06-21 04:31:52.654 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/Restaurant - null null
+2025-06-21 04:31:52.667 +04:00 [INF] Executing endpoint 'Wolt.Controllers.RestaurantController.Index (Wolt)'
+2025-06-21 04:31:52.673 +04:00 [INF] Route matched with {action = "Index", controller = "Restaurant", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(Int32) on controller Wolt.Controllers.RestaurantController (Wolt).
+2025-06-21 04:31:52.751 +04:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-06-21 04:31:52.751 +04:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-06-21 04:31:52.894 +04:00 [INF] Executed DbCommand (128ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Address], [t].[CreatedDate], [t].[DeliveryCost], [t].[EstimatedDeliveryTime], [t].[Image], [t].[Name], [t].[Phone], [t].[RestaurantCategoryId], [r0].[Id], [r0].[CreatedDate], [r0].[Image], [r0].[Name], [r1].[Id], [r1].[Comment], [r1].[CreatedDate], [r1].[CustomerId], [r1].[Rating], [r1].[RestaurantId]
+FROM (
+    SELECT [r].[Id], [r].[Address], [r].[CreatedDate], [r].[DeliveryCost], [r].[EstimatedDeliveryTime], [r].[Image], [r].[Name], [r].[Phone], [r].[RestaurantCategoryId]
+    FROM [Restaurants] AS [r]
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+INNER JOIN [RestaurantCategories] AS [r0] ON [t].[RestaurantCategoryId] = [r0].[Id]
+LEFT JOIN [RestaurantReviews] AS [r1] ON [t].[Id] = [r1].[RestaurantId]
+ORDER BY [t].[Id], [r0].[Id]
+2025-06-21 04:31:52.910 +04:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[CreatedDate], [r].[Image], [r].[Name], [r0].[Id], [r0].[Address], [r0].[CreatedDate], [r0].[DeliveryCost], [r0].[EstimatedDeliveryTime], [r0].[Image], [r0].[Name], [r0].[Phone], [r0].[RestaurantCategoryId]
+FROM [RestaurantCategories] AS [r]
+LEFT JOIN [Restaurants] AS [r0] ON [r].[Id] = [r0].[RestaurantCategoryId]
+ORDER BY [r].[Id]
+2025-06-21 04:31:52.949 +04:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Restaurants] AS [r]
+2025-06-21 04:31:52.952 +04:00 [INF] Executing ViewResult, running view Index.
+2025-06-21 04:31:52.969 +04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-06-21 04:31:52.972 +04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Address], [c].[CreatedDate], [c].[UserId]
+FROM [Customers] AS [c]
+WHERE [c].[UserId] = @__user_Id_0
+2025-06-21 04:31:52.976 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:31:52.980 +04:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:31:52.984 +04:00 [INF] Executed ViewResult - view Index executed in 32.4866ms.
+2025-06-21 04:31:52.984 +04:00 [INF] Executed action Wolt.Controllers.RestaurantController.Index (Wolt) in 310.9118ms
+2025-06-21 04:31:52.984 +04:00 [INF] Executed endpoint 'Wolt.Controllers.RestaurantController.Index (Wolt)'
+2025-06-21 04:31:52.984 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/Restaurant - 200 null text/html; charset=utf-8 329.5565ms
+2025-06-21 04:31:52.997 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/css/restaurants.css - null null
+2025-06-21 04:31:52.997 +04:00 [INF] The file /assets/css/restaurants.css was not modified
+2025-06-21 04:31:52.997 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/css/restaurants.css - 304 null text/css 0.3429ms
+2025-06-21 04:31:53.003 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/images/beaedffd-8131-4a53-9523-fa2e9d305981-grape.png - null null
+2025-06-21 04:31:53.003 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/images/2aedf53b-3d63-465c-b413-48489a22e5c7-b566szt8.png - null null
+2025-06-21 04:31:53.003 +04:00 [INF] The file /assets/images/beaedffd-8131-4a53-9523-fa2e9d305981-grape.png was not modified
+2025-06-21 04:31:53.003 +04:00 [INF] The file /assets/images/2aedf53b-3d63-465c-b413-48489a22e5c7-b566szt8.png was not modified
+2025-06-21 04:31:53.003 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/images/beaedffd-8131-4a53-9523-fa2e9d305981-grape.png - 304 null image/png 0.382ms
+2025-06-21 04:31:53.003 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/images/2aedf53b-3d63-465c-b413-48489a22e5c7-b566szt8.png - 304 null image/png 0.3718ms
+2025-06-21 04:31:53.014 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/images/75861121-e7fb-4653-80ac-162e655d32ff-160482ib.png - null null
+2025-06-21 04:31:53.014 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-21 04:31:53.014 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/images/b6185817-3d63-49b9-8889-21a2d2a6af2f-1a9sw00b.png - null null
+2025-06-21 04:31:53.014 +04:00 [INF] The file /assets/images/75861121-e7fb-4653-80ac-162e655d32ff-160482ib.png was not modified
+2025-06-21 04:31:53.014 +04:00 [INF] The file /assets/images/b6185817-3d63-49b9-8889-21a2d2a6af2f-1a9sw00b.png was not modified
+2025-06-21 04:31:53.014 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/images/75861121-e7fb-4653-80ac-162e655d32ff-160482ib.png - 304 null image/png 0.3764ms
+2025-06-21 04:31:53.014 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/images/b6185817-3d63-49b9-8889-21a2d2a6af2f-1a9sw00b.png - 304 null image/png 0.4233ms
+2025-06-21 04:31:53.014 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 0.4765ms
+2025-06-21 04:31:53.014 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/js/restaurants.js?v=VjmGOEcmzffdfe-4R3IPlr3_pvaHmSm_Alumlk9-G5g - null null
+2025-06-21 04:31:53.014 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_vs/browserLink - null null
+2025-06-21 04:31:53.014 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/images/25d29412-ad6f-4732-8883-02873a865149-11vedupn.png - null null
+2025-06-21 04:31:53.014 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/images/99f61482-3548-49fc-bc4b-0cd57f5413c1-hdrwh2rs.png - null null
+2025-06-21 04:31:53.015 +04:00 [INF] The file /assets/js/restaurants.js was not modified
+2025-06-21 04:31:53.015 +04:00 [INF] The file /assets/images/25d29412-ad6f-4732-8883-02873a865149-11vedupn.png was not modified
+2025-06-21 04:31:53.015 +04:00 [INF] The file /assets/images/99f61482-3548-49fc-bc4b-0cd57f5413c1-hdrwh2rs.png was not modified
+2025-06-21 04:31:53.015 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/js/restaurants.js?v=VjmGOEcmzffdfe-4R3IPlr3_pvaHmSm_Alumlk9-G5g - 304 null text/javascript 0.2778ms
+2025-06-21 04:31:53.015 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/images/25d29412-ad6f-4732-8883-02873a865149-11vedupn.png - 304 null image/png 0.2261ms
+2025-06-21 04:31:53.015 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/images/99f61482-3548-49fc-bc4b-0cd57f5413c1-hdrwh2rs.png - 304 null image/png 0.219ms
+2025-06-21 04:31:53.015 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/images/636fd6c2-5c4c-4fb0-94c4-a81e340694d5-wwxrhk5h.png - null null
+2025-06-21 04:31:53.015 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/images/33b3e509-3aac-48c9-a07d-fb68ad018e54-zjksnpbt.png - null null
+2025-06-21 04:31:53.015 +04:00 [INF] The file /assets/images/33b3e509-3aac-48c9-a07d-fb68ad018e54-zjksnpbt.png was not modified
+2025-06-21 04:31:53.015 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/images/f8bd4692-831a-4d74-bd8e-bb7536fbf6bb-y3hb7hxh.png - null null
+2025-06-21 04:31:53.015 +04:00 [INF] The file /assets/images/636fd6c2-5c4c-4fb0-94c4-a81e340694d5-wwxrhk5h.png was not modified
+2025-06-21 04:31:53.015 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/images/33b3e509-3aac-48c9-a07d-fb68ad018e54-zjksnpbt.png - 304 null image/png 0.1818ms
+2025-06-21 04:31:53.015 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/images/636fd6c2-5c4c-4fb0-94c4-a81e340694d5-wwxrhk5h.png - 304 null image/png 0.2698ms
+2025-06-21 04:31:53.015 +04:00 [INF] The file /assets/images/f8bd4692-831a-4d74-bd8e-bb7536fbf6bb-y3hb7hxh.png was not modified
+2025-06-21 04:31:53.015 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/images/f8bd4692-831a-4d74-bd8e-bb7536fbf6bb-y3hb7hxh.png - 304 null image/png 0.3492ms
+2025-06-21 04:31:53.016 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/images/8dd80a58-216e-44d4-bc17-4279bc9e9f78-grape.png - null null
+2025-06-21 04:31:53.016 +04:00 [INF] The file /assets/images/8dd80a58-216e-44d4-bc17-4279bc9e9f78-grape.png was not modified
+2025-06-21 04:31:53.016 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/images/8dd80a58-216e-44d4-bc17-4279bc9e9f78-grape.png - 304 null image/png 0.4432ms
+2025-06-21 04:31:53.022 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 7.9475ms
+2025-06-21 04:31:55.321 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/Menu?restaurantId=1 - null null
+2025-06-21 04:31:55.327 +04:00 [INF] Executing endpoint 'Wolt.Controllers.MenuController.Index (Wolt)'
+2025-06-21 04:31:55.331 +04:00 [INF] Route matched with {action = "Index", controller = "Menu", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(Int32) on controller Wolt.Controllers.MenuController (Wolt).
+2025-06-21 04:31:55.510 +04:00 [INF] Executed DbCommand (30ms) [Parameters=[@__restaurantId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CategoryId], [m].[CreatedDate], [m].[Description], [m].[Image], [m].[Name], [m].[Price], [m0].[Id], [m0].[CreatedDate], [m0].[Name], [m0].[RestaurantId], [t].[Id], [t].[CreatedDate], [t].[DiscountId], [t].[MenuItemId], [t].[Id0], [t].[CreatedDate0], [t].[DiscountPercentage], [t].[EndDate], [t].[IsActive], [t].[Name]
+FROM [MenuItems] AS [m]
+INNER JOIN [MenuItemCategories] AS [m0] ON [m].[CategoryId] = [m0].[Id]
+LEFT JOIN (
+    SELECT [m1].[Id], [m1].[CreatedDate], [m1].[DiscountId], [m1].[MenuItemId], [d].[Id] AS [Id0], [d].[CreatedDate] AS [CreatedDate0], [d].[DiscountPercentage], [d].[EndDate], [d].[IsActive], [d].[Name]
+    FROM [MenuItemDiscounts] AS [m1]
+    INNER JOIN [Discounts] AS [d] ON [m1].[DiscountId] = [d].[Id]
+) AS [t] ON [m].[Id] = [t].[MenuItemId]
+WHERE [m0].[RestaurantId] = @__restaurantId_0
+ORDER BY [m].[Id], [m0].[Id], [t].[Id]
+2025-06-21 04:31:55.566 +04:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedDate], [m].[Name], [m].[RestaurantId], [r].[Id], [r].[Address], [r].[CreatedDate], [r].[DeliveryCost], [r].[EstimatedDeliveryTime], [r].[Image], [r].[Name], [r].[Phone], [r].[RestaurantCategoryId]
+FROM [MenuItemCategories] AS [m]
+INNER JOIN [Restaurants] AS [r] ON [m].[RestaurantId] = [r].[Id]
+2025-06-21 04:31:55.638 +04:00 [INF] Executed DbCommand (41ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Address], [t].[CreatedDate], [t].[DeliveryCost], [t].[EstimatedDeliveryTime], [t].[Image], [t].[Name], [t].[Phone], [t].[RestaurantCategoryId], [t].[Id0], [t].[CreatedDate0], [t].[Image0], [t].[Name0], [t0].[Id], [t0].[Comment], [t0].[CreatedDate], [t0].[CustomerId], [t0].[Rating], [t0].[RestaurantId], [t0].[Id0], [t0].[Address], [t0].[CreatedDate0], [t0].[UserId], [t0].[Id1], [t0].[AccessFailedCount], [t0].[ConcurrencyStamp], [t0].[Email], [t0].[EmailConfirmed], [t0].[FullName], [t0].[LockoutEnabled], [t0].[LockoutEnd], [t0].[NormalizedEmail], [t0].[NormalizedUserName], [t0].[PasswordHash], [t0].[PhoneNumber], [t0].[PhoneNumberConfirmed], [t0].[SecurityStamp], [t0].[TwoFactorEnabled], [t0].[UserName]
+FROM (
+    SELECT TOP(1) [r].[Id], [r].[Address], [r].[CreatedDate], [r].[DeliveryCost], [r].[EstimatedDeliveryTime], [r].[Image], [r].[Name], [r].[Phone], [r].[RestaurantCategoryId], [r0].[Id] AS [Id0], [r0].[CreatedDate] AS [CreatedDate0], [r0].[Image] AS [Image0], [r0].[Name] AS [Name0]
+    FROM [Restaurants] AS [r]
+    INNER JOIN [RestaurantCategories] AS [r0] ON [r].[RestaurantCategoryId] = [r0].[Id]
+    WHERE [r].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [r1].[Id], [r1].[Comment], [r1].[CreatedDate], [r1].[CustomerId], [r1].[Rating], [r1].[RestaurantId], [c].[Id] AS [Id0], [c].[Address], [c].[CreatedDate] AS [CreatedDate0], [c].[UserId], [a].[Id] AS [Id1], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+    FROM [RestaurantReviews] AS [r1]
+    INNER JOIN [Customers] AS [c] ON [r1].[CustomerId] = [c].[Id]
+    INNER JOIN [AspNetUsers] AS [a] ON [c].[UserId] = [a].[Id]
+) AS [t0] ON [t].[Id] = [t0].[RestaurantId]
+ORDER BY [t].[Id], [t].[Id0], [t0].[Id], [t0].[Id0]
+2025-06-21 04:31:55.664 +04:00 [INF] Executed DbCommand (7ms) [Parameters=[@__restaurantId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[Comment], [r].[CreatedDate], [r].[CustomerId], [r].[Rating], [r].[RestaurantId], [c].[Id], [c].[Address], [c].[CreatedDate], [c].[UserId], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [RestaurantReviews] AS [r]
+INNER JOIN [Customers] AS [c] ON [r].[CustomerId] = [c].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [c].[UserId] = [a].[Id]
+WHERE [r].[RestaurantId] = @__restaurantId_0
+2025-06-21 04:31:55.678 +04:00 [INF] Executed DbCommand (4ms) [Parameters=[@__userIdStr_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__userIdStr_0
+2025-06-21 04:31:55.693 +04:00 [INF] Executed DbCommand (6ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Address], [c].[CreatedDate], [c].[UserId], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Customers] AS [c]
+INNER JOIN [AspNetUsers] AS [a] ON [c].[UserId] = [a].[Id]
+WHERE [c].[UserId] = @__userId_0
+2025-06-21 04:31:55.710 +04:00 [INF] Executing ViewResult, running view Index.
+2025-06-21 04:31:55.746 +04:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-06-21 04:31:55.750 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Address], [c].[CreatedDate], [c].[UserId]
+FROM [Customers] AS [c]
+WHERE [c].[UserId] = @__user_Id_0
+2025-06-21 04:31:55.752 +04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:31:55.755 +04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:31:55.760 +04:00 [INF] Executed ViewResult - view Index executed in 52.1853ms.
+2025-06-21 04:31:55.761 +04:00 [INF] Executed action Wolt.Controllers.MenuController.Index (Wolt) in 429.6741ms
+2025-06-21 04:31:55.761 +04:00 [INF] Executed endpoint 'Wolt.Controllers.MenuController.Index (Wolt)'
+2025-06-21 04:31:55.761 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/Menu?restaurantId=1 - 200 null text/html; charset=utf-8 440.385ms
+2025-06-21 04:31:55.782 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/css/menu.css - null null
+2025-06-21 04:31:55.783 +04:00 [INF] The file /assets/css/menu.css was not modified
+2025-06-21 04:31:55.783 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/css/menu.css - 304 null text/css 0.5392ms
+2025-06-21 04:31:55.789 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/images/user-profile-login-avatar-heroes-user-blue-icons-circle-symbol-logo-thumbnail.png - null null
+2025-06-21 04:31:55.789 +04:00 [INF] The file /assets/images/user-profile-login-avatar-heroes-user-blue-icons-circle-symbol-logo-thumbnail.png was not modified
+2025-06-21 04:31:55.789 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/images/user-profile-login-avatar-heroes-user-blue-icons-circle-symbol-logo-thumbnail.png - 304 null image/png 0.609ms
+2025-06-21 04:31:55.790 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/images/26cf5499-e14f-4579-8fe6-700d5564ded7-Screenshot 2025-06-10 013018.png - null null
+2025-06-21 04:31:55.791 +04:00 [INF] The file /assets/images/26cf5499-e14f-4579-8fe6-700d5564ded7-Screenshot 2025-06-10 013018.png was not modified
+2025-06-21 04:31:55.791 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/images/26cf5499-e14f-4579-8fe6-700d5564ded7-Screenshot 2025-06-10 013018.png - 304 null image/png 1.7045ms
+2025-06-21 04:31:55.808 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-21 04:31:55.809 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/images/eb5d98ac-9926-4b7d-a6f7-6d0780690fa7-Screenshot 2025-06-10 013018.png - null null
+2025-06-21 04:31:55.809 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 0.5749ms
+2025-06-21 04:31:55.810 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/js/menu.js?v=9dxmb-Ras2RfLN5cWDk52lJmahFhYnqPbETKpbN2yZI - null null
+2025-06-21 04:31:55.810 +04:00 [INF] The file /assets/images/eb5d98ac-9926-4b7d-a6f7-6d0780690fa7-Screenshot 2025-06-10 013018.png was not modified
+2025-06-21 04:31:55.811 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/images/acfd9ffc-0cf0-427c-9653-29fa2536311f-grape.png - null null
+2025-06-21 04:31:55.811 +04:00 [INF] The file /assets/js/menu.js was not modified
+2025-06-21 04:31:55.812 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/js/menu.js?v=9dxmb-Ras2RfLN5cWDk52lJmahFhYnqPbETKpbN2yZI - 304 null text/javascript 1.8448ms
+2025-06-21 04:31:55.811 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_vs/browserLink - null null
+2025-06-21 04:31:55.812 +04:00 [INF] The file /assets/images/acfd9ffc-0cf0-427c-9653-29fa2536311f-grape.png was not modified
+2025-06-21 04:31:55.811 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/images/2fc7ec66-1765-40f6-bdf8-7ea227e76d69-9s1585ep.png - null null
+2025-06-21 04:31:55.813 +04:00 [INF] The file /assets/images/2fc7ec66-1765-40f6-bdf8-7ea227e76d69-9s1585ep.png was not modified
+2025-06-21 04:31:55.813 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/images/2fc7ec66-1765-40f6-bdf8-7ea227e76d69-9s1585ep.png - 304 null image/png 1.7478ms
+2025-06-21 04:31:55.812 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/images/eb5d98ac-9926-4b7d-a6f7-6d0780690fa7-Screenshot 2025-06-10 013018.png - 304 null image/png 2.5247ms
+2025-06-21 04:31:55.813 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/images/acfd9ffc-0cf0-427c-9653-29fa2536311f-grape.png - 304 null image/png 1.1435ms
+2025-06-21 04:31:55.813 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/images/6b1b2517-7672-4c8d-be2b-95b2447dbfaa-grape.png - null null
+2025-06-21 04:31:55.816 +04:00 [INF] The file /assets/images/6b1b2517-7672-4c8d-be2b-95b2447dbfaa-grape.png was not modified
+2025-06-21 04:31:55.816 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/images/6b1b2517-7672-4c8d-be2b-95b2447dbfaa-grape.png - 304 null image/png 2.7727ms
+2025-06-21 04:31:55.828 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 16.9037ms
+2025-06-21 04:31:58.847 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/ - null null
+2025-06-21 04:31:58.848 +04:00 [INF] Executing endpoint 'Wolt.Controllers.HomeController.Index (Wolt)'
+2025-06-21 04:31:58.848 +04:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Wolt.Controllers.HomeController (Wolt).
+2025-06-21 04:31:58.855 +04:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Image]
+FROM [Sliders] AS [s]
+2025-06-21 04:31:58.864 +04:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[Address], [r].[CreatedDate], [r].[DeliveryCost], [r].[EstimatedDeliveryTime], [r].[Image], [r].[Name], [r].[Phone], [r].[RestaurantCategoryId], [r0].[Id], [r0].[CreatedDate], [r0].[Image], [r0].[Name], [r1].[Id], [r1].[Comment], [r1].[CreatedDate], [r1].[CustomerId], [r1].[Rating], [r1].[RestaurantId]
+FROM [Restaurants] AS [r]
+INNER JOIN [RestaurantCategories] AS [r0] ON [r].[RestaurantCategoryId] = [r0].[Id]
+LEFT JOIN [RestaurantReviews] AS [r1] ON [r].[Id] = [r1].[RestaurantId]
+ORDER BY [r].[Id], [r0].[Id]
+2025-06-21 04:31:58.866 +04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[CreatedDate], [b].[Image]
+FROM [Brands] AS [b]
+2025-06-21 04:31:58.866 +04:00 [INF] Executing ViewResult, running view Index.
+2025-06-21 04:31:58.871 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-06-21 04:31:58.877 +04:00 [INF] Executed DbCommand (5ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Address], [c].[CreatedDate], [c].[UserId]
+FROM [Customers] AS [c]
+WHERE [c].[UserId] = @__user_Id_0
+2025-06-21 04:31:58.879 +04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:31:58.880 +04:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:31:58.881 +04:00 [INF] Executed ViewResult - view Index executed in 14.7801ms.
+2025-06-21 04:31:58.881 +04:00 [INF] Executed action Wolt.Controllers.HomeController.Index (Wolt) in 32.8474ms
+2025-06-21 04:31:58.881 +04:00 [INF] Executed endpoint 'Wolt.Controllers.HomeController.Index (Wolt)'
+2025-06-21 04:31:58.881 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/ - 200 null text/html; charset=utf-8 34.8541ms
+2025-06-21 04:31:58.901 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-21 04:31:58.901 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_vs/browserLink - null null
+2025-06-21 04:31:58.901 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 0.2273ms
+2025-06-21 04:31:58.907 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 5.7098ms
+2025-06-21 04:33:34.574 +04:00 [INF] User profile is available. Using 'C:\Users\gulay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-21 04:33:34.973 +04:00 [INF] Now listening on: https://localhost:7288
+2025-06-21 04:33:34.973 +04:00 [INF] Now listening on: http://localhost:5226
+2025-06-21 04:33:35.018 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-21 04:33:35.018 +04:00 [INF] Hosting environment: Development
+2025-06-21 04:33:35.018 +04:00 [INF] Content root path: C:\Users\gulay\OneDrive\Рабочий стол\Wolt-Backend\FoodDelivery_FinalProject\Wolt\Wolt
+2025-06-21 04:33:35.126 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/ - null null
+2025-06-21 04:33:35.461 +04:00 [INF] Executing endpoint 'Wolt.Controllers.HomeController.Index (Wolt)'
+2025-06-21 04:33:35.484 +04:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Wolt.Controllers.HomeController (Wolt).
+2025-06-21 04:33:36.397 +04:00 [WRN] No store type was specified for the decimal property 'TotalPrice' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-21 04:33:37.977 +04:00 [INF] Executed DbCommand (59ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Image]
+FROM [Sliders] AS [s]
+2025-06-21 04:33:38.436 +04:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[Address], [r].[CreatedDate], [r].[DeliveryCost], [r].[EstimatedDeliveryTime], [r].[Image], [r].[Name], [r].[Phone], [r].[RestaurantCategoryId], [r0].[Id], [r0].[CreatedDate], [r0].[Image], [r0].[Name], [r1].[Id], [r1].[Comment], [r1].[CreatedDate], [r1].[CustomerId], [r1].[Rating], [r1].[RestaurantId]
+FROM [Restaurants] AS [r]
+INNER JOIN [RestaurantCategories] AS [r0] ON [r].[RestaurantCategoryId] = [r0].[Id]
+LEFT JOIN [RestaurantReviews] AS [r1] ON [r].[Id] = [r1].[RestaurantId]
+ORDER BY [r].[Id], [r0].[Id]
+2025-06-21 04:33:38.573 +04:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[CreatedDate], [b].[Image]
+FROM [Brands] AS [b]
+2025-06-21 04:33:38.601 +04:00 [INF] Executing ViewResult, running view Index.
+2025-06-21 04:33:38.782 +04:00 [INF] Executed DbCommand (26ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-06-21 04:33:38.872 +04:00 [INF] Executed DbCommand (5ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Address], [c].[CreatedDate], [c].[UserId]
+FROM [Customers] AS [c]
+WHERE [c].[UserId] = @__user_Id_0
+2025-06-21 04:33:38.911 +04:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:33:38.968 +04:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:33:39.263 +04:00 [INF] Executed ViewResult - view Index executed in 663.5959ms.
+2025-06-21 04:33:39.269 +04:00 [INF] Executed action Wolt.Controllers.HomeController.Index (Wolt) in 3784.1036ms
+2025-06-21 04:33:39.269 +04:00 [INF] Executed endpoint 'Wolt.Controllers.HomeController.Index (Wolt)'
+2025-06-21 04:33:39.291 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/ - 200 null text/html; charset=utf-8 4164.5671ms
+2025-06-21 04:33:39.402 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-21 04:33:39.404 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_vs/browserLink - null null
+2025-06-21 04:33:39.409 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 6.6228ms
+2025-06-21 04:33:39.445 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 40.5505ms
+2025-06-21 04:33:42.810 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/Restaurant - null null
+2025-06-21 04:33:42.832 +04:00 [INF] Executing endpoint 'Wolt.Controllers.RestaurantController.Index (Wolt)'
+2025-06-21 04:33:42.846 +04:00 [INF] Route matched with {action = "Index", controller = "Restaurant", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(Int32) on controller Wolt.Controllers.RestaurantController (Wolt).
+2025-06-21 04:33:42.964 +04:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-06-21 04:33:42.965 +04:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-06-21 04:33:43.009 +04:00 [INF] Executed DbCommand (12ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Address], [t].[CreatedDate], [t].[DeliveryCost], [t].[EstimatedDeliveryTime], [t].[Image], [t].[Name], [t].[Phone], [t].[RestaurantCategoryId], [r0].[Id], [r0].[CreatedDate], [r0].[Image], [r0].[Name], [r1].[Id], [r1].[Comment], [r1].[CreatedDate], [r1].[CustomerId], [r1].[Rating], [r1].[RestaurantId]
+FROM (
+    SELECT [r].[Id], [r].[Address], [r].[CreatedDate], [r].[DeliveryCost], [r].[EstimatedDeliveryTime], [r].[Image], [r].[Name], [r].[Phone], [r].[RestaurantCategoryId]
+    FROM [Restaurants] AS [r]
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+INNER JOIN [RestaurantCategories] AS [r0] ON [t].[RestaurantCategoryId] = [r0].[Id]
+LEFT JOIN [RestaurantReviews] AS [r1] ON [t].[Id] = [r1].[RestaurantId]
+ORDER BY [t].[Id], [r0].[Id]
+2025-06-21 04:33:43.041 +04:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[CreatedDate], [r].[Image], [r].[Name], [r0].[Id], [r0].[Address], [r0].[CreatedDate], [r0].[DeliveryCost], [r0].[EstimatedDeliveryTime], [r0].[Image], [r0].[Name], [r0].[Phone], [r0].[RestaurantCategoryId]
+FROM [RestaurantCategories] AS [r]
+LEFT JOIN [Restaurants] AS [r0] ON [r].[Id] = [r0].[RestaurantCategoryId]
+ORDER BY [r].[Id]
+2025-06-21 04:33:43.104 +04:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Restaurants] AS [r]
+2025-06-21 04:33:43.109 +04:00 [INF] Executing ViewResult, running view Index.
+2025-06-21 04:33:43.163 +04:00 [INF] Executed DbCommand (6ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-06-21 04:33:43.169 +04:00 [INF] Executed DbCommand (4ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Address], [c].[CreatedDate], [c].[UserId]
+FROM [Customers] AS [c]
+WHERE [c].[UserId] = @__user_Id_0
+2025-06-21 04:33:43.173 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:33:43.180 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:33:43.237 +04:00 [INF] Executed ViewResult - view Index executed in 129.3493ms.
+2025-06-21 04:33:43.237 +04:00 [INF] Executed action Wolt.Controllers.RestaurantController.Index (Wolt) in 390.8681ms
+2025-06-21 04:33:43.238 +04:00 [INF] Executed endpoint 'Wolt.Controllers.RestaurantController.Index (Wolt)'
+2025-06-21 04:33:43.238 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/Restaurant - 200 null text/html; charset=utf-8 428.2098ms
+2025-06-21 04:33:43.303 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-21 04:33:43.303 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_vs/browserLink - null null
+2025-06-21 04:33:43.304 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 1.0536ms
+2025-06-21 04:33:43.331 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 27.5025ms
+2025-06-21 04:34:12.619 +04:00 [INF] User profile is available. Using 'C:\Users\gulay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-21 04:34:12.838 +04:00 [INF] Now listening on: https://localhost:7288
+2025-06-21 04:34:12.839 +04:00 [INF] Now listening on: http://localhost:5226
+2025-06-21 04:34:12.876 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-21 04:34:12.877 +04:00 [INF] Hosting environment: Development
+2025-06-21 04:34:12.877 +04:00 [INF] Content root path: C:\Users\gulay\OneDrive\Рабочий стол\Wolt-Backend\FoodDelivery_FinalProject\Wolt\Wolt
+2025-06-21 04:34:13.089 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/Restaurant - null null
+2025-06-21 04:34:13.405 +04:00 [INF] Executing endpoint 'Wolt.Controllers.RestaurantController.Index (Wolt)'
+2025-06-21 04:34:13.433 +04:00 [INF] Route matched with {action = "Index", controller = "Restaurant", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(Int32) on controller Wolt.Controllers.RestaurantController (Wolt).
+2025-06-21 04:34:14.377 +04:00 [WRN] No store type was specified for the decimal property 'TotalPrice' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-21 04:34:15.112 +04:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-06-21 04:34:15.113 +04:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-06-21 04:34:15.836 +04:00 [INF] Executed DbCommand (79ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Address], [t].[CreatedDate], [t].[DeliveryCost], [t].[EstimatedDeliveryTime], [t].[Image], [t].[Name], [t].[Phone], [t].[RestaurantCategoryId], [r0].[Id], [r0].[CreatedDate], [r0].[Image], [r0].[Name], [r1].[Id], [r1].[Comment], [r1].[CreatedDate], [r1].[CustomerId], [r1].[Rating], [r1].[RestaurantId]
+FROM (
+    SELECT [r].[Id], [r].[Address], [r].[CreatedDate], [r].[DeliveryCost], [r].[EstimatedDeliveryTime], [r].[Image], [r].[Name], [r].[Phone], [r].[RestaurantCategoryId]
+    FROM [Restaurants] AS [r]
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+INNER JOIN [RestaurantCategories] AS [r0] ON [t].[RestaurantCategoryId] = [r0].[Id]
+LEFT JOIN [RestaurantReviews] AS [r1] ON [t].[Id] = [r1].[RestaurantId]
+ORDER BY [t].[Id], [r0].[Id]
+2025-06-21 04:34:16.106 +04:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[CreatedDate], [r].[Image], [r].[Name], [r0].[Id], [r0].[Address], [r0].[CreatedDate], [r0].[DeliveryCost], [r0].[EstimatedDeliveryTime], [r0].[Image], [r0].[Name], [r0].[Phone], [r0].[RestaurantCategoryId]
+FROM [RestaurantCategories] AS [r]
+LEFT JOIN [Restaurants] AS [r0] ON [r].[Id] = [r0].[RestaurantCategoryId]
+ORDER BY [r].[Id]
+2025-06-21 04:34:16.186 +04:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Restaurants] AS [r]
+2025-06-21 04:34:16.204 +04:00 [INF] Executing ViewResult, running view Index.
+2025-06-21 04:34:16.384 +04:00 [INF] Executed DbCommand (13ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-06-21 04:34:16.475 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Address], [c].[CreatedDate], [c].[UserId]
+FROM [Customers] AS [c]
+WHERE [c].[UserId] = @__user_Id_0
+2025-06-21 04:34:16.511 +04:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:34:16.568 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:34:16.724 +04:00 [INF] Executed ViewResult - view Index executed in 522.6312ms.
+2025-06-21 04:34:16.728 +04:00 [INF] Executed action Wolt.Controllers.RestaurantController.Index (Wolt) in 3293.9843ms
+2025-06-21 04:34:16.729 +04:00 [INF] Executed endpoint 'Wolt.Controllers.RestaurantController.Index (Wolt)'
+2025-06-21 04:34:16.746 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_vs/browserLink - null null
+2025-06-21 04:34:16.746 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-21 04:34:16.748 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/Restaurant - 200 null text/html; charset=utf-8 3660.876ms
+2025-06-21 04:34:16.755 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 7.884ms
+2025-06-21 04:34:16.790 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 43.3783ms
+2025-06-21 04:34:17.588 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/ - null null
+2025-06-21 04:34:17.603 +04:00 [INF] Executing endpoint 'Wolt.Controllers.HomeController.Index (Wolt)'
+2025-06-21 04:34:17.611 +04:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Wolt.Controllers.HomeController (Wolt).
+2025-06-21 04:34:17.744 +04:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Image]
+FROM [Sliders] AS [s]
+2025-06-21 04:34:17.798 +04:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[Address], [r].[CreatedDate], [r].[DeliveryCost], [r].[EstimatedDeliveryTime], [r].[Image], [r].[Name], [r].[Phone], [r].[RestaurantCategoryId], [r0].[Id], [r0].[CreatedDate], [r0].[Image], [r0].[Name], [r1].[Id], [r1].[Comment], [r1].[CreatedDate], [r1].[CustomerId], [r1].[Rating], [r1].[RestaurantId]
+FROM [Restaurants] AS [r]
+INNER JOIN [RestaurantCategories] AS [r0] ON [r].[RestaurantCategoryId] = [r0].[Id]
+LEFT JOIN [RestaurantReviews] AS [r1] ON [r].[Id] = [r1].[RestaurantId]
+ORDER BY [r].[Id], [r0].[Id]
+2025-06-21 04:34:17.821 +04:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[CreatedDate], [b].[Image]
+FROM [Brands] AS [b]
+2025-06-21 04:34:17.841 +04:00 [INF] Executing ViewResult, running view Index.
+2025-06-21 04:34:17.876 +04:00 [INF] Executed DbCommand (6ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-06-21 04:34:17.882 +04:00 [INF] Executed DbCommand (4ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Address], [c].[CreatedDate], [c].[UserId]
+FROM [Customers] AS [c]
+WHERE [c].[UserId] = @__user_Id_0
+2025-06-21 04:34:17.886 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:34:17.893 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:34:17.901 +04:00 [INF] Executed ViewResult - view Index executed in 61.8937ms.
+2025-06-21 04:34:17.901 +04:00 [INF] Executed action Wolt.Controllers.HomeController.Index (Wolt) in 289.2462ms
+2025-06-21 04:34:17.901 +04:00 [INF] Executed endpoint 'Wolt.Controllers.HomeController.Index (Wolt)'
+2025-06-21 04:34:17.902 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/ - 200 null text/html; charset=utf-8 313.7354ms
+2025-06-21 04:34:17.968 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-21 04:34:17.970 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 1.1526ms
+2025-06-21 04:34:23.227 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/.well-known/appspecific/com.chrome.devtools.json - null null
+2025-06-21 04:34:23.260 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/.well-known/appspecific/com.chrome.devtools.json - 404 0 null 33.6639ms
+2025-06-21 04:34:23.261 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7288/.well-known/appspecific/com.chrome.devtools.json, Response status code: 404
+2025-06-21 04:34:24.461 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/css/home.css.map - null null
+2025-06-21 04:34:24.494 +04:00 [INF] Sending file. Request path: '/assets/css/home.css.map'. Physical path: 'C:\Users\gulay\OneDrive\Рабочий стол\Wolt-Backend\FoodDelivery_FinalProject\Wolt\Wolt\wwwroot\assets\css\home.css.map'
+2025-06-21 04:34:24.495 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/css/home.css.map - 200 3546 text/plain 33.0283ms
+2025-06-21 04:34:56.278 +04:00 [INF] User profile is available. Using 'C:\Users\gulay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-21 04:34:56.531 +04:00 [INF] Now listening on: https://localhost:7288
+2025-06-21 04:34:56.532 +04:00 [INF] Now listening on: http://localhost:5226
+2025-06-21 04:34:56.571 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-21 04:34:56.572 +04:00 [INF] Hosting environment: Development
+2025-06-21 04:34:56.572 +04:00 [INF] Content root path: C:\Users\gulay\OneDrive\Рабочий стол\Wolt-Backend\FoodDelivery_FinalProject\Wolt\Wolt
+2025-06-21 04:34:56.805 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/ - null null
+2025-06-21 04:34:57.151 +04:00 [INF] Executing endpoint 'Wolt.Controllers.HomeController.Index (Wolt)'
+2025-06-21 04:34:57.173 +04:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Wolt.Controllers.HomeController (Wolt).
+2025-06-21 04:34:58.150 +04:00 [WRN] No store type was specified for the decimal property 'TotalPrice' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-06-21 04:34:59.402 +04:00 [INF] Executed DbCommand (53ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Image]
+FROM [Sliders] AS [s]
+2025-06-21 04:34:59.815 +04:00 [INF] Executed DbCommand (57ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[Address], [r].[CreatedDate], [r].[DeliveryCost], [r].[EstimatedDeliveryTime], [r].[Image], [r].[Name], [r].[Phone], [r].[RestaurantCategoryId], [r0].[Id], [r0].[CreatedDate], [r0].[Image], [r0].[Name], [r1].[Id], [r1].[Comment], [r1].[CreatedDate], [r1].[CustomerId], [r1].[Rating], [r1].[RestaurantId]
+FROM [Restaurants] AS [r]
+INNER JOIN [RestaurantCategories] AS [r0] ON [r].[RestaurantCategoryId] = [r0].[Id]
+LEFT JOIN [RestaurantReviews] AS [r1] ON [r].[Id] = [r1].[RestaurantId]
+ORDER BY [r].[Id], [r0].[Id]
+2025-06-21 04:34:59.988 +04:00 [INF] Executed DbCommand (40ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[CreatedDate], [b].[Image]
+FROM [Brands] AS [b]
+2025-06-21 04:35:00.019 +04:00 [INF] Executing ViewResult, running view Index.
+2025-06-21 04:35:00.220 +04:00 [INF] Executed DbCommand (59ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-06-21 04:35:00.312 +04:00 [INF] Executed DbCommand (4ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Address], [c].[CreatedDate], [c].[UserId]
+FROM [Customers] AS [c]
+WHERE [c].[UserId] = @__user_Id_0
+2025-06-21 04:35:00.350 +04:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:35:00.403 +04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:35:00.532 +04:00 [INF] Executed ViewResult - view Index executed in 515.9171ms.
+2025-06-21 04:35:00.537 +04:00 [INF] Executed action Wolt.Controllers.HomeController.Index (Wolt) in 3363.0439ms
+2025-06-21 04:35:00.538 +04:00 [INF] Executed endpoint 'Wolt.Controllers.HomeController.Index (Wolt)'
+2025-06-21 04:35:00.554 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/ - 200 null text/html; charset=utf-8 3750.5303ms
+2025-06-21 04:35:00.557 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_vs/browserLink - null null
+2025-06-21 04:35:00.558 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-21 04:35:00.559 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/.well-known/appspecific/com.chrome.devtools.json - null null
+2025-06-21 04:35:00.566 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 7.9567ms
+2025-06-21 04:35:00.587 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/.well-known/appspecific/com.chrome.devtools.json - 404 0 null 28.0247ms
+2025-06-21 04:35:00.588 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7288/.well-known/appspecific/com.chrome.devtools.json, Response status code: 404
+2025-06-21 04:35:00.599 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 42.6167ms
+2025-06-21 04:35:05.961 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/Restaurant - null null
+2025-06-21 04:35:06.000 +04:00 [INF] Executing endpoint 'Wolt.Controllers.RestaurantController.Index (Wolt)'
+2025-06-21 04:35:06.015 +04:00 [INF] Route matched with {action = "Index", controller = "Restaurant", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(Int32) on controller Wolt.Controllers.RestaurantController (Wolt).
+2025-06-21 04:35:06.143 +04:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-06-21 04:35:06.144 +04:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-06-21 04:35:06.184 +04:00 [INF] Executed DbCommand (11ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Address], [t].[CreatedDate], [t].[DeliveryCost], [t].[EstimatedDeliveryTime], [t].[Image], [t].[Name], [t].[Phone], [t].[RestaurantCategoryId], [r0].[Id], [r0].[CreatedDate], [r0].[Image], [r0].[Name], [r1].[Id], [r1].[Comment], [r1].[CreatedDate], [r1].[CustomerId], [r1].[Rating], [r1].[RestaurantId]
+FROM (
+    SELECT [r].[Id], [r].[Address], [r].[CreatedDate], [r].[DeliveryCost], [r].[EstimatedDeliveryTime], [r].[Image], [r].[Name], [r].[Phone], [r].[RestaurantCategoryId]
+    FROM [Restaurants] AS [r]
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+INNER JOIN [RestaurantCategories] AS [r0] ON [t].[RestaurantCategoryId] = [r0].[Id]
+LEFT JOIN [RestaurantReviews] AS [r1] ON [t].[Id] = [r1].[RestaurantId]
+ORDER BY [t].[Id], [r0].[Id]
+2025-06-21 04:35:06.217 +04:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[CreatedDate], [r].[Image], [r].[Name], [r0].[Id], [r0].[Address], [r0].[CreatedDate], [r0].[DeliveryCost], [r0].[EstimatedDeliveryTime], [r0].[Image], [r0].[Name], [r0].[Phone], [r0].[RestaurantCategoryId]
+FROM [RestaurantCategories] AS [r]
+LEFT JOIN [Restaurants] AS [r0] ON [r].[Id] = [r0].[RestaurantCategoryId]
+ORDER BY [r].[Id]
+2025-06-21 04:35:06.294 +04:00 [INF] Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Restaurants] AS [r]
+2025-06-21 04:35:06.300 +04:00 [INF] Executing ViewResult, running view Index.
+2025-06-21 04:35:06.338 +04:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-06-21 04:35:06.343 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Address], [c].[CreatedDate], [c].[UserId]
+FROM [Customers] AS [c]
+WHERE [c].[UserId] = @__user_Id_0
+2025-06-21 04:35:06.347 +04:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:35:06.354 +04:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:35:06.362 +04:00 [INF] Executed ViewResult - view Index executed in 64.5464ms.
+2025-06-21 04:35:06.363 +04:00 [INF] Executed action Wolt.Controllers.RestaurantController.Index (Wolt) in 346.8951ms
+2025-06-21 04:35:06.363 +04:00 [INF] Executed endpoint 'Wolt.Controllers.RestaurantController.Index (Wolt)'
+2025-06-21 04:35:06.363 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/Restaurant - 200 null text/html; charset=utf-8 402.4688ms
+2025-06-21 04:35:06.437 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-21 04:35:06.440 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 2.254ms
+2025-06-21 04:35:06.441 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_vs/browserLink - null null
+2025-06-21 04:35:06.459 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 17.2364ms
+2025-06-21 04:35:09.969 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/.well-known/appspecific/com.chrome.devtools.json - null null
+2025-06-21 04:35:09.971 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/.well-known/appspecific/com.chrome.devtools.json - 404 0 null 1.7893ms
+2025-06-21 04:35:09.971 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7288/.well-known/appspecific/com.chrome.devtools.json, Response status code: 404
+2025-06-21 04:35:09.988 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/css/restaurants.css.map - null null
+2025-06-21 04:35:10.032 +04:00 [INF] Sending file. Request path: '/assets/css/restaurants.css.map'. Physical path: 'C:\Users\gulay\OneDrive\Рабочий стол\Wolt-Backend\FoodDelivery_FinalProject\Wolt\Wolt\wwwroot\assets\css\restaurants.css.map'
+2025-06-21 04:35:10.032 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/css/restaurants.css.map - 200 3131 text/plain 44.3776ms
+2025-06-21 04:35:38.825 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/Restaurant/GetSortedRestaurants?sortOrder=rating_high&page=1 - null null
+2025-06-21 04:35:38.831 +04:00 [INF] Executing endpoint 'Wolt.Controllers.RestaurantController.GetSortedRestaurants (Wolt)'
+2025-06-21 04:35:38.845 +04:00 [INF] Route matched with {action = "GetSortedRestaurants", controller = "Restaurant", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetSortedRestaurants(System.String, Int32) on controller Wolt.Controllers.RestaurantController (Wolt).
+2025-06-21 04:35:38.925 +04:00 [INF] Executed DbCommand (16ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Address], [t].[CreatedDate], [t].[DeliveryCost], [t].[EstimatedDeliveryTime], [t].[Image], [t].[Name], [t].[Phone], [t].[RestaurantCategoryId], [r0].[Id], [r0].[CreatedDate], [r0].[Image], [r0].[Name], [r1].[Id], [r1].[Comment], [r1].[CreatedDate], [r1].[CustomerId], [r1].[Rating], [r1].[RestaurantId]
+FROM (
+    SELECT [r].[Id], [r].[Address], [r].[CreatedDate], [r].[DeliveryCost], [r].[EstimatedDeliveryTime], [r].[Image], [r].[Name], [r].[Phone], [r].[RestaurantCategoryId]
+    FROM [Restaurants] AS [r]
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+INNER JOIN [RestaurantCategories] AS [r0] ON [t].[RestaurantCategoryId] = [r0].[Id]
+LEFT JOIN [RestaurantReviews] AS [r1] ON [t].[Id] = [r1].[RestaurantId]
+ORDER BY [t].[Id], [r0].[Id]
+2025-06-21 04:35:38.938 +04:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[CreatedDate], [r].[Image], [r].[Name], [r0].[Id], [r0].[Address], [r0].[CreatedDate], [r0].[DeliveryCost], [r0].[EstimatedDeliveryTime], [r0].[Image], [r0].[Name], [r0].[Phone], [r0].[RestaurantCategoryId]
+FROM [RestaurantCategories] AS [r]
+LEFT JOIN [Restaurants] AS [r0] ON [r].[Id] = [r0].[RestaurantCategoryId]
+ORDER BY [r].[Id]
+2025-06-21 04:35:38.944 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Restaurants] AS [r]
+2025-06-21 04:35:38.952 +04:00 [INF] Executing PartialViewResult, running view _RestaurantsListPartial.
+2025-06-21 04:35:38.958 +04:00 [INF] Executed PartialViewResult - view _RestaurantsListPartial executed in 6.9275ms.
+2025-06-21 04:35:38.959 +04:00 [INF] Executed action Wolt.Controllers.RestaurantController.GetSortedRestaurants (Wolt) in 113.5066ms
+2025-06-21 04:35:38.959 +04:00 [INF] Executed endpoint 'Wolt.Controllers.RestaurantController.GetSortedRestaurants (Wolt)'
+2025-06-21 04:35:38.959 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/Restaurant/GetSortedRestaurants?sortOrder=rating_high&page=1 - 200 null text/html; charset=utf-8 134.367ms
+2025-06-21 04:35:44.051 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/Restaurant/GetSortedRestaurants?sortOrder=newest&page=1 - null null
+2025-06-21 04:35:44.058 +04:00 [INF] Executing endpoint 'Wolt.Controllers.RestaurantController.GetSortedRestaurants (Wolt)'
+2025-06-21 04:35:44.058 +04:00 [INF] Route matched with {action = "GetSortedRestaurants", controller = "Restaurant", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetSortedRestaurants(System.String, Int32) on controller Wolt.Controllers.RestaurantController (Wolt).
+2025-06-21 04:35:44.070 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Address], [t].[CreatedDate], [t].[DeliveryCost], [t].[EstimatedDeliveryTime], [t].[Image], [t].[Name], [t].[Phone], [t].[RestaurantCategoryId], [r0].[Id], [r0].[CreatedDate], [r0].[Image], [r0].[Name], [r1].[Id], [r1].[Comment], [r1].[CreatedDate], [r1].[CustomerId], [r1].[Rating], [r1].[RestaurantId]
+FROM (
+    SELECT [r].[Id], [r].[Address], [r].[CreatedDate], [r].[DeliveryCost], [r].[EstimatedDeliveryTime], [r].[Image], [r].[Name], [r].[Phone], [r].[RestaurantCategoryId]
+    FROM [Restaurants] AS [r]
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+INNER JOIN [RestaurantCategories] AS [r0] ON [t].[RestaurantCategoryId] = [r0].[Id]
+LEFT JOIN [RestaurantReviews] AS [r1] ON [t].[Id] = [r1].[RestaurantId]
+ORDER BY [t].[Id], [r0].[Id]
+2025-06-21 04:35:44.074 +04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[CreatedDate], [r].[Image], [r].[Name], [r0].[Id], [r0].[Address], [r0].[CreatedDate], [r0].[DeliveryCost], [r0].[EstimatedDeliveryTime], [r0].[Image], [r0].[Name], [r0].[Phone], [r0].[RestaurantCategoryId]
+FROM [RestaurantCategories] AS [r]
+LEFT JOIN [Restaurants] AS [r0] ON [r].[Id] = [r0].[RestaurantCategoryId]
+ORDER BY [r].[Id]
+2025-06-21 04:35:44.076 +04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Restaurants] AS [r]
+2025-06-21 04:35:44.077 +04:00 [INF] Executing PartialViewResult, running view _RestaurantsListPartial.
+2025-06-21 04:35:44.079 +04:00 [INF] Executed PartialViewResult - view _RestaurantsListPartial executed in 1.7527ms.
+2025-06-21 04:35:44.079 +04:00 [INF] Executed action Wolt.Controllers.RestaurantController.GetSortedRestaurants (Wolt) in 20.6301ms
+2025-06-21 04:35:44.079 +04:00 [INF] Executed endpoint 'Wolt.Controllers.RestaurantController.GetSortedRestaurants (Wolt)'
+2025-06-21 04:35:44.079 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/Restaurant/GetSortedRestaurants?sortOrder=newest&page=1 - 200 null text/html; charset=utf-8 27.9768ms
+2025-06-21 04:35:58.060 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/Menu?restaurantId=9 - null null
+2025-06-21 04:35:58.066 +04:00 [INF] Executing endpoint 'Wolt.Controllers.MenuController.Index (Wolt)'
+2025-06-21 04:35:58.074 +04:00 [INF] Route matched with {action = "Index", controller = "Menu", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(Int32) on controller Wolt.Controllers.MenuController (Wolt).
+2025-06-21 04:35:58.230 +04:00 [INF] Executed DbCommand (25ms) [Parameters=[@__restaurantId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CategoryId], [m].[CreatedDate], [m].[Description], [m].[Image], [m].[Name], [m].[Price], [m0].[Id], [m0].[CreatedDate], [m0].[Name], [m0].[RestaurantId], [t].[Id], [t].[CreatedDate], [t].[DiscountId], [t].[MenuItemId], [t].[Id0], [t].[CreatedDate0], [t].[DiscountPercentage], [t].[EndDate], [t].[IsActive], [t].[Name]
+FROM [MenuItems] AS [m]
+INNER JOIN [MenuItemCategories] AS [m0] ON [m].[CategoryId] = [m0].[Id]
+LEFT JOIN (
+    SELECT [m1].[Id], [m1].[CreatedDate], [m1].[DiscountId], [m1].[MenuItemId], [d].[Id] AS [Id0], [d].[CreatedDate] AS [CreatedDate0], [d].[DiscountPercentage], [d].[EndDate], [d].[IsActive], [d].[Name]
+    FROM [MenuItemDiscounts] AS [m1]
+    INNER JOIN [Discounts] AS [d] ON [m1].[DiscountId] = [d].[Id]
+) AS [t] ON [m].[Id] = [t].[MenuItemId]
+WHERE [m0].[RestaurantId] = @__restaurantId_0
+ORDER BY [m].[Id], [m0].[Id], [t].[Id]
+2025-06-21 04:35:58.265 +04:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedDate], [m].[Name], [m].[RestaurantId], [r].[Id], [r].[Address], [r].[CreatedDate], [r].[DeliveryCost], [r].[EstimatedDeliveryTime], [r].[Image], [r].[Name], [r].[Phone], [r].[RestaurantCategoryId]
+FROM [MenuItemCategories] AS [m]
+INNER JOIN [Restaurants] AS [r] ON [m].[RestaurantId] = [r].[Id]
+2025-06-21 04:35:58.367 +04:00 [INF] Executed DbCommand (22ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Address], [t].[CreatedDate], [t].[DeliveryCost], [t].[EstimatedDeliveryTime], [t].[Image], [t].[Name], [t].[Phone], [t].[RestaurantCategoryId], [t].[Id0], [t].[CreatedDate0], [t].[Image0], [t].[Name0], [t0].[Id], [t0].[Comment], [t0].[CreatedDate], [t0].[CustomerId], [t0].[Rating], [t0].[RestaurantId], [t0].[Id0], [t0].[Address], [t0].[CreatedDate0], [t0].[UserId], [t0].[Id1], [t0].[AccessFailedCount], [t0].[ConcurrencyStamp], [t0].[Email], [t0].[EmailConfirmed], [t0].[FullName], [t0].[LockoutEnabled], [t0].[LockoutEnd], [t0].[NormalizedEmail], [t0].[NormalizedUserName], [t0].[PasswordHash], [t0].[PhoneNumber], [t0].[PhoneNumberConfirmed], [t0].[SecurityStamp], [t0].[TwoFactorEnabled], [t0].[UserName]
+FROM (
+    SELECT TOP(1) [r].[Id], [r].[Address], [r].[CreatedDate], [r].[DeliveryCost], [r].[EstimatedDeliveryTime], [r].[Image], [r].[Name], [r].[Phone], [r].[RestaurantCategoryId], [r0].[Id] AS [Id0], [r0].[CreatedDate] AS [CreatedDate0], [r0].[Image] AS [Image0], [r0].[Name] AS [Name0]
+    FROM [Restaurants] AS [r]
+    INNER JOIN [RestaurantCategories] AS [r0] ON [r].[RestaurantCategoryId] = [r0].[Id]
+    WHERE [r].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [r1].[Id], [r1].[Comment], [r1].[CreatedDate], [r1].[CustomerId], [r1].[Rating], [r1].[RestaurantId], [c].[Id] AS [Id0], [c].[Address], [c].[CreatedDate] AS [CreatedDate0], [c].[UserId], [a].[Id] AS [Id1], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+    FROM [RestaurantReviews] AS [r1]
+    INNER JOIN [Customers] AS [c] ON [r1].[CustomerId] = [c].[Id]
+    INNER JOIN [AspNetUsers] AS [a] ON [c].[UserId] = [a].[Id]
+) AS [t0] ON [t].[Id] = [t0].[RestaurantId]
+ORDER BY [t].[Id], [t].[Id0], [t0].[Id], [t0].[Id0]
+2025-06-21 04:35:58.398 +04:00 [INF] Executed DbCommand (9ms) [Parameters=[@__restaurantId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[Comment], [r].[CreatedDate], [r].[CustomerId], [r].[Rating], [r].[RestaurantId], [c].[Id], [c].[Address], [c].[CreatedDate], [c].[UserId], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [RestaurantReviews] AS [r]
+INNER JOIN [Customers] AS [c] ON [r].[CustomerId] = [c].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [c].[UserId] = [a].[Id]
+WHERE [r].[RestaurantId] = @__restaurantId_0
+2025-06-21 04:35:58.419 +04:00 [INF] Executed DbCommand (4ms) [Parameters=[@__userIdStr_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__userIdStr_0
+2025-06-21 04:35:58.441 +04:00 [INF] Executed DbCommand (6ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Address], [c].[CreatedDate], [c].[UserId], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Customers] AS [c]
+INNER JOIN [AspNetUsers] AS [a] ON [c].[UserId] = [a].[Id]
+WHERE [c].[UserId] = @__userId_0
+2025-06-21 04:35:58.466 +04:00 [INF] Executing ViewResult, running view Index.
+2025-06-21 04:35:58.502 +04:00 [INF] Executed DbCommand (6ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-06-21 04:35:58.507 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Address], [c].[CreatedDate], [c].[UserId]
+FROM [Customers] AS [c]
+WHERE [c].[UserId] = @__user_Id_0
+2025-06-21 04:35:58.511 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:35:58.516 +04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:35:58.595 +04:00 [INF] Executed ViewResult - view Index executed in 131.5211ms.
+2025-06-21 04:35:58.596 +04:00 [INF] Executed action Wolt.Controllers.MenuController.Index (Wolt) in 520.9513ms
+2025-06-21 04:35:58.596 +04:00 [INF] Executed endpoint 'Wolt.Controllers.MenuController.Index (Wolt)'
+2025-06-21 04:35:58.596 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/Menu?restaurantId=9 - 200 null text/html; charset=utf-8 536.5247ms
+2025-06-21 04:35:58.697 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-21 04:35:58.699 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 1.3551ms
+2025-06-21 04:35:58.699 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_vs/browserLink - null null
+2025-06-21 04:35:58.717 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 17.3633ms
+2025-06-21 04:35:58.790 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/.well-known/appspecific/com.chrome.devtools.json - null null
+2025-06-21 04:35:58.792 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/.well-known/appspecific/com.chrome.devtools.json - 404 0 null 2.2597ms
+2025-06-21 04:35:58.793 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7288/.well-known/appspecific/com.chrome.devtools.json, Response status code: 404
+2025-06-21 04:35:58.814 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/css/menu.css.map - null null
+2025-06-21 04:35:58.837 +04:00 [INF] Sending file. Request path: '/assets/css/menu.css.map'. Physical path: 'C:\Users\gulay\OneDrive\Рабочий стол\Wolt-Backend\FoodDelivery_FinalProject\Wolt\Wolt\wwwroot\assets\css\menu.css.map'
+2025-06-21 04:35:58.837 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/css/menu.css.map - 200 3417 text/plain 23.2991ms
+2025-06-21 04:36:17.786 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/Restaurant - null null
+2025-06-21 04:36:17.791 +04:00 [INF] Executing endpoint 'Wolt.Controllers.RestaurantController.Index (Wolt)'
+2025-06-21 04:36:17.791 +04:00 [INF] Route matched with {action = "Index", controller = "Restaurant", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(Int32) on controller Wolt.Controllers.RestaurantController (Wolt).
+2025-06-21 04:36:17.807 +04:00 [INF] Executed DbCommand (13ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Address], [t].[CreatedDate], [t].[DeliveryCost], [t].[EstimatedDeliveryTime], [t].[Image], [t].[Name], [t].[Phone], [t].[RestaurantCategoryId], [r0].[Id], [r0].[CreatedDate], [r0].[Image], [r0].[Name], [r1].[Id], [r1].[Comment], [r1].[CreatedDate], [r1].[CustomerId], [r1].[Rating], [r1].[RestaurantId]
+FROM (
+    SELECT [r].[Id], [r].[Address], [r].[CreatedDate], [r].[DeliveryCost], [r].[EstimatedDeliveryTime], [r].[Image], [r].[Name], [r].[Phone], [r].[RestaurantCategoryId]
+    FROM [Restaurants] AS [r]
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+INNER JOIN [RestaurantCategories] AS [r0] ON [t].[RestaurantCategoryId] = [r0].[Id]
+LEFT JOIN [RestaurantReviews] AS [r1] ON [t].[Id] = [r1].[RestaurantId]
+ORDER BY [t].[Id], [r0].[Id]
+2025-06-21 04:36:17.813 +04:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[CreatedDate], [r].[Image], [r].[Name], [r0].[Id], [r0].[Address], [r0].[CreatedDate], [r0].[DeliveryCost], [r0].[EstimatedDeliveryTime], [r0].[Image], [r0].[Name], [r0].[Phone], [r0].[RestaurantCategoryId]
+FROM [RestaurantCategories] AS [r]
+LEFT JOIN [Restaurants] AS [r0] ON [r].[Id] = [r0].[RestaurantCategoryId]
+ORDER BY [r].[Id]
+2025-06-21 04:36:17.816 +04:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Restaurants] AS [r]
+2025-06-21 04:36:17.816 +04:00 [INF] Executing ViewResult, running view Index.
+2025-06-21 04:36:17.823 +04:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-06-21 04:36:17.827 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Address], [c].[CreatedDate], [c].[UserId]
+FROM [Customers] AS [c]
+WHERE [c].[UserId] = @__user_Id_0
+2025-06-21 04:36:17.830 +04:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:36:17.834 +04:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:36:17.835 +04:00 [INF] Executed ViewResult - view Index executed in 19.2304ms.
+2025-06-21 04:36:17.835 +04:00 [INF] Executed action Wolt.Controllers.RestaurantController.Index (Wolt) in 43.918ms
+2025-06-21 04:36:17.835 +04:00 [INF] Executed endpoint 'Wolt.Controllers.RestaurantController.Index (Wolt)'
+2025-06-21 04:36:17.836 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/Restaurant - 200 null text/html; charset=utf-8 49.9548ms
+2025-06-21 04:36:17.912 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-21 04:36:17.913 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 0.4958ms
+2025-06-21 04:36:18.595 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/.well-known/appspecific/com.chrome.devtools.json - null null
+2025-06-21 04:36:18.602 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/.well-known/appspecific/com.chrome.devtools.json - 404 0 null 7.0575ms
+2025-06-21 04:36:18.623 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7288/.well-known/appspecific/com.chrome.devtools.json, Response status code: 404
+2025-06-21 04:36:21.826 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/RestaurantCategory/Detail/2 - null null
+2025-06-21 04:36:21.836 +04:00 [INF] Executing endpoint 'Wolt.Controllers.RestaurantCategoryController.Detail (Wolt)'
+2025-06-21 04:36:21.846 +04:00 [INF] Route matched with {action = "Detail", controller = "RestaurantCategory", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Detail(Int32) on controller Wolt.Controllers.RestaurantCategoryController (Wolt).
+2025-06-21 04:36:21.898 +04:00 [INF] Executed DbCommand (16ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[CreatedDate], [t].[Image], [t].[Name], [r0].[Id], [r0].[Address], [r0].[CreatedDate], [r0].[DeliveryCost], [r0].[EstimatedDeliveryTime], [r0].[Image], [r0].[Name], [r0].[Phone], [r0].[RestaurantCategoryId]
+FROM (
+    SELECT TOP(1) [r].[Id], [r].[CreatedDate], [r].[Image], [r].[Name]
+    FROM [RestaurantCategories] AS [r]
+    WHERE [r].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Restaurants] AS [r0] ON [t].[Id] = [r0].[RestaurantCategoryId]
+ORDER BY [t].[Id]
+2025-06-21 04:36:22.022 +04:00 [INF] Executed DbCommand (73ms) [Parameters=[@__categoryId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[Address], [r].[CreatedDate], [r].[DeliveryCost], [r].[EstimatedDeliveryTime], [r].[Image], [r].[Name], [r].[Phone], [r].[RestaurantCategoryId], [r0].[Id], [r0].[CreatedDate], [r0].[Image], [r0].[Name], [r1].[Id], [r1].[Comment], [r1].[CreatedDate], [r1].[CustomerId], [r1].[Rating], [r1].[RestaurantId]
+FROM [Restaurants] AS [r]
+INNER JOIN [RestaurantCategories] AS [r0] ON [r].[RestaurantCategoryId] = [r0].[Id]
+LEFT JOIN [RestaurantReviews] AS [r1] ON [r].[Id] = [r1].[RestaurantId]
+WHERE [r].[RestaurantCategoryId] = @__categoryId_0
+ORDER BY [r].[Id], [r0].[Id]
+2025-06-21 04:36:22.026 +04:00 [INF] Executing ViewResult, running view Detail.
+2025-06-21 04:36:22.052 +04:00 [INF] Executed DbCommand (14ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-06-21 04:36:22.069 +04:00 [INF] Executed DbCommand (13ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Address], [c].[CreatedDate], [c].[UserId]
+FROM [Customers] AS [c]
+WHERE [c].[UserId] = @__user_Id_0
+2025-06-21 04:36:22.074 +04:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:36:22.081 +04:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:36:22.083 +04:00 [INF] Executed ViewResult - view Detail executed in 58.3273ms.
+2025-06-21 04:36:22.083 +04:00 [INF] Executed action Wolt.Controllers.RestaurantCategoryController.Detail (Wolt) in 237.0482ms
+2025-06-21 04:36:22.083 +04:00 [INF] Executed endpoint 'Wolt.Controllers.RestaurantCategoryController.Detail (Wolt)'
+2025-06-21 04:36:22.083 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/RestaurantCategory/Detail/2 - 200 null text/html; charset=utf-8 257.2854ms
+2025-06-21 04:36:22.125 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-21 04:36:22.127 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 2.2821ms
+2025-06-21 04:36:22.128 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_vs/browserLink - null null
+2025-06-21 04:36:22.139 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 10.3343ms
+2025-06-21 04:36:23.623 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/.well-known/appspecific/com.chrome.devtools.json - null null
+2025-06-21 04:36:23.626 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/.well-known/appspecific/com.chrome.devtools.json - 404 0 null 3.6003ms
+2025-06-21 04:36:23.626 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7288/.well-known/appspecific/com.chrome.devtools.json, Response status code: 404
+2025-06-21 04:36:27.759 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/Menu?restaurantId=6 - null null
+2025-06-21 04:36:27.761 +04:00 [INF] Executing endpoint 'Wolt.Controllers.MenuController.Index (Wolt)'
+2025-06-21 04:36:27.762 +04:00 [INF] Route matched with {action = "Index", controller = "Menu", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(Int32) on controller Wolt.Controllers.MenuController (Wolt).
+2025-06-21 04:36:27.787 +04:00 [INF] Executed DbCommand (17ms) [Parameters=[@__restaurantId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CategoryId], [m].[CreatedDate], [m].[Description], [m].[Image], [m].[Name], [m].[Price], [m0].[Id], [m0].[CreatedDate], [m0].[Name], [m0].[RestaurantId], [t].[Id], [t].[CreatedDate], [t].[DiscountId], [t].[MenuItemId], [t].[Id0], [t].[CreatedDate0], [t].[DiscountPercentage], [t].[EndDate], [t].[IsActive], [t].[Name]
+FROM [MenuItems] AS [m]
+INNER JOIN [MenuItemCategories] AS [m0] ON [m].[CategoryId] = [m0].[Id]
+LEFT JOIN (
+    SELECT [m1].[Id], [m1].[CreatedDate], [m1].[DiscountId], [m1].[MenuItemId], [d].[Id] AS [Id0], [d].[CreatedDate] AS [CreatedDate0], [d].[DiscountPercentage], [d].[EndDate], [d].[IsActive], [d].[Name]
+    FROM [MenuItemDiscounts] AS [m1]
+    INNER JOIN [Discounts] AS [d] ON [m1].[DiscountId] = [d].[Id]
+) AS [t] ON [m].[Id] = [t].[MenuItemId]
+WHERE [m0].[RestaurantId] = @__restaurantId_0
+ORDER BY [m].[Id], [m0].[Id], [t].[Id]
+2025-06-21 04:36:27.792 +04:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedDate], [m].[Name], [m].[RestaurantId], [r].[Id], [r].[Address], [r].[CreatedDate], [r].[DeliveryCost], [r].[EstimatedDeliveryTime], [r].[Image], [r].[Name], [r].[Phone], [r].[RestaurantCategoryId]
+FROM [MenuItemCategories] AS [m]
+INNER JOIN [Restaurants] AS [r] ON [m].[RestaurantId] = [r].[Id]
+2025-06-21 04:36:27.809 +04:00 [INF] Executed DbCommand (16ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Address], [t].[CreatedDate], [t].[DeliveryCost], [t].[EstimatedDeliveryTime], [t].[Image], [t].[Name], [t].[Phone], [t].[RestaurantCategoryId], [t].[Id0], [t].[CreatedDate0], [t].[Image0], [t].[Name0], [t0].[Id], [t0].[Comment], [t0].[CreatedDate], [t0].[CustomerId], [t0].[Rating], [t0].[RestaurantId], [t0].[Id0], [t0].[Address], [t0].[CreatedDate0], [t0].[UserId], [t0].[Id1], [t0].[AccessFailedCount], [t0].[ConcurrencyStamp], [t0].[Email], [t0].[EmailConfirmed], [t0].[FullName], [t0].[LockoutEnabled], [t0].[LockoutEnd], [t0].[NormalizedEmail], [t0].[NormalizedUserName], [t0].[PasswordHash], [t0].[PhoneNumber], [t0].[PhoneNumberConfirmed], [t0].[SecurityStamp], [t0].[TwoFactorEnabled], [t0].[UserName]
+FROM (
+    SELECT TOP(1) [r].[Id], [r].[Address], [r].[CreatedDate], [r].[DeliveryCost], [r].[EstimatedDeliveryTime], [r].[Image], [r].[Name], [r].[Phone], [r].[RestaurantCategoryId], [r0].[Id] AS [Id0], [r0].[CreatedDate] AS [CreatedDate0], [r0].[Image] AS [Image0], [r0].[Name] AS [Name0]
+    FROM [Restaurants] AS [r]
+    INNER JOIN [RestaurantCategories] AS [r0] ON [r].[RestaurantCategoryId] = [r0].[Id]
+    WHERE [r].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [r1].[Id], [r1].[Comment], [r1].[CreatedDate], [r1].[CustomerId], [r1].[Rating], [r1].[RestaurantId], [c].[Id] AS [Id0], [c].[Address], [c].[CreatedDate] AS [CreatedDate0], [c].[UserId], [a].[Id] AS [Id1], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+    FROM [RestaurantReviews] AS [r1]
+    INNER JOIN [Customers] AS [c] ON [r1].[CustomerId] = [c].[Id]
+    INNER JOIN [AspNetUsers] AS [a] ON [c].[UserId] = [a].[Id]
+) AS [t0] ON [t].[Id] = [t0].[RestaurantId]
+ORDER BY [t].[Id], [t].[Id0], [t0].[Id], [t0].[Id0]
+2025-06-21 04:36:27.849 +04:00 [INF] Executed DbCommand (38ms) [Parameters=[@__restaurantId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[Comment], [r].[CreatedDate], [r].[CustomerId], [r].[Rating], [r].[RestaurantId], [c].[Id], [c].[Address], [c].[CreatedDate], [c].[UserId], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [RestaurantReviews] AS [r]
+INNER JOIN [Customers] AS [c] ON [r].[CustomerId] = [c].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [c].[UserId] = [a].[Id]
+WHERE [r].[RestaurantId] = @__restaurantId_0
+2025-06-21 04:36:27.898 +04:00 [INF] Executed DbCommand (46ms) [Parameters=[@__userIdStr_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__userIdStr_0
+2025-06-21 04:36:27.911 +04:00 [INF] Executed DbCommand (13ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Address], [c].[CreatedDate], [c].[UserId], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Customers] AS [c]
+INNER JOIN [AspNetUsers] AS [a] ON [c].[UserId] = [a].[Id]
+WHERE [c].[UserId] = @__userId_0
+2025-06-21 04:36:27.912 +04:00 [INF] Executing ViewResult, running view Index.
+2025-06-21 04:36:27.918 +04:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-06-21 04:36:27.923 +04:00 [INF] Executed DbCommand (4ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Address], [c].[CreatedDate], [c].[UserId]
+FROM [Customers] AS [c]
+WHERE [c].[UserId] = @__user_Id_0
+2025-06-21 04:36:27.924 +04:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:36:27.926 +04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:36:27.927 +04:00 [INF] Executed ViewResult - view Index executed in 15.4057ms.
+2025-06-21 04:36:27.928 +04:00 [INF] Executed action Wolt.Controllers.MenuController.Index (Wolt) in 166.0328ms
+2025-06-21 04:36:27.928 +04:00 [INF] Executed endpoint 'Wolt.Controllers.MenuController.Index (Wolt)'
+2025-06-21 04:36:27.928 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/Menu?restaurantId=6 - 200 null text/html; charset=utf-8 169.3166ms
+2025-06-21 04:36:27.960 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_vs/browserLink - null null
+2025-06-21 04:36:27.961 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-21 04:36:27.962 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 0.7034ms
+2025-06-21 04:36:27.971 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 10.5376ms
+2025-06-21 04:36:28.072 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/.well-known/appspecific/com.chrome.devtools.json - null null
+2025-06-21 04:36:28.076 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/.well-known/appspecific/com.chrome.devtools.json - 404 0 null 4.017ms
+2025-06-21 04:36:28.077 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7288/.well-known/appspecific/com.chrome.devtools.json, Response status code: 404
+2025-06-21 04:36:31.463 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/Cart - null null
+2025-06-21 04:36:31.465 +04:00 [INF] Executing endpoint 'Wolt.Controllers.CartController.Index (Wolt)'
+2025-06-21 04:36:31.471 +04:00 [INF] Route matched with {action = "Index", controller = "Cart", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Wolt.Controllers.CartController (Wolt).
+2025-06-21 04:36:31.489 +04:00 [INF] Executed DbCommand (7ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Address], [c].[CreatedDate], [c].[UserId], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Customers] AS [c]
+INNER JOIN [AspNetUsers] AS [a] ON [c].[UserId] = [a].[Id]
+WHERE [c].[UserId] = @__userId_0
+2025-06-21 04:36:31.538 +04:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2025-06-21 04:36:31.590 +04:00 [INF] Executed DbCommand (46ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[CreatedDate], [t].[CustomerId], [t0].[Id], [t0].[CartId], [t0].[CreatedDate], [t0].[MenuItemId], [t0].[Quantity], [t0].[Id0], [t0].[CategoryId], [t0].[CreatedDate0], [t0].[Description], [t0].[Image], [t0].[Name], [t0].[Price], [t0].[Id1], [t0].[Id2], [t0].[Id3], [t0].[CreatedDate1], [t0].[DiscountId], [t0].[MenuItemId0], [t0].[Id00], [t0].[CreatedDate00], [t0].[DiscountPercentage], [t0].[EndDate], [t0].[IsActive], [t0].[Name0], [t0].[CreatedDate2], [t0].[Name1], [t0].[RestaurantId], [t0].[Address], [t0].[CreatedDate3], [t0].[DeliveryCost], [t0].[EstimatedDeliveryTime], [t0].[Image0], [t0].[Name2], [t0].[Phone], [t0].[RestaurantCategoryId]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedDate], [c].[CustomerId]
+    FROM [Carts] AS [c]
+    WHERE [c].[CustomerId] = @__customerId_0
+) AS [t]
+LEFT JOIN (
+    SELECT [c0].[Id], [c0].[CartId], [c0].[CreatedDate], [c0].[MenuItemId], [c0].[Quantity], [m].[Id] AS [Id0], [m].[CategoryId], [m].[CreatedDate] AS [CreatedDate0], [m].[Description], [m].[Image], [m].[Name], [m].[Price], [m0].[Id] AS [Id1], [r].[Id] AS [Id2], [t1].[Id] AS [Id3], [t1].[CreatedDate] AS [CreatedDate1], [t1].[DiscountId], [t1].[MenuItemId] AS [MenuItemId0], [t1].[Id0] AS [Id00], [t1].[CreatedDate0] AS [CreatedDate00], [t1].[DiscountPercentage], [t1].[EndDate], [t1].[IsActive], [t1].[Name] AS [Name0], [m0].[CreatedDate] AS [CreatedDate2], [m0].[Name] AS [Name1], [m0].[RestaurantId], [r].[Address], [r].[CreatedDate] AS [CreatedDate3], [r].[DeliveryCost], [r].[EstimatedDeliveryTime], [r].[Image] AS [Image0], [r].[Name] AS [Name2], [r].[Phone], [r].[RestaurantCategoryId]
+    FROM [CartItems] AS [c0]
+    INNER JOIN [MenuItems] AS [m] ON [c0].[MenuItemId] = [m].[Id]
+    INNER JOIN [MenuItemCategories] AS [m0] ON [m].[CategoryId] = [m0].[Id]
+    INNER JOIN [Restaurants] AS [r] ON [m0].[RestaurantId] = [r].[Id]
+    LEFT JOIN (
+        SELECT [m1].[Id], [m1].[CreatedDate], [m1].[DiscountId], [m1].[MenuItemId], [d].[Id] AS [Id0], [d].[CreatedDate] AS [CreatedDate0], [d].[DiscountPercentage], [d].[EndDate], [d].[IsActive], [d].[Name]
+        FROM [MenuItemDiscounts] AS [m1]
+        INNER JOIN [Discounts] AS [d] ON [m1].[DiscountId] = [d].[Id]
+    ) AS [t1] ON [m].[Id] = [t1].[MenuItemId]
+) AS [t0] ON [t].[Id] = [t0].[CartId]
+ORDER BY [t].[Id], [t0].[Id], [t0].[Id0], [t0].[Id1], [t0].[Id2], [t0].[Id3]
+2025-06-21 04:36:31.645 +04:00 [INF] Executing ViewResult, running view Index.
+2025-06-21 04:36:31.664 +04:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-06-21 04:36:31.667 +04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Address], [c].[CreatedDate], [c].[UserId]
+FROM [Customers] AS [c]
+WHERE [c].[UserId] = @__user_Id_0
+2025-06-21 04:36:31.669 +04:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:36:31.672 +04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:36:31.705 +04:00 [INF] Executed ViewResult - view Index executed in 60.5702ms.
+2025-06-21 04:36:31.705 +04:00 [INF] Executed action Wolt.Controllers.CartController.Index (Wolt) in 233.2191ms
+2025-06-21 04:36:31.705 +04:00 [INF] Executed endpoint 'Wolt.Controllers.CartController.Index (Wolt)'
+2025-06-21 04:36:31.705 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/Cart - 200 null text/html; charset=utf-8 242.0462ms
+2025-06-21 04:36:31.743 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/css/cart.css - null null
+2025-06-21 04:36:31.746 +04:00 [INF] The file /assets/css/cart.css was not modified
+2025-06-21 04:36:31.747 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/css/cart.css - 304 null text/css 4.0699ms
+2025-06-21 04:36:31.786 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-21 04:36:31.786 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_vs/browserLink - null null
+2025-06-21 04:36:31.787 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 1.4065ms
+2025-06-21 04:36:31.788 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/js/cart.js?v=h6XSOiiV4SGcfE8oFsLfMO44c3GAgAB9DsA3XOzr_k4 - null null
+2025-06-21 04:36:31.788 +04:00 [INF] The file /assets/js/cart.js was not modified
+2025-06-21 04:36:31.788 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/js/cart.js?v=h6XSOiiV4SGcfE8oFsLfMO44c3GAgAB9DsA3XOzr_k4 - 304 null text/javascript 0.7126ms
+2025-06-21 04:36:31.798 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 11.3448ms
+2025-06-21 04:36:32.497 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/.well-known/appspecific/com.chrome.devtools.json - null null
+2025-06-21 04:36:32.498 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/.well-known/appspecific/com.chrome.devtools.json - 404 0 null 1.7295ms
+2025-06-21 04:36:32.498 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7288/.well-known/appspecific/com.chrome.devtools.json, Response status code: 404
+2025-06-21 04:36:55.300 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/Profile - null null
+2025-06-21 04:36:55.304 +04:00 [INF] Executing endpoint 'Wolt.Controllers.ProfileController.Index (Wolt)'
+2025-06-21 04:36:55.313 +04:00 [INF] Route matched with {action = "Index", controller = "Profile", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, System.String) on controller Wolt.Controllers.ProfileController (Wolt).
+2025-06-21 04:36:55.376 +04:00 [INF] Executed DbCommand (7ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2025-06-21 04:36:55.382 +04:00 [INF] Executed DbCommand (5ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Address], [c].[CreatedDate], [c].[UserId], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Customers] AS [c]
+INNER JOIN [AspNetUsers] AS [a] ON [c].[UserId] = [a].[Id]
+WHERE [c].[UserId] = @__userId_0
+2025-06-21 04:36:55.385 +04:00 [INF] Executing ViewResult, running view Index.
+2025-06-21 04:36:55.404 +04:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-06-21 04:36:55.407 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Address], [c].[CreatedDate], [c].[UserId]
+FROM [Customers] AS [c]
+WHERE [c].[UserId] = @__user_Id_0
+2025-06-21 04:36:55.410 +04:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:36:55.412 +04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:36:55.471 +04:00 [INF] Executed ViewResult - view Index executed in 87.2578ms.
+2025-06-21 04:36:55.471 +04:00 [INF] Executed action Wolt.Controllers.ProfileController.Index (Wolt) in 158.3457ms
+2025-06-21 04:36:55.471 +04:00 [INF] Executed endpoint 'Wolt.Controllers.ProfileController.Index (Wolt)'
+2025-06-21 04:36:55.472 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/Profile - 200 null text/html; charset=utf-8 171.3813ms
+2025-06-21 04:36:55.522 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-21 04:36:55.523 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/js/profile.js?v=gWi22FyeGKu_douSCJ8eHgnZdu2eiLBJpp4Qro1zXZ4 - null null
+2025-06-21 04:36:55.523 +04:00 [INF] The file /assets/js/profile.js was not modified
+2025-06-21 04:36:55.523 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/js/profile.js?v=gWi22FyeGKu_douSCJ8eHgnZdu2eiLBJpp4Qro1zXZ4 - 304 null text/javascript 0.5806ms
+2025-06-21 04:36:55.524 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 1.351ms
+2025-06-21 04:36:55.524 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/css/profile.css - null null
+2025-06-21 04:36:55.525 +04:00 [INF] The file /assets/css/profile.css was not modified
+2025-06-21 04:36:55.525 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/css/profile.css - 304 null text/css 1.6928ms
+2025-06-21 04:36:55.560 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_vs/browserLink - null null
+2025-06-21 04:36:55.570 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 10.3422ms
+2025-06-21 04:36:55.623 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/.well-known/appspecific/com.chrome.devtools.json - null null
+2025-06-21 04:36:55.625 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/.well-known/appspecific/com.chrome.devtools.json - 404 0 null 1.3744ms
+2025-06-21 04:36:55.625 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7288/.well-known/appspecific/com.chrome.devtools.json, Response status code: 404
+2025-06-21 04:36:55.638 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/css/profile.css.map - null null
+2025-06-21 04:36:55.677 +04:00 [INF] Sending file. Request path: '/assets/css/profile.css.map'. Physical path: 'C:\Users\gulay\OneDrive\Рабочий стол\Wolt-Backend\FoodDelivery_FinalProject\Wolt\Wolt\wwwroot\assets\css\profile.css.map'
+2025-06-21 04:36:55.677 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/css/profile.css.map - 200 2889 text/plain 39.2096ms
+2025-06-21 04:37:01.240 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/Cart - null null
+2025-06-21 04:37:01.251 +04:00 [INF] Executing endpoint 'Wolt.Controllers.CartController.Index (Wolt)'
+2025-06-21 04:37:01.251 +04:00 [INF] Route matched with {action = "Index", controller = "Cart", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Wolt.Controllers.CartController (Wolt).
+2025-06-21 04:37:01.364 +04:00 [INF] Executed DbCommand (61ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Address], [c].[CreatedDate], [c].[UserId], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Customers] AS [c]
+INNER JOIN [AspNetUsers] AS [a] ON [c].[UserId] = [a].[Id]
+WHERE [c].[UserId] = @__userId_0
+2025-06-21 04:37:01.415 +04:00 [INF] Executed DbCommand (49ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[CreatedDate], [t].[CustomerId], [t0].[Id], [t0].[CartId], [t0].[CreatedDate], [t0].[MenuItemId], [t0].[Quantity], [t0].[Id0], [t0].[CategoryId], [t0].[CreatedDate0], [t0].[Description], [t0].[Image], [t0].[Name], [t0].[Price], [t0].[Id1], [t0].[Id2], [t0].[Id3], [t0].[CreatedDate1], [t0].[DiscountId], [t0].[MenuItemId0], [t0].[Id00], [t0].[CreatedDate00], [t0].[DiscountPercentage], [t0].[EndDate], [t0].[IsActive], [t0].[Name0], [t0].[CreatedDate2], [t0].[Name1], [t0].[RestaurantId], [t0].[Address], [t0].[CreatedDate3], [t0].[DeliveryCost], [t0].[EstimatedDeliveryTime], [t0].[Image0], [t0].[Name2], [t0].[Phone], [t0].[RestaurantCategoryId]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedDate], [c].[CustomerId]
+    FROM [Carts] AS [c]
+    WHERE [c].[CustomerId] = @__customerId_0
+) AS [t]
+LEFT JOIN (
+    SELECT [c0].[Id], [c0].[CartId], [c0].[CreatedDate], [c0].[MenuItemId], [c0].[Quantity], [m].[Id] AS [Id0], [m].[CategoryId], [m].[CreatedDate] AS [CreatedDate0], [m].[Description], [m].[Image], [m].[Name], [m].[Price], [m0].[Id] AS [Id1], [r].[Id] AS [Id2], [t1].[Id] AS [Id3], [t1].[CreatedDate] AS [CreatedDate1], [t1].[DiscountId], [t1].[MenuItemId] AS [MenuItemId0], [t1].[Id0] AS [Id00], [t1].[CreatedDate0] AS [CreatedDate00], [t1].[DiscountPercentage], [t1].[EndDate], [t1].[IsActive], [t1].[Name] AS [Name0], [m0].[CreatedDate] AS [CreatedDate2], [m0].[Name] AS [Name1], [m0].[RestaurantId], [r].[Address], [r].[CreatedDate] AS [CreatedDate3], [r].[DeliveryCost], [r].[EstimatedDeliveryTime], [r].[Image] AS [Image0], [r].[Name] AS [Name2], [r].[Phone], [r].[RestaurantCategoryId]
+    FROM [CartItems] AS [c0]
+    INNER JOIN [MenuItems] AS [m] ON [c0].[MenuItemId] = [m].[Id]
+    INNER JOIN [MenuItemCategories] AS [m0] ON [m].[CategoryId] = [m0].[Id]
+    INNER JOIN [Restaurants] AS [r] ON [m0].[RestaurantId] = [r].[Id]
+    LEFT JOIN (
+        SELECT [m1].[Id], [m1].[CreatedDate], [m1].[DiscountId], [m1].[MenuItemId], [d].[Id] AS [Id0], [d].[CreatedDate] AS [CreatedDate0], [d].[DiscountPercentage], [d].[EndDate], [d].[IsActive], [d].[Name]
+        FROM [MenuItemDiscounts] AS [m1]
+        INNER JOIN [Discounts] AS [d] ON [m1].[DiscountId] = [d].[Id]
+    ) AS [t1] ON [m].[Id] = [t1].[MenuItemId]
+) AS [t0] ON [t].[Id] = [t0].[CartId]
+ORDER BY [t].[Id], [t0].[Id], [t0].[Id0], [t0].[Id1], [t0].[Id2], [t0].[Id3]
+2025-06-21 04:37:01.417 +04:00 [INF] Executing ViewResult, running view Index.
+2025-06-21 04:37:01.422 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-06-21 04:37:01.425 +04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Address], [c].[CreatedDate], [c].[UserId]
+FROM [Customers] AS [c]
+WHERE [c].[UserId] = @__user_Id_0
+2025-06-21 04:37:01.427 +04:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:37:01.429 +04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:37:01.430 +04:00 [INF] Executed ViewResult - view Index executed in 12.8811ms.
+2025-06-21 04:37:01.430 +04:00 [INF] Executed action Wolt.Controllers.CartController.Index (Wolt) in 178.7137ms
+2025-06-21 04:37:01.430 +04:00 [INF] Executed endpoint 'Wolt.Controllers.CartController.Index (Wolt)'
+2025-06-21 04:37:01.430 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/Cart - 200 null text/html; charset=utf-8 190.5844ms
+2025-06-21 04:37:01.506 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-21 04:37:01.506 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 0.5116ms
+2025-06-21 04:37:01.550 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/.well-known/appspecific/com.chrome.devtools.json - null null
+2025-06-21 04:37:01.551 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/.well-known/appspecific/com.chrome.devtools.json - 404 0 null 1.0832ms
+2025-06-21 04:37:01.551 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7288/.well-known/appspecific/com.chrome.devtools.json, Response status code: 404
+2025-06-21 04:37:08.925 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/Order - null null
+2025-06-21 04:37:08.928 +04:00 [INF] Executing endpoint 'Wolt.Controllers.OrderController.Index (Wolt)'
+2025-06-21 04:37:08.937 +04:00 [INF] Route matched with {action = "Index", controller = "Order", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Wolt.Controllers.OrderController (Wolt).
+2025-06-21 04:37:08.960 +04:00 [INF] Executed DbCommand (8ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Address], [c].[CreatedDate], [c].[UserId], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Customers] AS [c]
+INNER JOIN [AspNetUsers] AS [a] ON [c].[UserId] = [a].[Id]
+WHERE [c].[UserId] = @__userId_0
+2025-06-21 04:37:09.095 +04:00 [INF] Executed DbCommand (59ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CourierId], [o].[CreatedDate], [o].[CustomerId], [o].[DeliveredAt], [o].[DeliveryAddress], [o].[EstimatedDeliveryTime], [o].[Notes], [o].[PaymentMethod], [o].[Status], [o].[TotalPrice], [c].[Id], [a].[Id], [c0].[Id], [a0].[Id], [t].[Id], [t].[CreatedDate], [t].[MenuItemId], [t].[OrderId], [t].[Quantity], [t].[Id0], [t].[CategoryId], [t].[CreatedDate0], [t].[Description], [t].[Image], [t].[Name], [t].[Price], [t].[Id1], [t].[CreatedDate1], [t].[Name0], [t].[RestaurantId], [t].[Id2], [t].[Address], [t].[CreatedDate2], [t].[DeliveryCost], [t].[EstimatedDeliveryTime], [t].[Image0], [t].[Name1], [t].[Phone], [t].[RestaurantCategoryId], [c].[CreatedDate], [c].[IsAvailable], [c].[UserId], [c].[VehicleType], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [c0].[Address], [c0].[CreatedDate], [c0].[UserId], [a0].[AccessFailedCount], [a0].[ConcurrencyStamp], [a0].[Email], [a0].[EmailConfirmed], [a0].[FullName], [a0].[LockoutEnabled], [a0].[LockoutEnd], [a0].[NormalizedEmail], [a0].[NormalizedUserName], [a0].[PasswordHash], [a0].[PhoneNumber], [a0].[PhoneNumberConfirmed], [a0].[SecurityStamp], [a0].[TwoFactorEnabled], [a0].[UserName]
+FROM [Orders] AS [o]
+LEFT JOIN [Couriers] AS [c] ON [o].[CourierId] = [c].[Id]
+LEFT JOIN [AspNetUsers] AS [a] ON [c].[UserId] = [a].[Id]
+INNER JOIN [Customers] AS [c0] ON [o].[CustomerId] = [c0].[Id]
+INNER JOIN [AspNetUsers] AS [a0] ON [c0].[UserId] = [a0].[Id]
+LEFT JOIN (
+    SELECT [o0].[Id], [o0].[CreatedDate], [o0].[MenuItemId], [o0].[OrderId], [o0].[Quantity], [m].[Id] AS [Id0], [m].[CategoryId], [m].[CreatedDate] AS [CreatedDate0], [m].[Description], [m].[Image], [m].[Name], [m].[Price], [m0].[Id] AS [Id1], [m0].[CreatedDate] AS [CreatedDate1], [m0].[Name] AS [Name0], [m0].[RestaurantId], [r].[Id] AS [Id2], [r].[Address], [r].[CreatedDate] AS [CreatedDate2], [r].[DeliveryCost], [r].[EstimatedDeliveryTime], [r].[Image] AS [Image0], [r].[Name] AS [Name1], [r].[Phone], [r].[RestaurantCategoryId]
+    FROM [OrderItems] AS [o0]
+    INNER JOIN [MenuItems] AS [m] ON [o0].[MenuItemId] = [m].[Id]
+    INNER JOIN [MenuItemCategories] AS [m0] ON [m].[CategoryId] = [m0].[Id]
+    INNER JOIN [Restaurants] AS [r] ON [m0].[RestaurantId] = [r].[Id]
+) AS [t] ON [o].[Id] = [t].[OrderId]
+ORDER BY [o].[CreatedDate] DESC, [o].[Id], [c].[Id], [a].[Id], [c0].[Id], [a0].[Id], [t].[Id], [t].[Id0], [t].[Id1]
+2025-06-21 04:37:09.199 +04:00 [INF] Executing ViewResult, running view Index.
+2025-06-21 04:37:09.229 +04:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-06-21 04:37:09.232 +04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Address], [c].[CreatedDate], [c].[UserId]
+FROM [Customers] AS [c]
+WHERE [c].[UserId] = @__user_Id_0
+2025-06-21 04:37:09.235 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:37:09.238 +04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:37:09.245 +04:00 [INF] Executed ViewResult - view Index executed in 47.7223ms.
+2025-06-21 04:37:09.245 +04:00 [INF] Executed action Wolt.Controllers.OrderController.Index (Wolt) in 307.823ms
+2025-06-21 04:37:09.245 +04:00 [INF] Executed endpoint 'Wolt.Controllers.OrderController.Index (Wolt)'
+2025-06-21 04:37:09.246 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/Order - 200 null text/html; charset=utf-8 320.9095ms
+2025-06-21 04:37:09.290 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/css/orders.css - null null
+2025-06-21 04:37:09.294 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/js/orders.js?v=h6XSOiiV4SGcfE8oFsLfMO44c3GAgAB9DsA3XOzr_k4 - null null
+2025-06-21 04:37:09.294 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/images/59918c71-5a61-4ed4-8f74-3b1fea27ba2c-grape.png - null null
+2025-06-21 04:37:09.297 +04:00 [INF] Sending file. Request path: '/assets/js/orders.js'. Physical path: 'C:\Users\gulay\OneDrive\Рабочий стол\Wolt-Backend\FoodDelivery_FinalProject\Wolt\Wolt\wwwroot\assets\js\orders.js'
+2025-06-21 04:37:09.297 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/js/orders.js?v=h6XSOiiV4SGcfE8oFsLfMO44c3GAgAB9DsA3XOzr_k4 - 200 16 text/javascript 3.2945ms
+2025-06-21 04:37:09.299 +04:00 [INF] The file /assets/images/59918c71-5a61-4ed4-8f74-3b1fea27ba2c-grape.png was not modified
+2025-06-21 04:37:09.299 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/images/59918c71-5a61-4ed4-8f74-3b1fea27ba2c-grape.png - 304 null image/png 5.2007ms
+2025-06-21 04:37:09.325 +04:00 [INF] Sending file. Request path: '/assets/css/orders.css'. Physical path: 'C:\Users\gulay\OneDrive\Рабочий стол\Wolt-Backend\FoodDelivery_FinalProject\Wolt\Wolt\wwwroot\assets\css\orders.css'
+2025-06-21 04:37:09.325 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/css/orders.css - 200 1591 text/css 35.2275ms
+2025-06-21 04:37:09.332 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-21 04:37:09.333 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 0.4911ms
+2025-06-21 04:37:09.333 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_vs/browserLink - null null
+2025-06-21 04:37:09.340 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 7.032ms
+2025-06-21 04:37:09.394 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/.well-known/appspecific/com.chrome.devtools.json - null null
+2025-06-21 04:37:09.396 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/.well-known/appspecific/com.chrome.devtools.json - 404 0 null 2.5013ms
+2025-06-21 04:37:09.396 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7288/.well-known/appspecific/com.chrome.devtools.json, Response status code: 404
+2025-06-21 04:37:09.653 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/assets/css/orders.css.map - null null
+2025-06-21 04:37:09.694 +04:00 [INF] Sending file. Request path: '/assets/css/orders.css.map'. Physical path: 'C:\Users\gulay\OneDrive\Рабочий стол\Wolt-Backend\FoodDelivery_FinalProject\Wolt\Wolt\wwwroot\assets\css\orders.css.map'
+2025-06-21 04:37:09.701 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/assets/css/orders.css.map - 200 685 text/plain 40.6914ms
+2025-06-21 04:37:15.117 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/Cart - null null
+2025-06-21 04:37:15.120 +04:00 [INF] Executing endpoint 'Wolt.Controllers.CartController.Index (Wolt)'
+2025-06-21 04:37:15.120 +04:00 [INF] Route matched with {action = "Index", controller = "Cart", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Wolt.Controllers.CartController (Wolt).
+2025-06-21 04:37:15.127 +04:00 [INF] Executed DbCommand (6ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Address], [c].[CreatedDate], [c].[UserId], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Customers] AS [c]
+INNER JOIN [AspNetUsers] AS [a] ON [c].[UserId] = [a].[Id]
+WHERE [c].[UserId] = @__userId_0
+2025-06-21 04:37:15.168 +04:00 [INF] Executed DbCommand (40ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[CreatedDate], [t].[CustomerId], [t0].[Id], [t0].[CartId], [t0].[CreatedDate], [t0].[MenuItemId], [t0].[Quantity], [t0].[Id0], [t0].[CategoryId], [t0].[CreatedDate0], [t0].[Description], [t0].[Image], [t0].[Name], [t0].[Price], [t0].[Id1], [t0].[Id2], [t0].[Id3], [t0].[CreatedDate1], [t0].[DiscountId], [t0].[MenuItemId0], [t0].[Id00], [t0].[CreatedDate00], [t0].[DiscountPercentage], [t0].[EndDate], [t0].[IsActive], [t0].[Name0], [t0].[CreatedDate2], [t0].[Name1], [t0].[RestaurantId], [t0].[Address], [t0].[CreatedDate3], [t0].[DeliveryCost], [t0].[EstimatedDeliveryTime], [t0].[Image0], [t0].[Name2], [t0].[Phone], [t0].[RestaurantCategoryId]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedDate], [c].[CustomerId]
+    FROM [Carts] AS [c]
+    WHERE [c].[CustomerId] = @__customerId_0
+) AS [t]
+LEFT JOIN (
+    SELECT [c0].[Id], [c0].[CartId], [c0].[CreatedDate], [c0].[MenuItemId], [c0].[Quantity], [m].[Id] AS [Id0], [m].[CategoryId], [m].[CreatedDate] AS [CreatedDate0], [m].[Description], [m].[Image], [m].[Name], [m].[Price], [m0].[Id] AS [Id1], [r].[Id] AS [Id2], [t1].[Id] AS [Id3], [t1].[CreatedDate] AS [CreatedDate1], [t1].[DiscountId], [t1].[MenuItemId] AS [MenuItemId0], [t1].[Id0] AS [Id00], [t1].[CreatedDate0] AS [CreatedDate00], [t1].[DiscountPercentage], [t1].[EndDate], [t1].[IsActive], [t1].[Name] AS [Name0], [m0].[CreatedDate] AS [CreatedDate2], [m0].[Name] AS [Name1], [m0].[RestaurantId], [r].[Address], [r].[CreatedDate] AS [CreatedDate3], [r].[DeliveryCost], [r].[EstimatedDeliveryTime], [r].[Image] AS [Image0], [r].[Name] AS [Name2], [r].[Phone], [r].[RestaurantCategoryId]
+    FROM [CartItems] AS [c0]
+    INNER JOIN [MenuItems] AS [m] ON [c0].[MenuItemId] = [m].[Id]
+    INNER JOIN [MenuItemCategories] AS [m0] ON [m].[CategoryId] = [m0].[Id]
+    INNER JOIN [Restaurants] AS [r] ON [m0].[RestaurantId] = [r].[Id]
+    LEFT JOIN (
+        SELECT [m1].[Id], [m1].[CreatedDate], [m1].[DiscountId], [m1].[MenuItemId], [d].[Id] AS [Id0], [d].[CreatedDate] AS [CreatedDate0], [d].[DiscountPercentage], [d].[EndDate], [d].[IsActive], [d].[Name]
+        FROM [MenuItemDiscounts] AS [m1]
+        INNER JOIN [Discounts] AS [d] ON [m1].[DiscountId] = [d].[Id]
+    ) AS [t1] ON [m].[Id] = [t1].[MenuItemId]
+) AS [t0] ON [t].[Id] = [t0].[CartId]
+ORDER BY [t].[Id], [t0].[Id], [t0].[Id0], [t0].[Id1], [t0].[Id2], [t0].[Id3]
+2025-06-21 04:37:15.169 +04:00 [INF] Executing ViewResult, running view Index.
+2025-06-21 04:37:15.174 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-06-21 04:37:15.177 +04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Address], [c].[CreatedDate], [c].[UserId]
+FROM [Customers] AS [c]
+WHERE [c].[UserId] = @__user_Id_0
+2025-06-21 04:37:15.179 +04:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:37:15.180 +04:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CreatedDate], [s].[Key], [s].[Type], [s].[Value]
+FROM [Settings] AS [s]
+2025-06-21 04:37:15.218 +04:00 [INF] Executed ViewResult - view Index executed in 49.2685ms.
+2025-06-21 04:37:15.218 +04:00 [INF] Executed action Wolt.Controllers.CartController.Index (Wolt) in 98.005ms
+2025-06-21 04:37:15.218 +04:00 [INF] Executed endpoint 'Wolt.Controllers.CartController.Index (Wolt)'
+2025-06-21 04:37:15.261 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/Cart - 200 null text/html; charset=utf-8 143.6825ms
+2025-06-21 04:37:15.402 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-21 04:37:15.402 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/_vs/browserLink - null null
+2025-06-21 04:37:15.405 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_framework/aspnetcore-browser-refresh.js - 200 13744 application/javascript; charset=utf-8 2.9313ms
+2025-06-21 04:37:15.421 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7288/.well-known/appspecific/com.chrome.devtools.json - null null
+2025-06-21 04:37:15.425 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/.well-known/appspecific/com.chrome.devtools.json - 404 0 null 4.1015ms
+2025-06-21 04:37:15.425 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7288/.well-known/appspecific/com.chrome.devtools.json, Response status code: 404
+2025-06-21 04:37:15.442 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7288/_vs/browserLink - 200 null text/javascript; charset=UTF-8 39.6994ms

@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\gulay\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Wolt-Backend\\FoodDelivery_FinalProject\\Wolt\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{34C88B5A-AE3A-4B80-8108-BB559B53EE53}|Wolt\\Wolt.csproj|c:\\users\\gulay\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\wolt-backend\\fooddelivery_finalproject\\wolt\\wolt\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{34C88B5A-AE3A-4B80-8108-BB559B53EE53}|Wolt\\Wolt.csproj|solutionrelative:wolt\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{62B4902D-9DEF-4B10-AF3F-E4B975BE2426}|Services\\Service.csproj|c:\\users\\gulay\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\wolt-backend\\fooddelivery_finalproject\\wolt\\services\\services\\menuitemservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{62B4902D-9DEF-4B10-AF3F-E4B975BE2426}|Services\\Service.csproj|solutionrelative:services\\services\\menuitemservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -50,7 +54,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,7 +62,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\gulay\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Wolt-Backend\\FoodDelivery_FinalProject\\Wolt\\Wolt\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Wolt\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\gulay\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Wolt-Backend\\FoodDelivery_FinalProject\\Wolt\\Wolt\\Views\\Home\\Index.cshtml*",
+              "RelativeToolTip": "Wolt\\Views\\Home\\Index.cshtml*",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAAAGwAAABnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-21T00:32:10.94Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "MenuItemController.cs",
               "DocumentMoniker": "C:\\Users\\gulay\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Wolt-Backend\\FoodDelivery_FinalProject\\Wolt\\Wolt\\Areas\\Admin\\Controllers\\MenuItemController.cs",
               "RelativeDocumentMoniker": "Wolt\\Areas\\Admin\\Controllers\\MenuItemController.cs",
@@ -70,20 +87,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MenuItemService.cs",
               "DocumentMoniker": "C:\\Users\\gulay\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Wolt-Backend\\FoodDelivery_FinalProject\\Wolt\\Services\\Services\\MenuItemService.cs",
               "RelativeDocumentMoniker": "Services\\Services\\MenuItemService.cs",
               "ToolTip": "C:\\Users\\gulay\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Wolt-Backend\\FoodDelivery_FinalProject\\Wolt\\Services\\Services\\MenuItemService.cs",
               "RelativeToolTip": "Services\\Services\\MenuItemService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-20T23:35:19.19Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "RestaurantCategoryController.cs",
               "DocumentMoniker": "C:\\Users\\gulay\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Wolt-Backend\\FoodDelivery_FinalProject\\Wolt\\Wolt\\Areas\\Admin\\Controllers\\RestaurantCategoryController.cs",
               "RelativeDocumentMoniker": "Wolt\\Areas\\Admin\\Controllers\\RestaurantCategoryController.cs",
@@ -95,7 +112,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "SettingController.cs",
               "DocumentMoniker": "C:\\Users\\gulay\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Wolt-Backend\\FoodDelivery_FinalProject\\Wolt\\Wolt\\Areas\\Admin\\Controllers\\SettingController.cs",
               "RelativeDocumentMoniker": "Wolt\\Areas\\Admin\\Controllers\\SettingController.cs",
@@ -107,7 +124,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "RestaurantService.cs",
               "DocumentMoniker": "C:\\Users\\gulay\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Wolt-Backend\\FoodDelivery_FinalProject\\Wolt\\Services\\Services\\RestaurantService.cs",
               "RelativeDocumentMoniker": "Services\\Services\\RestaurantService.cs",
@@ -119,7 +136,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "RestaurantController.cs",
               "DocumentMoniker": "C:\\Users\\gulay\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Wolt-Backend\\FoodDelivery_FinalProject\\Wolt\\Wolt\\Areas\\Admin\\Controllers\\RestaurantController.cs",
               "RelativeDocumentMoniker": "Wolt\\Areas\\Admin\\Controllers\\RestaurantController.cs",
@@ -131,7 +148,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "DiscountController.cs",
               "DocumentMoniker": "C:\\Users\\gulay\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Wolt-Backend\\FoodDelivery_FinalProject\\Wolt\\Wolt\\Areas\\Admin\\Controllers\\DiscountController.cs",
               "RelativeDocumentMoniker": "Wolt\\Areas\\Admin\\Controllers\\DiscountController.cs",
@@ -143,7 +160,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "RestaurantCategoryService.cs",
               "DocumentMoniker": "C:\\Users\\gulay\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Wolt-Backend\\FoodDelivery_FinalProject\\Wolt\\Services\\Services\\RestaurantCategoryService.cs",
               "RelativeDocumentMoniker": "Services\\Services\\RestaurantCategoryService.cs",
@@ -155,7 +172,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "SliderService.cs",
               "DocumentMoniker": "C:\\Users\\gulay\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Wolt-Backend\\FoodDelivery_FinalProject\\Wolt\\Services\\Services\\SliderService.cs",
               "RelativeDocumentMoniker": "Services\\Services\\SliderService.cs",
@@ -167,7 +184,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "SettingService.cs",
               "DocumentMoniker": "C:\\Users\\gulay\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Wolt-Backend\\FoodDelivery_FinalProject\\Wolt\\Services\\Services\\SettingService.cs",
               "RelativeDocumentMoniker": "Services\\Services\\SettingService.cs",
